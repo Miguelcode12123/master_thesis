@@ -1,0 +1,35 @@
+{
+  "session_id": "sess_20260311_190045",
+  "timestamp_start": "2026-03-11T19:00:45.778394",
+  "timestamp_end": "2026-03-11T19:01:01.301018",
+  "user_query": "who is the engineering manager?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "Grace Chen is a Backend Engineer on the Platform team in Singapore.\n\nTo answer \u201cwho is the engineering manager,\u201d I need a bit of scope:\n- Do you mean Grace Chen\u2019s direct manager (her immediate supervisor)?\n- Or the Platform team\u2019s engineering manager (the overall team lead for Platform)?\n\nTell me which you want, and I\u2019ll retrieve the exact name.",
+  "total_latency_ms": 15523.035416379571,
+  "total_tokens": 2587,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-11T19:01:01.296214",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 8,
+      "tools_available": [
+        "get_employee_info"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Grace Chen is a Backend Engineer on the Platform team in Singapore.\n\nTo answer \u201cwho is the engineering manager,\u201d I need a bit of scope:\n- Do you mean Grace Chen\u2019s direct manager (her immediate supervi",
+      "prompt_tokens": 904,
+      "completion_tokens": 1683,
+      "total_tokens": 2587,
+      "latency_ms": 15517.064874991775,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

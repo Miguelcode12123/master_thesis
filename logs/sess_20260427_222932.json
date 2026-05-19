@@ -1,0 +1,2749 @@
+{
+  "session_id": "sess_20260427_222932",
+  "timestamp_start": "2026-04-27T22:29:32.584468",
+  "timestamp_end": "2026-04-27T22:44:18.416388",
+  "user_query": "let's do it",
+  "model_used": "claude-sonnet-4-6-1",
+  "total_turns": 41,
+  "total_tool_calls": 40,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Phase 4 complete. Now the final Phase 5 \u2014 Handover summary.\n\n---\n\n## \ud83c\udfc1 Amazon Central \u2014 Workspace Handover\n\n---\n\n### \ud83c\udfe2 Company & Scope\n| Field | Value |\n|---|---|\n| **Company** | Amazon.com, Inc. |\n| **Scope name** | Amazon Central |\n| **Scope ID** | `4mrcj6s49xy1m162zftrjj8d4e` |\n| **Route** | `/scope/amazon-central` |\n\n---\n\n### \ud83c\udfa8 Brand Theme\n| Color | Hex |\n|---|---|\n| **Primary** (Amazon Orange",
+  "total_latency_ms": 885887.4801659986,
+  "total_tokens": 1517293,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-27T22:29:47.479314",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 1,
+      "messages_count": 7,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_scope"
+      ],
+      "content_preview": "Perfect. Building end-to-end now. Starting with Phase 1 \u2014 creating the scope.",
+      "prompt_tokens": 25994,
+      "completion_tokens": 1083,
+      "total_tokens": 27077,
+      "latency_ms": 14893.882666001446,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:29:55.386207",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 2,
+      "messages_count": 9,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_channel"
+      ],
+      "content_preview": "\u2705 **Scope created.**\n- **Name:** Amazon Central\n- **SCOPE_ID:** `4mrcj6s49xy1m162zftrjj8d4e`\n- **Route:** `/scope/amazon-central`\n\nProceeding immediately to Phase 2 \u2014 building all 8 channels now.",
+      "prompt_tokens": 27140,
+      "completion_tokens": 440,
+      "total_tokens": 27580,
+      "latency_ms": 7638.651916000526,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:30:10.194745",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 3,
+      "messages_count": 11,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_channel"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 27650,
+      "completion_tokens": 750,
+      "total_tokens": 28400,
+      "latency_ms": 13277.704458996595,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:30:29.698727",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 4,
+      "messages_count": 13,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_channel"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 28470,
+      "completion_tokens": 878,
+      "total_tokens": 29348,
+      "latency_ms": 16645.269125001505,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:30:36.136831",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 5,
+      "messages_count": 15,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_channel"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 29416,
+      "completion_tokens": 363,
+      "total_tokens": 29779,
+      "latency_ms": 5652.555334003409,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:30:57.047579",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 6,
+      "messages_count": 17,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_channel"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 29847,
+      "completion_tokens": 951,
+      "total_tokens": 30798,
+      "latency_ms": 18097.107207999215,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:31:11.629809",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 7,
+      "messages_count": 19,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_channel"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 30867,
+      "completion_tokens": 732,
+      "total_tokens": 31599,
+      "latency_ms": 13683.269542001653,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:31:26.759009",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 8,
+      "messages_count": 21,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_channel"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 31661,
+      "completion_tokens": 693,
+      "total_tokens": 32354,
+      "latency_ms": 12099.881458001619,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:31:41.853315",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 9,
+      "messages_count": 23,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_channel"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 32418,
+      "completion_tokens": 796,
+      "total_tokens": 33214,
+      "latency_ms": 14242.175792001945,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:32:15.097469",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 10,
+      "messages_count": 25,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "All 8 channels created. Here is the confirmed map:\n\n---\n\n**CHANNEL_MAP:**\n```\nCh1: The Daily Headline    \u2192 4c1n9cqz66hcx7we0gtrc5a7mp  [PRIMARY]\nCh2: AWS & Cloud           \u2192 4cnr24wa8ah3ktxj3a5tmn6mxm",
+      "prompt_tokens": 33280,
+      "completion_tokens": 1496,
+      "total_tokens": 34776,
+      "latency_ms": 30024.72470799694,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:32:38.095220",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 11,
+      "messages_count": 27,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 34929,
+      "completion_tokens": 1029,
+      "total_tokens": 35958,
+      "latency_ms": 19673.067208997963,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:32:56.539211",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 12,
+      "messages_count": 29,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 36112,
+      "completion_tokens": 943,
+      "total_tokens": 37055,
+      "latency_ms": 17442.3863750053,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:33:16.413277",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 13,
+      "messages_count": 31,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 37205,
+      "completion_tokens": 890,
+      "total_tokens": 38095,
+      "latency_ms": 16078.709708999668,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:33:39.723952",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 14,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "**Ch1 The Daily Headline \u2014 DONE: 4 articles created \u2713**\n\nMoving to Ch2 \u2014 AWS & Cloud.",
+      "prompt_tokens": 38247,
+      "completion_tokens": 1183,
+      "total_tokens": 39430,
+      "latency_ms": 22211.679457999708,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:34:03.797671",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 15,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 39570,
+      "completion_tokens": 1101,
+      "total_tokens": 40671,
+      "latency_ms": 20993.23233299947,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:34:28.985452",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 16,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 35367,
+      "completion_tokens": 1065,
+      "total_tokens": 36432,
+      "latency_ms": 23064.71495799633,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:34:53.084730",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 17,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 35477,
+      "completion_tokens": 1050,
+      "total_tokens": 36527,
+      "latency_ms": 20975.48000000097,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:35:16.737521",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 18,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "**Ch2 AWS & Cloud \u2014 DONE: 4 articles created \u2713**\n\nMoving to Ch3 \u2014 People & Belonging.",
+      "prompt_tokens": 36200,
+      "completion_tokens": 1211,
+      "total_tokens": 37411,
+      "latency_ms": 22145.04741699784,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:35:44.552417",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 19,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 36786,
+      "completion_tokens": 1148,
+      "total_tokens": 37934,
+      "latency_ms": 24390.5637919961,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:36:09.724936",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 20,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 37184,
+      "completion_tokens": 1111,
+      "total_tokens": 38295,
+      "latency_ms": 22097.692124996684,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:36:33.054723",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 21,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 38049,
+      "completion_tokens": 1188,
+      "total_tokens": 39237,
+      "latency_ms": 20424.19820800569,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:37:02.527304",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 22,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "**Ch3 People & Belonging \u2014 DONE: 4 articles created \u2713**\n\nMoving to Ch4 \u2014 Leadership & Strategy.",
+      "prompt_tokens": 38413,
+      "completion_tokens": 1310,
+      "total_tokens": 39723,
+      "latency_ms": 27816.34550000308,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:37:30.632927",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 23,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 39120,
+      "completion_tokens": 1230,
+      "total_tokens": 40350,
+      "latency_ms": 24741.522165997594,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:38:00.102318",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 24,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 39789,
+      "completion_tokens": 1438,
+      "total_tokens": 41227,
+      "latency_ms": 26495.48808400141,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:38:22.959552",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 25,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 40552,
+      "completion_tokens": 1063,
+      "total_tokens": 41615,
+      "latency_ms": 19830.51224999508,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:38:50.647373",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 26,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "**Ch4 Leadership & Strategy \u2014 DONE: 4 articles created \u2713**\n\nNow moving to Ch5 \u2014 The Climate Pledge & Sustainability.",
+      "prompt_tokens": 40152,
+      "completion_tokens": 1323,
+      "total_tokens": 41475,
+      "latency_ms": 26748.14999999944,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:38:54.082810",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 27,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "check_connection"
+      ],
+      "content_preview": "The channel ID for Ch5 seems to have an issue. Let me resolve it.",
+      "prompt_tokens": 40483,
+      "completion_tokens": 55,
+      "total_tokens": 40538,
+      "latency_ms": 3369.7079159974237,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:38:56.992631",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 28,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "resolve_scope"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 39507,
+      "completion_tokens": 57,
+      "total_tokens": 39564,
+      "latency_ms": 2884.1019159954158,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:39:00.375235",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 29,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "list_channels"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 38630,
+      "completion_tokens": 91,
+      "total_tokens": 38721,
+      "latency_ms": 3310.2720840033726,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:39:12.344588",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 30,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "The correct channel ID for Sustainability & Climate is `49deppyavfzrrvfw8ekhpdn54m`. Let me update my channel map and continue:\n\n**Corrected CHANNEL_MAP:**\n- Ch1: The Daily Headline \u2192 `4c1n9cqz66hcx7w",
+      "prompt_tokens": 37667,
+      "completion_tokens": 1517,
+      "total_tokens": 39184,
+      "latency_ms": 11868.54800000583,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:40:44.320613",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 31,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 38122,
+      "completion_tokens": 1147,
+      "total_tokens": 39269,
+      "latency_ms": 88792.76258299797,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:41:11.298332",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 32,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 38247,
+      "completion_tokens": 1123,
+      "total_tokens": 39370,
+      "latency_ms": 23282.564000001003,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:41:39.802666",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 33,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "**Ch7 Sustainability & Climate \u2014 DONE: 3 articles created \u2713**\n\nNow moving to Ch5 \u2014 Compliance & Legal.",
+      "prompt_tokens": 38366,
+      "completion_tokens": 1326,
+      "total_tokens": 39692,
+      "latency_ms": 25575.246332999086,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:42:03.643061",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 34,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 38519,
+      "completion_tokens": 1170,
+      "total_tokens": 39689,
+      "latency_ms": 20852.914458002488,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:42:24.662418",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 35,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 38568,
+      "completion_tokens": 1239,
+      "total_tokens": 39807,
+      "latency_ms": 20027.405917004216,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:42:49.616977",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 36,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "**Ch5 Compliance & Legal \u2014 DONE: 3 articles created \u2713**\n\nNow moving to Ch6 \u2014 Operations Pulse.",
+      "prompt_tokens": 38732,
+      "completion_tokens": 1098,
+      "total_tokens": 39830,
+      "latency_ms": 21943.92350000271,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:43:14.973449",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 37,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 38668,
+      "completion_tokens": 1147,
+      "total_tokens": 39815,
+      "latency_ms": 22388.376542003243,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:43:41.638087",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 38,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "create_article"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 38543,
+      "completion_tokens": 1236,
+      "total_tokens": 39779,
+      "latency_ms": 23696.135209000204,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:43:48.771905",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 39,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "verify_scope"
+      ],
+      "content_preview": "**Ch6 Operations Pulse \u2014 DONE: 3 articles created \u2713**\n\nNow let me proceed to Phase 3B \u2014 verify the scope.",
+      "prompt_tokens": 38584,
+      "completion_tokens": 110,
+      "total_tokens": 38694,
+      "latency_ms": 4174.595999997109,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:43:57.675984",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 40,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "update_global_settings"
+      ],
+      "content_preview": "Phase 3B verification is clean \u2014 **status: OK, no warnings**. Now Phase 4 \u2014 Hub-wide polish.",
+      "prompt_tokens": 38033,
+      "completion_tokens": 482,
+      "total_tokens": 38515,
+      "latency_ms": 8540.446291997796,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:44:18.414130",
+      "model": "claude-sonnet-4-6-1",
+      "turn": 41,
+      "messages_count": 33,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Phase 4 complete. Now the final Phase 5 \u2014 Handover summary.\n\n---\n\n## \ud83c\udfc1 Amazon Central \u2014 Workspace Handover\n\n---\n\n### \ud83c\udfe2 Company & Scope\n| Field | Value |\n|---|---|\n| **Company** | Amazon.com, Inc. |\n| ",
+      "prompt_tokens": 37366,
+      "completion_tokens": 1100,
+      "total_tokens": 38466,
+      "latency_ms": 20391.898084002605,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-27T22:29:47.746147",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "create_scope",
+      "arguments": {
+        "name": "Amazon Central",
+        "welcome_message": "One company. Fifteen businesses. 1.5 million Amazonians. Everything you need to work, grow, and deliver results \u2014 in one place.",
+        "channel_creation_by_admins_only": true,
+        "primary_color": "#FF9900",
+        "primary_color_contrast": "#232F3E",
+        "secondary_color": "#232F3E",
+        "warn_color": "#CC0C39",
+        "warn_color_contrast": "#FFFFFF",
+        "number_of_highlights": 4,
+        "highlights_carousel": true,
+        "highlights_style": "BannerCarousel",
+        "image_url": "demo/Startup.png",
+        "footer_block_links": [
+          {
+            "title": "About Amazon",
+            "links": [
+              {
+                "caption": "About Amazon",
+                "link": "https://www.aboutamazon.com",
+                "newWindow": true
+              },
+              {
+                "caption": "Investor Relations",
+                "link": "https://ir.aboutamazon.com",
+                "newWindow": true
+              },
+              {
+                "caption": "Newsroom",
+                "link": "https://www.aboutamazon.com/news",
+                "newWindow": true
+              },
+              {
+                "caption": "Press Room",
+                "link": "https://press.aboutamazon.com",
+                "newWindow": true
+              }
+            ]
+          },
+          {
+            "title": "Work at Amazon",
+            "links": [
+              {
+                "caption": "Careers",
+                "link": "https://www.amazon.jobs",
+                "newWindow": true
+              },
+              {
+                "caption": "AWS Careers",
+                "link": "https://aws.amazon.com/careers",
+                "newWindow": true
+              },
+              {
+                "caption": "Career Choice",
+                "link": "https://www.amazon.jobs/en/landing_pages/career-choice",
+                "newWindow": true
+              },
+              {
+                "caption": "Amazon Science",
+                "link": "https://www.amazon.science",
+                "newWindow": true
+              }
+            ]
+          },
+          {
+            "title": "Resources & Responsibility",
+            "links": [
+              {
+                "caption": "AWS",
+                "link": "https://aws.amazon.com",
+                "newWindow": true
+              },
+              {
+                "caption": "The Climate Pledge",
+                "link": "https://www.theclimatepledge.com",
+                "newWindow": true
+              },
+              {
+                "caption": "Sustainability",
+                "link": "https://sustainability.aboutamazon.com",
+                "newWindow": true
+              },
+              {
+                "caption": "Developer Portal",
+                "link": "https://developer.amazon.com",
+                "newWindow": true
+              }
+            ]
+          }
+        ],
+        "navigation_links": {
+          "topBarLinks": [
+            {
+              "caption": "Newsroom",
+              "link": "https://www.aboutamazon.com/news",
+              "newWindow": true
+            },
+            {
+              "caption": "AWS",
+              "link": "https://aws.amazon.com",
+              "newWindow": true
+            },
+            {
+              "caption": "Careers",
+              "link": "https://www.amazon.jobs",
+              "newWindow": true
+            }
+          ],
+          "footerLinks": [
+            {
+              "caption": "About Amazon",
+              "link": "https://www.aboutamazon.com",
+              "newWindow": true
+            },
+            {
+              "caption": "Investor Relations",
+              "link": "https://ir.aboutamazon.com",
+              "newWindow": true
+            },
+            {
+              "caption": "The Climate Pledge",
+              "link": "https://www.theclimatepledge.com",
+              "newWindow": true
+            },
+            {
+              "caption": "Sustainability",
+              "link": "https://sustainability.aboutamazon.com",
+              "newWindow": true
+            },
+            {
+              "caption": "Developer Portal",
+              "link": "https://developer.amazon.com",
+              "newWindow": true
+            }
+          ],
+          "socialLinks": [
+            {
+              "type": "linkedInLink",
+              "link": "https://linkedin.com/company/amazon"
+            },
+            {
+              "type": "twitterLink",
+              "link": "https://twitter.com/amazon"
+            },
+            {
+              "type": "youtubeLink",
+              "link": "https://youtube.com/amazon"
+            }
+          ]
+        }
+      },
+      "result_preview": "{\"status_code\": 200, \"created\": {\"id\": \"4mrcj6s49xy1m162zftrjj8d4e\", \"name\": \"Amazon Central\", \"route\": \"amazon-central\"}}",
+      "result_size_chars": 122,
+      "success": true,
+      "latency_ms": 261.5094169959775,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:29:56.914175",
+      "turn": 2,
+      "server_name": "diggspace",
+      "tool_name": "create_channel",
+      "arguments": {
+        "scope_id": "4mrcj6s49xy1m162zftrjj8d4e",
+        "name": "The Daily Headline",
+        "description": "<p>The Daily Headline is the front page of Amazon Central \u2014 your authoritative source for company-wide news, major milestones, product launches, and announcements that affect every Amazonian.</p><p>From FY2024 earnings to drone delivery expansions, from HQ2 updates to the 5-day RTO policy, this channel surfaces the signal from the noise. Bookmark it. Check it daily.</p>",
+        "channel_type": "public",
+        "color": "#FF9900",
+        "is_sticky": true,
+        "hide_highlights": false,
+        "tabs": [
+          "Articles"
+        ],
+        "initial_tab": "Articles",
+        "default_role": "Reader",
+        "image_url": "demo/DigitalContent.png"
+      },
+      "result_preview": "{\"status_code\": 200, \"created\": {\"id\": \"4c1n9cqz66hcx7we0gtrc5a7mp\", \"name\": \"The Daily Headline\", \"internalName\": \"the-daily-headline\"}}",
+      "result_size_chars": 137,
+      "success": true,
+      "latency_ms": 1523.0812909940141,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:30:13.052334",
+      "turn": 3,
+      "server_name": "diggspace",
+      "tool_name": "create_channel",
+      "arguments": {
+        "scope_id": "4mrcj6s49xy1m162zftrjj8d4e",
+        "name": "AWS & Cloud",
+        "description": "<p>AWS & Cloud is the dedicated channel for Amazon Web Services news, product launches, technical deep-dives, and re:Invent coverage. With over 200 product families and a 37% operating margin, AWS is the engine that funds everything Amazon builds.</p><p>Whether you're a solutions architect in Mumbai, a developer in Dublin, or a business analyst using SageMaker for the first time \u2014 this is your channel for what's new, what matters, and what's next in cloud.</p>",
+        "channel_type": "public",
+        "color": "#146EB4",
+        "is_sticky": true,
+        "hide_highlights": false,
+        "tabs": [
+          "Articles",
+          "Pages"
+        ],
+        "initial_tab": "Articles",
+        "default_role": "Reader",
+        "image_url": "demo/Innovation.png",
+        "frequent_questions": [
+          {
+            "question": "Where can I find the full list of AWS services and documentation?",
+            "answer": "The AWS documentation hub is at https://docs.aws.amazon.com. It covers all 200+ service families including EC2, S3, Lambda, SageMaker, and Bedrock. For internal architecture guidance, check the AWS internal wiki via your SSO portal."
+          },
+          {
+            "question": "What is Amazon Bedrock and how do I get access for my team?",
+            "answer": "Amazon Bedrock is Amazon's managed multi-model generative AI platform, giving developers access to foundation models from Anthropic, AI21 Labs, Cohere, and Amazon's own Titan models. To request team access, raise a request through your AWS account manager or submit a ticket via the internal AWS Access portal."
+          },
+          {
+            "question": "When is AWS re:Invent and how do I apply to attend?",
+            "answer": "AWS re:Invent takes place each December in Las Vegas. It is the largest cloud computing conference in the world. Amazonian attendance is managed through your business unit's events budget. Speak to your manager and watch this channel for the internal nomination process, which typically opens in September."
+          },
+          {
+            "question": "What is Amazon Q and how is it different from Alexa?",
+            "answer": "Amazon Q is the enterprise AI assistant built for AWS and internal Amazon use \u2014 it helps developers write code, query data, and navigate internal documentation. Alexa is Amazon's consumer voice assistant. Amazon Q is the internal productivity tool; Alexa is a customer-facing product. Access Amazon Q through your AWS console."
+          }
+        ]
+      },
+      "result_preview": "{\"status_code\": 200, \"created\": {\"id\": \"4cnr24wa8ah3ktxj3a5tmn6mxm\", \"name\": \"AWS & Cloud\", \"internalName\": \"aws-cloud\"}}",
+      "result_size_chars": 121,
+      "success": true,
+      "latency_ms": 2852.8647499988438,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:30:30.480671",
+      "turn": 4,
+      "server_name": "diggspace",
+      "tool_name": "create_channel",
+      "arguments": {
+        "scope_id": "4mrcj6s49xy1m162zftrjj8d4e",
+        "name": "People & Belonging",
+        "description": "<p>People & Belonging covers everything that makes Amazon a place where 1.5 million people can do the best work of their careers. From Career Choice tuition funding to ERG spotlights, from benefits enrolment guides to the latest on our Leadership Principles in action \u2014 this is your channel.</p><p>Amazon's commitment to Principle 15 \u2014 Strive to be Earth's Best Employer \u2014 lives here. We publish the programmes, the numbers, and the stories honestly.</p>",
+        "channel_type": "public",
+        "color": "#E07B39",
+        "is_sticky": true,
+        "hide_highlights": false,
+        "tabs": [
+          "Articles",
+          "Pages"
+        ],
+        "initial_tab": "Articles",
+        "default_role": "Reader",
+        "image_url": "demo/Checklist.png",
+        "frequent_questions": [
+          {
+            "question": "How do I apply for Career Choice tuition funding?",
+            "answer": "Career Choice pre-pays 95% of tuition and fees for programmes in in-demand fields. You do not need to be pursuing a skill relevant to your current Amazon role. Apply through the Career Choice portal on A to Z. You must have been employed for at least 90 days. Over 90,000 employees in 30 countries have participated since 2012."
+          },
+          {
+            "question": "Where do I enrol in my annual benefits package?",
+            "answer": "Benefits enrolment is managed at benefits.amazon.com. Open enrolment typically runs in November for the following calendar year. You will receive a notification via A to Z when the window opens. Changes outside of open enrolment require a qualifying life event."
+          },
+          {
+            "question": "What employee resource groups (ERGs) are available at Amazon?",
+            "answer": "Amazon has a number of active ERGs including: Black Employee Network (BEN), Glamazon (LGBTQ+), Women in Engineering (WiE), Warriors@Amazon (military veterans), Asians@Amazon, AmazonPWD (people with disabilities), and Indigenous@Amazon. To find and join an ERG, visit the Inclusion & Diversity page on A to Z."
+          },
+          {
+            "question": "What is the Amazon Technical Academy and who is eligible?",
+            "answer": "Amazon Technical Academy is a 9-month, fully paid retraining programme that prepares operations and non-technical employees for software engineering roles. It is open to hourly and salaried operations employees who meet the programme criteria. Applications are reviewed twice per year. Visit the Learning & Development section of A to Z to apply."
+          },
+          {
+            "question": "What is Amazon's current minimum wage and compensation structure for hourly employees?",
+            "answer": "Amazon raised its US minimum wage to $15/hour in 2018, ahead of the federal mandate. Current starting wages range from $18 to $22 per hour depending on location and role. For corporate employees, base salaries are capped at $350,000, with the majority of total compensation delivered through RSU equity grants that vest over a multi-year schedule."
+          }
+        ]
+      },
+      "result_preview": "{\"status_code\": 200, \"created\": {\"id\": \"4r6hp1sj2rf2mtwxt86ht8vd5v\", \"name\": \"People & Belonging\", \"internalName\": \"people-belonging\"}}",
+      "result_size_chars": 135,
+      "success": true,
+      "latency_ms": 779.6923749992857,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:30:38.947698",
+      "turn": 5,
+      "server_name": "diggspace",
+      "tool_name": "create_channel",
+      "arguments": {
+        "scope_id": "4mrcj6s49xy1m162zftrjj8d4e",
+        "name": "Leadership & Strategy",
+        "description": "<p>Leadership & Strategy publishes executive communications from Andy Jassy, the S-Team, and senior leadership across business units. Posts here follow Amazon's writing culture: structured, data-forward, and direct \u2014 no slide decks.</p><p>Major strategic decisions, org announcements, OLR outcomes, and quarterly business reviews are published here first. This is the channel that connects every Amazonian to where the company is going and why.</p>",
+        "channel_type": "corporate",
+        "color": "#232F3E",
+        "is_sticky": true,
+        "hide_highlights": false,
+        "tabs": [
+          "Articles"
+        ],
+        "initial_tab": "Articles",
+        "default_role": "None",
+        "image_url": "demo/Thinking.png"
+      },
+      "result_preview": "{\"status_code\": 200, \"created\": {\"id\": \"4kfm3r93vv5wz2vp4zv850wpmh\", \"name\": \"Leadership & Strategy\", \"internalName\": \"leadership-strategy\"}}",
+      "result_size_chars": 141,
+      "success": true,
+      "latency_ms": 2807.257957996626,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:30:57.943050",
+      "turn": 6,
+      "server_name": "diggspace",
+      "tool_name": "create_channel",
+      "arguments": {
+        "scope_id": "4mrcj6s49xy1m162zftrjj8d4e",
+        "name": "Compliance & Legal",
+        "description": "<p>Compliance & Legal is where every Amazonian accesses the policies, acknowledgements, and regulatory guidance they are required to read and confirm. This channel covers Amazon's EthicsLine, antitrust obligations, GDPR and CCPA compliance, labour law, and OSHA safety requirements.</p><p>Chief Legal Officer David Zapolsky's team publishes binding policy updates here. Articles marked with a read-confirmation requirement must be acknowledged before a deadline. Non-compliance is escalated to your manager.</p>",
+        "channel_type": "corporate",
+        "color": "#CC0C39",
+        "is_sticky": false,
+        "hide_highlights": true,
+        "tabs": [
+          "Articles",
+          "Pages"
+        ],
+        "initial_tab": "Articles",
+        "default_role": "None",
+        "image_url": "demo/QualityCheck.png",
+        "frequent_questions": [
+          {
+            "question": "What is the EthicsLine and how do I submit a report?",
+            "answer": "The EthicsLine is Amazon's anonymous reporting hotline for ethical concerns, policy violations, and compliance issues. You can submit a report online or by phone \u2014 the line is available 24/7. Reports can be made anonymously. Amazon has a strict non-retaliation policy for anyone who raises a concern in good faith. Access the EthicsLine through A to Z under Ethics & Compliance."
+          },
+          {
+            "question": "What are my obligations under GDPR if I handle EU customer or employee data?",
+            "answer": "Any Amazonian who accesses, processes, or transfers personal data relating to EU residents must comply with GDPR. Key obligations include: only processing data for the purpose it was collected, not retaining data beyond the required period, reporting suspected data breaches to your Privacy team within 24 hours, and never transferring EU personal data to unauthorised third-party systems. Complete the mandatory GDPR training module on A to Z."
+          },
+          {
+            "question": "What can and can't I say publicly about the FTC antitrust case?",
+            "answer": "Amazon is currently subject to an FTC antitrust lawsuit filed in September 2023. Amazonians must not make public statements, post on social media, or speak to press about the case, Amazon's competitive practices, or internal pricing and marketplace policies without prior approval from Legal. If you receive a media enquiry, forward it to press@amazon.com immediately. Do not comment informally, even if approached off the record."
+          },
+          {
+            "question": "How do I escalate a worker safety concern?",
+            "answer": "Safety concerns in fulfilment centres and operations sites should be reported immediately via the Safety Hub in A to Z. You may also speak to your area manager or safety officer on site. In the US, concerns can also be filed directly with OSHA. Amazon's non-retaliation policy applies to all safety reports. For corporate office safety issues, contact Facilities via A to Z."
+          },
+          {
+            "question": "Who is Amazon's Chief Legal Officer and how does the legal team work?",
+            "answer": "Amazon's Chief Legal Officer is David Zapolsky. The legal team is organised by practice area: Privacy & Data, Litigation, Employment & Labour, Corporate Governance, and Regulatory Affairs. For day-to-day legal questions, engage your business unit's legal business partner. For urgent or sensitive matters, escalate through your manager to the relevant practice lead."
+          }
+        ]
+      },
+      "result_preview": "{\"status_code\": 200, \"created\": {\"id\": \"4m3gf17pbtr2166rs10fvkxjmp\", \"name\": \"Compliance & Legal\", \"internalName\": \"compliance-legal\"}}",
+      "result_size_chars": 135,
+      "success": true,
+      "latency_ms": 889.6527079996304,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:31:14.655764",
+      "turn": 7,
+      "server_name": "diggspace",
+      "tool_name": "create_channel",
+      "arguments": {
+        "scope_id": "4mrcj6s49xy1m162zftrjj8d4e",
+        "name": "Operations Pulse",
+        "description": "<p>Operations Pulse covers Amazon's physical backbone \u2014 the 350+ fulfilment centres, sortation hubs, delivery stations, and last-mile networks that deliver billions of packages every year. News on Amazon Robotics, Project Sequoia, Titan, and Sparrow lives here alongside safety updates and operational milestones.</p><p>Whether you're on the ops floor or a corporate partner supporting the network, this channel keeps you connected to the most complex logistics machine ever built.</p>",
+        "channel_type": "public",
+        "color": "#37475A",
+        "is_sticky": false,
+        "hide_highlights": true,
+        "tabs": [
+          "Articles"
+        ],
+        "initial_tab": "Articles",
+        "default_role": "Reader",
+        "image_url": "demo/DataCollecting.png",
+        "frequent_questions": [
+          {
+            "question": "What is Project Sequoia and how does it affect my fulfilment centre?",
+            "answer": "Project Sequoia is Amazon's next-generation robotics and inventory management system, designed to improve the speed and accuracy of product storage and retrieval in fulfilment centres. It integrates robotic drive units, automated shelving, and AI-based inventory placement. Sequoia is being rolled out incrementally across the FC network. Your site leadership will communicate the specific go-live timeline for your facility."
+          },
+          {
+            "question": "What is the Delivery Service Partner (DSP) programme?",
+            "answer": "The DSP programme allows small business owners to run Amazon last-mile delivery operations under a franchise-style model. DSPs hire their own drivers, manage their own routes, and operate Amazon-branded delivery vans. Amazon provides the technology, training, and package volume. DSPs are independent contractors \u2014 not Amazon employees. If you are an Amazon Logistics employee working alongside DSPs, your site manager can clarify the working relationship and escalation paths."
+          },
+          {
+            "question": "How does Amazon Robotics decide where robots are deployed?",
+            "answer": "Amazon Robotics (formerly Kiva Systems, acquired in 2012) deploys robots based on throughput requirements, facility layout, and automation readiness assessments. Deployment decisions are made by the Amazon Robotics integration team in coordination with FC site leadership and the central Operations Engineering group. Hundreds of thousands of drive units, robotic arms, and autonomous mobile robots are currently active across the global FC network."
+          }
+        ]
+      },
+      "result_preview": "{\"status_code\": 200, \"created\": {\"id\": \"486m56cbs7wvetjw34ctbmdccy\", \"name\": \"Operations Pulse\", \"internalName\": \"operations-pulse\"}}",
+      "result_size_chars": 133,
+      "success": true,
+      "latency_ms": 3022.1273330025724,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:31:27.608158",
+      "turn": 8,
+      "server_name": "diggspace",
+      "tool_name": "create_channel",
+      "arguments": {
+        "scope_id": "4mrcj6s49xy1m162zftrjj8d4e",
+        "name": "Sustainability & Climate",
+        "description": "<p>Sustainability & Climate tracks Amazon's progress against The Climate Pledge \u2014 our commitment to net-zero carbon by 2040, a full decade ahead of the Paris Agreement. This channel covers the Rivian electric vehicle fleet, our renewable energy portfolio, Shipment Zero, and frustration-free packaging milestones.</p><p>As the world's largest corporate purchaser of renewable energy, Amazon's sustainability commitments are among the most ambitious in corporate history. Every Amazonian has a role to play.</p>",
+        "channel_type": "public",
+        "color": "#2E7D32",
+        "is_sticky": false,
+        "hide_highlights": true,
+        "tabs": [
+          "Articles"
+        ],
+        "initial_tab": "Articles",
+        "default_role": "Reader",
+        "image_url": "demo/Mention.png",
+        "frequent_questions": [
+          {
+            "question": "What is The Climate Pledge and when did Amazon commit to it?",
+            "answer": "The Climate Pledge is a commitment co-founded by Amazon in 2019 to reach net-zero carbon emissions by 2040 \u2014 ten years ahead of the Paris Agreement's 2050 target. Amazon was the founding signatory. Other major companies have since joined the pledge. Full details are available at theclimatepledge.com."
+          },
+          {
+            "question": "How many Rivian electric delivery vehicles has Amazon ordered and when will they all be on the road?",
+            "answer": "Amazon has ordered 100,000 electric delivery vans from Rivian as part of its Climate Pledge commitments. The first vehicles began delivering packages in 2022. The full fleet is being phased in over the coming years. The rollout is one of the largest corporate EV deployments in history."
+          },
+          {
+            "question": "What is Shipment Zero and how is progress measured?",
+            "answer": "Shipment Zero is Amazon's goal to make 50% of all shipments net-zero carbon. Progress is measured by tracking the carbon intensity of packaging, transportation mode, and energy source across the end-to-end delivery network. Amazon publishes annual progress figures in its Sustainability Report, available at sustainability.aboutamazon.com."
+          }
+        ]
+      },
+      "result_preview": "{\"status_code\": 200, \"created\": {\"id\": \"49deppyavfzrrvfw8ekhpdn54m\", \"name\": \"Sustainability & Climate\", \"internalName\": \"sustainability-climate\"}}",
+      "result_size_chars": 147,
+      "success": true,
+      "latency_ms": 847.6126669993391,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:31:45.071187",
+      "turn": 9,
+      "server_name": "diggspace",
+      "tool_name": "create_channel",
+      "arguments": {
+        "scope_id": "4mrcj6s49xy1m162zftrjj8d4e",
+        "name": "IT & Security",
+        "description": "<p>IT & Security is the operational guide for Amazon's internal technology environment \u2014 covering A to Z portal access, Amazon Q enterprise AI, zero-trust security policies, phishing awareness, and credential management. Policy articles in this channel require a read confirmation.</p><p>Security at Amazon scale is non-negotiable. This channel ensures every corporate Amazonian knows their obligations, their tools, and how to escalate concerns.</p>",
+        "channel_type": "private",
+        "color": "#546E7A",
+        "is_sticky": false,
+        "hide_highlights": true,
+        "tabs": [
+          "Articles",
+          "Pages"
+        ],
+        "initial_tab": "Articles",
+        "default_role": "None",
+        "image_url": "demo/Password.png",
+        "frequent_questions": [
+          {
+            "question": "How do I access the A to Z employee portal?",
+            "answer": "A to Z is Amazon's primary internal employee portal, accessible at atoz.amazon.work. You will need your Amazon corporate credentials (Midway authentication). A to Z is the single source of truth for your pay, benefits, schedule, HR requests, safety reporting, and internal tools. If you cannot access A to Z, contact your IT help desk immediately with your employee ID."
+          },
+          {
+            "question": "What is Amazon Q and how do I get started?",
+            "answer": "Amazon Q is the enterprise AI assistant built for AWS and Amazon internal use. It can help you write code, generate documentation, query internal data sources, and navigate AWS services. Access Amazon Q through your AWS Management Console. Your team administrator may need to enable it for your account. A setup guide is pinned in this channel."
+          },
+          {
+            "question": "What should I do if I receive a suspicious email claiming to be from Amazon IT?",
+            "answer": "Do not click any links or download any attachments. Forward the email immediately to phishing@amazon.com, then delete it. Amazon IT will never ask you for your password, MFA token, or personal information via email. If you believe you have already clicked a suspicious link, disconnect from the network and call the IT Security incident line immediately \u2014 the number is in A to Z under IT Support."
+          },
+          {
+            "question": "What is Amazon's zero-trust security model?",
+            "answer": "Zero-trust means that no user, device, or network is automatically trusted \u2014 even inside Amazon's internal network. Every access request is verified, authenticated, and authorised based on identity, device health, and context. This means you may need to re-authenticate more frequently, use MFA for all sensitive systems, and comply with device management policies. The 2025 Zero-Trust Access Policy update is published in this channel and requires a read confirmation."
+          }
+        ]
+      },
+      "result_preview": "{\"status_code\": 200, \"created\": {\"id\": \"4f01jy7s798md1m42k0yq9frx1\", \"name\": \"IT & Security\", \"internalName\": \"it-security\"}}",
+      "result_size_chars": 125,
+      "success": true,
+      "latency_ms": 3214.5595000038156,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:32:18.418791",
+      "turn": 10,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4c1n9cqz66hcx7we0gtrc5a7mp",
+        "title": "FY2024 Results: $638 Billion in Revenue, AWS at $108B and Accelerating",
+        "body": "<h2>Amazon Closes FY2024 with $638 Billion in Revenue</h2>\n<p>Amazon.com, Inc. reported full-year FY2024 revenue of <strong>$638 billion</strong>, marking another record year for the company across every major business segment. The results confirm Amazon's position not just as the world's largest online retailer, but as a diversified technology and logistics conglomerate with multiple high-margin growth engines firing simultaneously.</p>\n<h2>Segment Breakdown</h2>\n<h3>North America Retail \u2014 $387B</h3>\n<p>The original business continues to operate at scale, generating <strong>$387 billion</strong> in revenue across Amazon.com, Amazon Fresh, Amazon Go, and the ~500-store Whole Foods Market chain. Margins remain deliberately thin \u2014 the goal is volume, Prime membership retention, and the data flywheel that feeds advertising and logistics intelligence.</p>\n<h3>International Retail \u2014 $143B</h3>\n<p>International storefronts across 20+ countries contributed <strong>$143 billion</strong>. Most international segments continue to operate at a loss while building out infrastructure \u2014 a deliberate long-term investment stance. India (Amazon.in) remains the most strategically significant market, with cumulative investment exceeding $15 billion.</p>\n<h3>Amazon Web Services \u2014 $108B at 37% Operating Margin</h3>\n<p>AWS delivered <strong>$108 billion in revenue</strong> with an operating margin of approximately <strong>37%</strong> \u2014 making it the most profitable major cloud division in the industry and the source of nearly all of Amazon's consolidated operating profit. The acceleration of enterprise AI adoption, anchored by Amazon Bedrock and the $4 billion Anthropic partnership, positions AWS for continued outperformance in FY2025.</p>\n<h3>Advertising Services \u2014 $56B</h3>\n<p>Amazon's advertising business has grown into the <strong>third-largest digital advertising platform in the world</strong> behind Google and Meta, generating $56 billion in high-margin revenue. Sponsored products, display ads, and streaming video advertising through Prime Video all contributed to growth.</p>\n<h3>Prime Subscriptions \u2014 $44B</h3>\n<p>With over <strong>200 million Prime members globally</strong>, subscription revenue reached $44 billion. Prime remains the structural flywheel of the retail business \u2014 members purchase more frequently, spend more per transaction, and engage more deeply with Amazon's broader ecosystem of services.</p>\n<h2>What This Means for Amazonians</h2>\n<p>These results validate the strategic bets made over the past several years: AWS infrastructure investment, the advertising build-out, the Prime ecosystem deepening, and the cost discipline implemented during the 2023 restructuring. The company enters FY2025 with stronger margins, a leaner cost base, and a generative AI tailwind that disproportionately benefits AWS.</p>\n<blockquote>\"Our results demonstrate that the investments we've made across AWS, advertising, and Prime continue to compound. We're not done \u2014 the biggest opportunities in front of us are larger than what we've already built.\" \u2014 Andy Jassy, President & CEO</blockquote>\n<p>Full FY2024 earnings materials are available at <a href=\"https://ir.aboutamazon.com\">ir.aboutamazon.com</a>. The investor call recording and transcript are posted within 24 hours of the earnings release.</p>",
+        "status": "Published",
+        "tags": [
+          "fy2024",
+          "earnings",
+          "aws",
+          "revenue",
+          "amzn"
+        ],
+        "is_main_highlight": true,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4da5stj9qtwym2jbzkgd0q3ynv\", \"versionId\": \"44gpymt6abb3jw1gtmcg48zpc8\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4c1n9cqz66hcx7we0gtrc5a7mp/fy2024-results-638-billion-in-revenue-aws-at-108b-and-accelerating\"}}",
+      "result_size_chars": 255,
+      "success": true,
+      "latency_ms": 3314.753667000332,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:32:39.092779",
+      "turn": 11,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4c1n9cqz66hcx7we0gtrc5a7mp",
+        "title": "5-Day Return to Office Starts January 2025: What Every Corporate Amazonian Needs to Know",
+        "body": "<h2>Five Days a Week, Starting January 2025</h2>\n<p>Amazon has mandated that all corporate employees return to the office <strong>five days per week</strong> beginning January 2025. This is the most significant workplace policy shift since the pandemic-era transition to remote work, and it affects approximately <strong>350,000 corporate and tech employees</strong> across Amazon's global offices, including the Seattle HQ, the new HQ2 National Landing campus in Arlington, Virginia, and international offices worldwide.</p>\n<h2>Why Amazon Is Making This Change</h2>\n<p>In a memo to employees, CEO Andy Jassy outlined the reasoning directly: Amazon's culture \u2014 built on collaboration, whiteboard thinking, the 6-pager tradition, and the kind of high-bandwidth in-person debate that produces better decisions \u2014 is strongest when Amazonians are physically together. The company believes that the best inventions come from spontaneous collaboration, and that a five-day in-office cadence is necessary to sustain that culture at scale.</p>\n<blockquote>\"We've observed that it's easier to learn, model, practise, and strengthen our culture when we're in the office together most of the time.\" \u2014 Andy Jassy</blockquote>\n<h2>What Changes for You</h2>\n<ul>\n  <li><strong>Effective date:</strong> January 2025 \u2014 no grace period for corporate employees</li>\n  <li><strong>Who is affected:</strong> All corporate employees globally. Operations and fulfilment employees are not affected \u2014 their schedules are already site-based.</li>\n  <li><strong>Office readiness:</strong> Real Estate and Facilities teams have been expanding desk capacity, collaboration spaces, and amenities across major campuses ahead of the mandate.</li>\n  <li><strong>Exceptions:</strong> Medical accommodations and individual hardship cases are reviewed through HR. Speak to your manager and raise a request via A to Z.</li>\n  <li><strong>Travel roles:</strong> Employees whose roles require frequent client travel work with their manager to define a reasonable in-office baseline.</li>\n</ul>\n<h2>HQ2 Arlington: A New Home for 25,000 Amazonians</h2>\n<p>The timing of the RTO mandate coincides with the completion of Phase 1 of HQ2 National Landing. The Arlington campus \u2014 Amazon's second headquarters \u2014 opened its first phase in 2023 with approximately <strong>8,000 employees</strong>. Full build-out will accommodate more than <strong>25,000 corporate employees</strong> and represents a $2.5 billion investment in the Northern Virginia region.</p>\n<h2>Questions and Support</h2>\n<p>Your first point of contact for RTO-related questions is your direct manager. HR guidance, accommodation requests, and office logistics are all managed through <strong>A to Z</strong>. A dedicated RTO FAQ has been published by the People Experience & Technology (PXT) team and is linked in your A to Z notifications.</p>\n<p>Watch this channel for ongoing updates, workspace experience stories, and team culture content as the in-office transition continues.</p>",
+        "status": "Published",
+        "tags": [
+          "rto",
+          "5-day",
+          "office",
+          "corporate",
+          "policy-2025"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4ypd7c5d104880cvrrvphk78xf\", \"versionId\": \"4aymftg3959rz7v819rzdgdjnj\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4c1n9cqz66hcx7we0gtrc5a7mp/5-day-return-to-office-starts-january-2025-what-every-corporate-amazonian-needs-to-know\"}}",
+      "result_size_chars": 276,
+      "success": true,
+      "latency_ms": 994.352790999983,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:33:00.331112",
+      "turn": 12,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4c1n9cqz66hcx7we0gtrc5a7mp",
+        "title": "Prime Air Drone Delivery Now Live in Two US Cities \u2014 Regulatory Expansion Next",
+        "body": "<h2>Prime Air Is No Longer a Prototype</h2>\n<p>Amazon's Prime Air drone delivery service is now commercially operational in <strong>College Station, Texas</strong> and <strong>Lockeford, California</strong> \u2014 making Amazon one of the first companies in the world to operate a scaled consumer drone delivery programme approved by the FAA. Packages weighing up to five pounds are delivered within <strong>60 minutes</strong> of ordering, landing directly in customers' yards via a precision descent system.</p>\n<h2>How It Works</h2>\n<p>Prime Air drones operate autonomously, navigating from local delivery stations to customer addresses using onboard sensors, computer vision, and real-time airspace data. The drones fly at low altitude, avoid obstacles including trees, power lines, and other aircraft, and release packages from a hover before ascending and returning to base. No human pilot is required for individual deliveries.</p>\n<ul>\n  <li><strong>Weight limit:</strong> Up to 5 lbs (covers the vast majority of everyday Amazon orders)</li>\n  <li><strong>Delivery radius:</strong> Currently within a few miles of the delivery station</li>\n  <li><strong>Weather:</strong> Operational in a range of conditions; paused in severe weather events</li>\n  <li><strong>Safety record:</strong> The programme has completed thousands of deliveries with a strong safety track record presented to the FAA</li>\n</ul>\n<h2>Regulatory Path to Expansion</h2>\n<p>The FAA's Part 135 Air Carrier Certificate \u2014 which Amazon holds \u2014 allows commercial drone operations. Amazon is actively working with the FAA and local authorities to expand the programme to additional cities. Regulatory approval in each new market requires a site-specific airspace assessment, community engagement, and ongoing safety data submission. International expansion is in early-stage regulatory engagement in the UK and other markets.</p>\n<h2>The Bigger Picture: Amazon Air and Last-Mile Innovation</h2>\n<p>Prime Air sits alongside <strong>Amazon Air</strong> \u2014 the company's cargo aircraft fleet \u2014 and the broader last-mile network that now handles approximately <strong>70% of US deliveries</strong> through Amazon Logistics, Delivery Service Partners, and Amazon Flex. The company's logistics infrastructure has become a competitive moat in its own right, enabling same-day and next-day delivery at a scale that no carrier or competitor has matched.</p>\n<blockquote>\"Drone delivery is not a stunt. It is the logical endpoint of everything we've built in last-mile logistics \u2014 and we're just getting started.\" \u2014 Amazon Logistics statement</blockquote>\n<p>Follow updates on Prime Air expansion at <a href=\"https://www.aboutamazon.com/news\">aboutamazon.com/news</a>.</p>",
+        "status": "Published",
+        "tags": [
+          "prime-air",
+          "drone",
+          "delivery",
+          "innovation",
+          "last-mile"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"42c0cdkargd396vc8aykddb95x\", \"versionId\": \"4pfavh96g90yzxw5jmj4k5ggng\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4c1n9cqz66hcx7we0gtrc5a7mp/prime-air-drone-delivery-now-live-in-two-us-cities-regulatory-expansion-next\"}}",
+      "result_size_chars": 265,
+      "success": true,
+      "latency_ms": 3788.006750000932,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:33:17.506963",
+      "turn": 13,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4c1n9cqz66hcx7we0gtrc5a7mp",
+        "title": "HQ2 National Landing: Phase 1 Complete, 8,000 Amazonians Now on Campus",
+        "body": "<h2>Amazon's Second Headquarters Is Open</h2>\n<p>Phase 1 of Amazon's HQ2 campus at <strong>National Landing in Arlington, Virginia</strong> is now complete and fully operational. Approximately <strong>8,000 Amazon corporate employees</strong> have relocated to or been hired directly into the campus, which features two Class A office towers, collaborative workspaces, ground-floor retail, and direct access to the Crystal City and Pentagon City Metro stations.</p>\n<h2>Why Arlington</h2>\n<p>Amazon selected Northern Virginia following a widely publicised national search process in 2018. The decision was driven by access to a deep technology talent pool from nearby universities including Virginia Tech, George Mason, and the University of Virginia; proximity to federal government clients critical to AWS GovCloud and Amazon's defence contracting work; and the region's established base of technology companies and contractors.</p>\n<p>Virginia Tech has separately committed to building a new <strong>$1 billion Innovation Campus</strong> in Alexandria, partly catalysed by Amazon's HQ2 commitment \u2014 an example of the kind of regional economic development anchor that large employer relocations can generate.</p>\n<h2>What the Full Build-Out Looks Like</h2>\n<ul>\n  <li><strong>Total capacity:</strong> 25,000+ corporate employees at full build-out</li>\n  <li><strong>Investment:</strong> $2.5 billion committed to the National Landing development</li>\n  <li><strong>Phase 2:</strong> Includes the planned \"Helix\" tower \u2014 a distinctive spiralling structure with a public park on its exterior \u2014 currently under development</li>\n  <li><strong>Community investment:</strong> Amazon has committed $75 million to affordable housing in the Arlington and Washington DC region</li>\n</ul>\n<h2>For Employees Moving to or Visiting National Landing</h2>\n<p>Detailed onboarding guides for the National Landing campus \u2014 including badging, parking, transit options, campus amenities, and nearby services \u2014 are available on A to Z under <strong>Workplaces > National Landing</strong>. The campus has a dedicated employee concierge team accessible via A to Z chat.</p>\n<blockquote>\"National Landing is not just a second headquarters \u2014 it's a signal of where we're investing in talent, community, and the long-term future of the company.\" \u2014 Amazon Real Estate & Facilities</blockquote>\n<p>For visiting Amazonians from other offices, desk booking at National Landing is available through the Workplace app on your corporate device.</p>",
+        "status": "Published",
+        "tags": [
+          "hq2",
+          "arlington",
+          "campus",
+          "operations",
+          "2023"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"45n9d379zj8cg2qs424a5sa85e\", \"versionId\": \"4hm1a77bqvsrk2ax961qj9nmcr\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4c1n9cqz66hcx7we0gtrc5a7mp/hq2-national-landing-phase-1-complete-8-000-amazonians-now-on-campus\"}}",
+      "result_size_chars": 257,
+      "success": true,
+      "latency_ms": 1089.3954999992275,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:33:42.800539",
+      "turn": 14,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4cnr24wa8ah3ktxj3a5tmn6mxm",
+        "title": "AWS re:Invent 2024: 65 New Services, Amazon Q GA, and the Bedrock Expansion",
+        "body": "<h2>re:Invent 2024: The Biggest Cloud Conference in the World Just Got Bigger</h2>\n<p>AWS re:Invent 2024 concluded in Las Vegas with <strong>65 new service announcements</strong>, tens of thousands of attendees from 190 countries, and a clear signal that Amazon's cloud division is betting its next decade on generative AI infrastructure. For Amazonians working across AWS, these announcements are not just product news \u2014 they are the roadmap for the platforms you build on, sell, and support.</p>\n<h2>The Headline: Amazon Q Goes Generally Available</h2>\n<p><strong>Amazon Q</strong> \u2014 the enterprise AI assistant built on AWS infrastructure \u2014 reached general availability at re:Invent. Amazon Q is designed for two primary use cases: <strong>Amazon Q Developer</strong> (AI-assisted software development, debugging, and code review) and <strong>Amazon Q Business</strong> (enterprise search, document summarisation, and workflow automation across internal data sources). Both are now available to AWS customers and are being rolled out internally across Amazon teams.</p>\n<h2>Amazon Bedrock: More Models, More Capabilities</h2>\n<p>Amazon Bedrock \u2014 the managed foundation model platform \u2014 expanded significantly at re:Invent:</p>\n<ul>\n  <li>New Anthropic Claude models added, following the <strong>$4 billion Anthropic investment</strong></li>\n  <li>Meta's Llama models now available via Bedrock</li>\n  <li>Bedrock Guardrails: enterprise safety controls for responsible AI deployment</li>\n  <li>Bedrock Agents: multi-step autonomous AI workflows for enterprise applications</li>\n  <li>Bedrock Knowledge Bases: connect foundation models to proprietary data via RAG (Retrieval-Augmented Generation)</li>\n</ul>\n<h2>Other Major Announcements</h2>\n<h3>Compute & Infrastructure</h3>\n<p>AWS announced <strong>Graviton4</strong> \u2014 the fourth generation of Amazon's custom Arm-based processor \u2014 delivering up to 30% better performance than Graviton3 for most workloads. The new <strong>P5e instances</strong> powered by NVIDIA H200 GPUs are optimised for large-scale AI training at lower cost per training run.</p>\n<h3>Storage & Data</h3>\n<p>Amazon S3 Express One Zone \u2014 a new high-performance storage class delivering <strong>10x faster data access</strong> than standard S3 \u2014 reached general availability. Amazon Aurora DSQL, a new distributed SQL database, was announced for multi-region active-active workloads.</p>\n<h3>Security</h3>\n<p>AWS announced enhancements to <strong>Amazon GuardDuty</strong> (threat detection) and <strong>AWS Security Hub</strong>, plus a new AI-powered security investigation tool called Amazon Detective Investigations.</p>\n<h2>What Amazonians Should Do Next</h2>\n<p>All re:Invent keynotes and session recordings are available on the <a href=\"https://youtube.com/amazon\">AWS YouTube channel</a>. For internal access to new services, check your account permissions via the AWS Console. Service-specific launch guidance is published on the AWS internal wiki. Contact your AWS business partner or solutions architect for guidance on adopting new capabilities in your team's workloads.</p>\n<blockquote>\"Every year we say this is the biggest re:Invent yet \u2014 and every year we're right.\" \u2014 Matt Garman, CEO, AWS</blockquote>",
+        "status": "Published",
+        "tags": [
+          "reinvent",
+          "aws",
+          "amazon-q",
+          "bedrock",
+          "generative-ai"
+        ],
+        "is_main_highlight": true,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4sdhn7gvsh9h94m7ya83met3dr\", \"versionId\": \"4yz9rqcc98b2pr4he5k97egy52\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4cnr24wa8ah3ktxj3a5tmn6mxm/aws-re-invent-2024-65-new-services-amazon-q-ga-and-the-bedrock-expansion\"}}",
+      "result_size_chars": 261,
+      "success": true,
+      "latency_ms": 3071.824958999059,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:34:05.914828",
+      "turn": 15,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4cnr24wa8ah3ktxj3a5tmn6mxm",
+        "title": "$4 Billion All In: What the Anthropic Partnership Means for Amazon's AI Stack",
+        "body": "<h2>Amazon's Largest AI Bet to Date</h2>\n<p>Amazon has committed up to <strong>$4 billion in investment in Anthropic</strong> \u2014 the AI safety company and creator of the Claude family of large language models. This is the largest external AI investment in Amazon's history, and it positions Amazon alongside Google (which has also invested in Anthropic) as a primary backer of one of the most credible AI safety-focused labs in the world.</p>\n<p>The strategic logic is straightforward: Anthropic's Claude models are available exclusively through <strong>Amazon Bedrock</strong> for enterprise customers, making AWS the preferred cloud destination for companies that want to build production applications on Claude. This is a platform play \u2014 not just a financial investment.</p>\n<h2>What Anthropic Builds and Why It Matters</h2>\n<p>Anthropic was founded in 2021 by former OpenAI researchers including CEO Dario Amodei and President Daniela Amodei. The company's research focus is on <strong>AI safety and interpretability</strong> \u2014 understanding how large language models behave and developing techniques to make them more reliable, honest, and safe to deploy at enterprise scale.</p>\n<p>Claude \u2014 Anthropic's flagship model family \u2014 is widely regarded as among the most capable and safety-conscious frontier models available. Claude 3 (released 2024) includes three variants:</p>\n<ul>\n  <li><strong>Claude 3 Haiku</strong> \u2014 fastest, most cost-efficient; ideal for high-volume tasks</li>\n  <li><strong>Claude 3 Sonnet</strong> \u2014 balanced performance and speed for most enterprise use cases</li>\n  <li><strong>Claude 3 Opus</strong> \u2014 highest capability; used for complex reasoning, analysis, and long-context tasks</li>\n</ul>\n<h2>What This Means for AWS Teams</h2>\n<p>For Amazonians working on AWS products, platform services, or enterprise customer solutions, the Anthropic partnership means:</p>\n<ul>\n  <li>Claude models are accessible via <strong>Amazon Bedrock</strong> \u2014 no separate Anthropic account required</li>\n  <li>Enterprise customers building on AWS can integrate Claude with native AWS security, governance, and compliance controls</li>\n  <li>AWS solutions architects and account managers now have a differentiated AI offering to position against Azure OpenAI and Google Vertex AI</li>\n  <li>Internal Amazon teams are piloting Claude via Amazon Q for document processing, code review, and customer support automation</li>\n</ul>\n<h2>The Competitive Landscape</h2>\n<p>The generative AI infrastructure market is moving fast. Microsoft has a deep OpenAI partnership embedded throughout Azure and Microsoft 365. Google has Gemini natively integrated into GCP. Amazon's answer is <strong>Bedrock's multi-model approach</strong> \u2014 giving customers the flexibility to choose from multiple frontier models (Claude, Llama, Titan, Mistral, and others) within a single managed platform with consistent security and billing.</p>\n<blockquote>\"We are not betting on one model. We are building the platform on which any model can run at enterprise scale.\" \u2014 AWS leadership memo, 2024</blockquote>\n<p>Access Claude models on Bedrock today via your AWS Console. For internal use cases and procurement guidance, contact your AWS account team or submit a request via A to Z IT Services.</p>",
+        "status": "Published",
+        "tags": [
+          "anthropic",
+          "generative-ai",
+          "bedrock",
+          "investment",
+          "aws"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"44ybj15ree1y96ktx67bcds3wc\", \"versionId\": \"4142fnmats5wv16dtn23agmvm2\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4cnr24wa8ah3ktxj3a5tmn6mxm/4-billion-all-in-what-the-anthropic-partnership-means-for-amazon-s-ai-stack\"}}",
+      "result_size_chars": 264,
+      "success": true,
+      "latency_ms": 2113.1836249987828,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:34:32.105369",
+      "turn": 16,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4cnr24wa8ah3ktxj3a5tmn6mxm",
+        "title": "AWS Global Infrastructure: New Regions in Malaysia, Thailand, and New Zealand Confirmed",
+        "body": "<h2>AWS Extends Its Global Footprint to 36+ Regions</h2>\n<p>AWS has confirmed new cloud region launches in <strong>Malaysia, Thailand, and New Zealand</strong>, extending its global infrastructure footprint to over 36 regions worldwide. These additions follow the already-announced expansion in the Kingdom of Saudi Arabia and represent Amazon's continued commitment to data sovereignty, low-latency cloud access, and enterprise cloud adoption in high-growth Asia-Pacific markets.</p>\n<p>AWS currently operates <strong>33 geographic regions with 105 Availability Zones</strong> \u2014 more infrastructure than any other cloud provider. Each region consists of at least two (typically three) independent Availability Zones for high availability and disaster recovery.</p>\n<h2>Why These Markets</h2>\n<h3>Malaysia</h3>\n<p>Malaysia is a rapidly growing technology hub in Southeast Asia with a government-backed digital economy agenda. The new AWS Malaysia Region will serve local enterprises, government agencies, and the growing fintech and manufacturing sectors. It will also allow customers to store data within Malaysia to comply with local data residency requirements.</p>\n<h3>Thailand</h3>\n<p>Thailand's cloud market is expanding driven by financial services, retail, and telecommunications. The Thai government's Eastern Economic Corridor initiative has attracted significant technology investment, making it a strategic location for AWS infrastructure.</p>\n<h3>New Zealand</h3>\n<p>New Zealand enterprises currently rely on the AWS Sydney (ap-southeast-2) region, introducing latency for Kiwi customers. A dedicated New Zealand region will dramatically reduce latency and satisfy the data residency requirements of government customers under the New Zealand Privacy Act 2020.</p>\n<h2>What This Means for AWS Customers and Teams</h2>\n<ul>\n  <li><strong>Customer teams:</strong> New regions unlock public sector and regulated industry opportunities that require in-country data residency</li>\n  <li><strong>Solutions architects:</strong> Begin scoping multi-region architectures for customers in Southeast Asia who are planning migration timelines</li>\n  <li><strong>Compliance teams:</strong> New regions require updated data processing agreements and GDPR standard contractual clauses where EU data flows are involved</li>\n  <li><strong>Sales:</strong> Each new region announcement generates a wave of competitive displacement opportunities from on-premises infrastructure and local cloud providers</li>\n</ul>\n<h2>AWS Availability Zone Architecture: A Reminder</h2>\n<p>Each AWS region is subdivided into <strong>Availability Zones (AZs)</strong> \u2014 physically separate data centres connected by low-latency, high-bandwidth private fibre. AZs are engineered to be isolated from failures in other AZs, enabling customers to build applications that are resilient to data-centre-level events. This architecture is a core AWS competitive differentiator and is reflected in the AWS Well-Architected Framework's reliability pillar.</p>\n<blockquote>\"Every new region we launch reduces the friction between great cloud infrastructure and the customers who need it. We are not done expanding.\" \u2014 AWS Infrastructure team</blockquote>\n<p>For region availability timelines and customer communication templates, contact your AWS Regional Development Manager or visit the AWS Global Infrastructure page at <a href=\"https://aws.amazon.com/about-aws/global-infrastructure/\">aws.amazon.com/global-infrastructure</a>.</p>",
+        "status": "Published",
+        "tags": [
+          "aws",
+          "infrastructure",
+          "global",
+          "asia-pacific",
+          "regions"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4sf9z1pev5a6v6ah8hgb675jm8\", \"versionId\": \"4yc08pwxq2n9h7fjh4nnfbc8c2\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4cnr24wa8ah3ktxj3a5tmn6mxm/aws-global-infrastructure-new-regions-in-malaysia-thailand-and-new-zealand-confirmed\"}}",
+      "result_size_chars": 273,
+      "success": true,
+      "latency_ms": 3115.0594169957913,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:34:54.588418",
+      "turn": 17,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4cnr24wa8ah3ktxj3a5tmn6mxm",
+        "title": "Project Kuiper: First Prototype Satellites Launched \u2014 Commercial Service Targeted 2025",
+        "body": "<h2>Amazon Enters the Satellite Internet Race</h2>\n<p>Project Kuiper \u2014 Amazon's low-Earth orbit (LEO) satellite internet constellation \u2014 has successfully launched its first prototype satellites, marking a critical programme milestone on the path to commercial service. Amazon has FCC authorization to launch <strong>3,236 satellites</strong> into low-Earth orbit to deliver broadband internet to underserved and unserved communities worldwide. Commercial service is targeted for <strong>2024\u20132025</strong>, with initial service beginning in high-priority markets.</p>\n<h2>What Kuiper Is, and Who It's For</h2>\n<p>Project Kuiper is designed to deliver high-speed, low-latency broadband connectivity to individuals, businesses, and governments in locations where terrestrial internet infrastructure is absent, inadequate, or prohibitively expensive. This includes rural communities in the Americas, Africa, Southeast Asia, and the Pacific; maritime and aviation customers; and government and defence applications requiring secure, resilient connectivity.</p>\n<p>The direct competitor is <strong>SpaceX Starlink</strong>, which has a significant head start with over 5,000 satellites already in orbit and hundreds of thousands of active subscribers. Amazon's counter-positioning is enterprise and government focus, AWS integration, and supply chain scale.</p>\n<h2>The AWS Connection</h2>\n<p>Kuiper is not a standalone consumer product \u2014 it is deeply integrated with the AWS platform. Kuiper's ground station network will run on AWS infrastructure, and enterprise Kuiper customers will be able to connect their satellite-delivered connectivity directly into AWS cloud services with low-latency private links. This makes Kuiper a meaningful addition to the AWS portfolio for customers who need cloud connectivity in remote or challenging environments.</p>\n<ul>\n  <li><strong>AWS Ground Station</strong> already provides satellite ground station infrastructure as a managed service</li>\n  <li>Kuiper extends this to Amazon-owned satellite assets, closing the loop on end-to-end connectivity</li>\n  <li>Defence and intelligence community customers are a priority vertical \u2014 they require sovereign, resilient connectivity that Kuiper can provide</li>\n</ul>\n<h2>Programme Milestones</h2>\n<ul>\n  <li><strong>FCC authorisation received</strong> \u2014 full constellation of 3,236 satellites approved</li>\n  <li><strong>Prototype satellites launched and tested</strong> \u2014 performance met or exceeded specifications</li>\n  <li><strong>Production satellite manufacturing</strong> underway at Amazon's Kuiper facility in Redmond, Washington</li>\n  <li><strong>Launch vehicle agreements</strong> signed with United Launch Alliance (Vulcan Centaur), Arianespace, and Amazon's own Blue Origin New Glenn rocket</li>\n  <li><strong>Commercial launch:</strong> targeted 2024\u20132025 pending constellation density sufficient for stable coverage</li>\n</ul>\n<blockquote>\"Kuiper is about connecting the unconnected \u2014 and doing it with Amazon's operational rigour and AWS's cloud platform behind it.\" \u2014 Amazon Kuiper team statement</blockquote>\n<p>Follow Project Kuiper updates at <a href=\"https://www.amazon.science\">amazon.science</a> and on the About Amazon newsroom.</p>",
+        "status": "Published",
+        "tags": [
+          "kuiper",
+          "satellite",
+          "aws",
+          "innovation",
+          "connectivity"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4bey0w012nnt1rrmmqhf5b0v5z\", \"versionId\": \"4dm3cemx3982473sfd7z3e1mn6\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4cnr24wa8ah3ktxj3a5tmn6mxm/project-kuiper-first-prototype-satellites-launched-commercial-service-targeted-2025\"}}",
+      "result_size_chars": 272,
+      "success": true,
+      "latency_ms": 1499.751000003016,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:35:20.158843",
+      "turn": 18,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4r6hp1sj2rf2mtwxt86ht8vd5v",
+        "title": "Career Choice Turns 12: 90,000 Employees, 30 Countries, One Rule \u2014 Your Career Comes First",
+        "body": "<h2>The Programme That Bets on Employees \u2014 Even When They Leave</h2>\n<p>Amazon's <strong>Career Choice</strong> programme has now supported more than <strong>90,000 employees</strong> across <strong>30 countries</strong> since its launch in 2012. It remains one of the most distinctive and genuinely unusual workforce development commitments in corporate America: Amazon pre-pays <strong>95% of tuition and fees</strong> for employees pursuing qualifications in in-demand fields \u2014 with <strong>no requirement that the skills be relevant to their current Amazon role</strong>.</p>\n<p>That last point matters. Career Choice is not a retention programme dressed up as a benefit. It is a genuine commitment to the principle that investing in people is the right thing to do, even when it means helping them develop skills to work somewhere else. It reflects Leadership Principle 15 \u2014 <em>Strive to be Earth's Best Employer</em> \u2014 and Principle 6 \u2014 <em>Hire and Develop the Best</em> \u2014 in practice, not just in name.</p>\n<h2>Who Is Eligible</h2>\n<ul>\n  <li>Amazon employees who have completed at least <strong>90 days of employment</strong></li>\n  <li>Both <strong>hourly and salaried employees</strong> across operations, corporate, and Whole Foods Market</li>\n  <li>Available in <strong>30 countries</strong> \u2014 check the Career Choice portal on A to Z for country-specific programmes and partner institutions</li>\n</ul>\n<h2>What Career Choice Covers</h2>\n<p>Career Choice covers programmes in fields with demonstrated employment demand, including:</p>\n<ul>\n  <li>Healthcare: nursing, medical coding, pharmacy technician, dental hygiene</li>\n  <li>Technology: software engineering (including Amazon Technical Academy pathway), cloud computing (AWS re/Start), cybersecurity</li>\n  <li>Skilled trades: aviation mechanics, commercial driving (CDL), electrical and HVAC</li>\n  <li>Business: accounting, project management, supply chain</li>\n</ul>\n<p>The programme covers tuition, fees, and, in many cases, textbooks and required materials. It does not cover living expenses. Participants continue their regular Amazon role while studying; schedules are accommodated where operationally possible.</p>\n<h2>12 Years of Impact: The Numbers</h2>\n<p>Since 2012, Career Choice has delivered:</p>\n<ul>\n  <li><strong>90,000+ participants</strong> globally</li>\n  <li>Programmes in <strong>30 countries</strong>, delivered through 1,000+ education partners</li>\n  <li>Completion rates significantly above industry norms for employer-sponsored education, attributed to pre-payment removing the financial barrier that causes most workers to drop out</li>\n</ul>\n<h2>How to Apply</h2>\n<p>Log in to <strong>A to Z</strong>, navigate to <strong>Career & Learning > Career Choice</strong>, and browse approved programmes in your country. Select your programme, confirm eligibility, and submit your enrolment. Your manager will be notified, but their approval is not required for you to participate. Amazon Education Advisors are available via A to Z to help you choose the right programme for your goals.</p>\n<blockquote>\"Career Choice is a programme we're proud of precisely because it isn't about what's convenient for Amazon. It's about what's right for the person.\" \u2014 Amazon PXT team</blockquote>\n<p>Read stories from Career Choice participants at <a href=\"https://www.aboutamazon.com\">aboutamazon.com</a> under Working at Amazon.</p>",
+        "status": "Published",
+        "tags": [
+          "career-choice",
+          "learning",
+          "benefits",
+          "people",
+          "development"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4jx4k2epdsfyx02b0bhdn4n0wn\", \"versionId\": \"4mf7yk69rwh2fwy1ywfpk19cnx\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4r6hp1sj2rf2mtwxt86ht8vd5v/career-choice-turns-12-90-000-employees-30-countries-one-rule-your-career-comes-first\"}}",
+      "result_size_chars": 274,
+      "success": true,
+      "latency_ms": 3417.2120840012212,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:35:47.623866",
+      "turn": 19,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4r6hp1sj2rf2mtwxt86ht8vd5v",
+        "title": "ERG Spotlight: Black Employee Network, Glamazon, and Warriors@Amazon \u2014 Meet the Communities Behind the Work",
+        "body": "<h2>The People Who Make Amazon More Human</h2>\n<p>Amazon's Employee Resource Groups (ERGs) are among the most active employee communities in the company. They are volunteer-led, executive-sponsored, and open to all Amazonians who want to participate \u2014 whether they identify with the community the ERG represents or are allies who want to engage. This spotlight covers three groups who have particularly active programming this quarter.</p>\n<h2>Black Employee Network (BEN)</h2>\n<p>The Black Employee Network is one of Amazon's longest-running ERGs, with chapters across the US, UK, and other markets. BEN's mission is to create an inclusive environment where Black Amazonians can thrive professionally and personally, while educating the broader Amazon community.</p>\n<p>Recent BEN programming includes:</p>\n<ul>\n  <li><strong>Black History Month events</strong> in February \u2014 speaker series featuring Black leaders from across Amazon's business units and external guests</li>\n  <li><strong>BEN Mentorship Programme</strong> \u2014 pairing early-career Black Amazonians with senior leaders for structured 6-month mentoring relationships</li>\n  <li><strong>Career development workshops</strong> focused on navigating promotion processes and the Leadership Principles in performance reviews</li>\n</ul>\n<p>BEN is open to all. To join, search for \"Black Employee Network\" on A to Z under Communities.</p>\n<h2>Glamazon (LGBTQ+)</h2>\n<p>Glamazon is Amazon's global LGBTQ+ ERG, with chapters across North America, Europe, and APAC. The group runs programming year-round, with Pride Month in June as its flagship event season \u2014 featuring internally hosted panels, charity fundraisers, and participation in local Pride marches.</p>\n<p>Glamazon also engages on policy: the group played an active advisory role in shaping Amazon's approach to benefits equality for same-sex couples and trans-inclusive healthcare benefits. For employees who are new to Amazon and navigating benefits questions related to family formation or healthcare, Glamazon connects members with HR resources and peer support.</p>\n<h2>Warriors@Amazon (Military Veterans)</h2>\n<p>Warriors@Amazon supports Amazon's military veteran and active military reserve employee community \u2014 a significant population given Amazon's large operations workforce, which skews toward veterans who valued the discipline and logistics skills developed in service. Warriors@Amazon runs a dedicated veteran hiring programme in partnership with Amazon's Talent Acquisition team, aiming to hire more than 100,000 US veterans and military spouses over five years.</p>\n<ul>\n  <li><strong>Transition support:</strong> Warriors helps veterans translate military experience into Amazon career pathways \u2014 operations, logistics, AWS, security, and project management are all natural fits</li>\n  <li><strong>Peer network:</strong> Connecting veterans across sites and business units for mentoring and support</li>\n  <li><strong>Veterans Day programming:</strong> Annual recognition events at major fulfilment centres and corporate offices</li>\n</ul>\n<h2>How to Find and Join Your ERG</h2>\n<p>All Amazon ERGs are listed on A to Z under <strong>Inclusion & Diversity > Employee Resource Groups</strong>. Joining is free and voluntary. Most ERGs have both in-person chapters at major offices and virtual membership for remote or operations employees. Leadership positions within ERGs count toward performance development and are recognised in promotion discussions.</p>\n<blockquote>\"Our ERGs are not side programmes. They are part of how Amazon becomes the kind of company that every one of our 1.5 million employees is proud to work for.\" \u2014 Amazon I&D team</blockquote>",
+        "status": "Published",
+        "tags": [
+          "erg",
+          "dei",
+          "inclusion",
+          "culture",
+          "community"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"42ytcpb983nxd1aqzw9n974qxk\", \"versionId\": \"429gxhrcs9z2h5b4attw3egrm8\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4r6hp1sj2rf2mtwxt86ht8vd5v/erg-spotlight-black-employee-network-glamazon-and-warriors-amazon-meet-the-communities-behind-the-work\"}}",
+      "result_size_chars": 291,
+      "success": true,
+      "latency_ms": 3067.5457500037737,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:36:12.626789",
+      "turn": 20,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4r6hp1sj2rf2mtwxt86ht8vd5v",
+        "title": "Amazon Technical Academy: How Operations Employees Become Software Engineers in 9 Months",
+        "body": "<h2>The Programme That Redefines What's Possible Inside Amazon</h2>\n<p><strong>Amazon Technical Academy (ATA)</strong> is a fully paid, 9-month programme that transitions Amazon operations employees \u2014 including fulfilment centre workers, delivery station associates, and customer service representatives \u2014 into trained software development engineers. The programme requires no prior coding experience. It does require curiosity, persistence, and a genuine desire to learn a new craft.</p>\n<p>ATA is one of the most concrete expressions of Leadership Principle 6 (<em>Hire and Develop the Best</em>) and Principle 5 (<em>Learn and Be Curious</em>) in the entire company. It is also one of the clearest ways Amazon acts on its belief \u2014 stated in Leadership Principle 15 \u2014 that it should be <em>Earth's Best Employer</em>.</p>\n<h2>How the Programme Works</h2>\n<p>ATA is intensive. Participants transition out of their operational role for the full 9-month duration while continuing to receive their regular Amazon pay and benefits. The programme is delivered through a combination of instructor-led learning, project work, peer collaboration, and mentoring by Amazon software engineers.</p>\n<h3>Curriculum</h3>\n<ul>\n  <li><strong>Core Java programming</strong> \u2014 from fundamentals to object-oriented design</li>\n  <li><strong>Data structures and algorithms</strong></li>\n  <li><strong>Software design patterns and system design</strong></li>\n  <li><strong>AWS services</strong> \u2014 practical experience with S3, DynamoDB, Lambda, and CloudWatch</li>\n  <li><strong>Project work</strong> \u2014 participants build and deploy real software applications by the end of the programme</li>\n  <li><strong>Interview preparation</strong> \u2014 ATA prepares participants for the Amazon technical interview process, including Leadership Principle-based behavioural questions</li>\n</ul>\n<h2>Outcomes and Placement</h2>\n<p>Graduates of Amazon Technical Academy are hired into Software Development Engineer (SDE) roles across Amazon's business units \u2014 including AWS, retail technology, advertising technology, and operations engineering. Starting compensation for SDE roles reflects the full Amazon corporate compensation structure: base salary, RSU equity grants, and signing bonus.</p>\n<p>The salary increase for ATA graduates versus their prior operations roles is typically substantial \u2014 in many cases representing a <strong>doubling or tripling</strong> of total compensation over a multi-year arc.</p>\n<h2>How to Apply</h2>\n<p>Applications to Amazon Technical Academy open twice a year. Eligibility requires:</p>\n<ul>\n  <li>At least <strong>1 year of Amazon employment</strong></li>\n  <li>Good standing (meets performance expectations)</li>\n  <li>Completion of the ATA Preparatory Curriculum (self-paced, available on A to Z)</li>\n  <li>A coding aptitude assessment (no prior experience required \u2014 it measures learning ability, not existing knowledge)</li>\n</ul>\n<p>To apply, navigate to <strong>A to Z > Career & Learning > Amazon Technical Academy</strong>. The next cohort application window opens in the coming weeks \u2014 check A to Z for exact dates for your region.</p>\n<blockquote>\"I started in a fulfilment centre packing boxes. Three years later I'm a software engineer at AWS. ATA made that possible \u2014 and Amazon paid me while I learned.\" \u2014 ATA Graduate, AWS</blockquote>",
+        "status": "Published",
+        "tags": [
+          "technical-academy",
+          "career",
+          "learning",
+          "engineering",
+          "development"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4rafyzxnpnb6r6b1e2hc49cpd0\", \"versionId\": \"4bn06cpdzcjtcys32cx1ajdawe\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4r6hp1sj2rf2mtwxt86ht8vd5v/amazon-technical-academy-how-operations-employees-become-software-engineers-in-9-months\"}}",
+      "result_size_chars": 276,
+      "success": true,
+      "latency_ms": 2897.8396250022342,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:36:34.707680",
+      "turn": 21,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4r6hp1sj2rf2mtwxt86ht8vd5v",
+        "title": "Understanding Your Amazon Compensation: Base, RSUs, and Why the Structure Looks the Way It Does",
+        "body": "<h2>Amazon's Compensation Philosophy Is Different \u2014 Here's Why</h2>\n<p>Amazon's corporate compensation structure is deliberately unusual, and it surprises many new Amazonians. Understanding it is essential \u2014 both for managing your own financial planning and for having informed conversations with your team about total compensation.</p>\n<p>The key design principle: Amazon deliberately <strong>caps base salary at $350,000</strong> \u2014 a figure that is low relative to market for senior technical and leadership roles. This is not an oversight. It is a statement about what Amazon values: long-term alignment between employee incentives and the company's performance, delivered primarily through <strong>RSU (Restricted Stock Unit) equity grants</strong>.</p>\n<h2>How RSUs Work at Amazon</h2>\n<p>When you are hired into a corporate or tech role at Amazon, you receive an RSU grant as part of your offer. RSUs vest over a <strong>4-year schedule</strong>, but Amazon's vesting schedule is back-loaded \u2014 not the standard 25% per year that most companies use. Amazon's standard schedule is:</p>\n<ul>\n  <li>Year 1: <strong>5%</strong> of total grant vests</li>\n  <li>Year 2: <strong>15%</strong> of total grant vests</li>\n  <li>Year 3: <strong>40%</strong> vests (20% every 6 months)</li>\n  <li>Year 4: <strong>40%</strong> vests (20% every 6 months)</li>\n</ul>\n<p>This schedule is intentional: it creates strong retention incentives in Years 3 and 4, when the bulk of equity value is delivered. Amazonians who leave before the end of Year 2 capture relatively little of their grant. This is a known feature of the design, not a trap \u2014 the trade-off is disclosed at offer stage.</p>\n<h2>New Hire Signing Bonuses</h2>\n<p>To bridge the gap created by the back-loaded vesting schedule, Amazon typically provides <strong>two-year signing bonuses</strong> (Year 1 and Year 2) for corporate hires. These bonuses are designed to compensate for the lower near-term equity income and ensure total first-year and second-year compensation is competitive with market. Signing bonuses are subject to clawback if you leave before the end of the applicable year \u2014 the terms are in your offer letter.</p>\n<h2>Operations Compensation</h2>\n<p>For Amazon's <strong>1.15 million operations and fulfilment employees</strong>, the compensation structure is straightforward: hourly wages starting at <strong>$18\u201322/hour</strong> depending on location and role, with regular step increases and a transparent pay band structure. Amazon raised its minimum wage to $15/hour in 2018 \u2014 ahead of any legal requirement \u2014 and has continued to raise floor wages in competitive markets. Benefits for operations employees include health insurance, Career Choice tuition support, and the Employee Discount Programme.</p>\n<h2>Key Resources</h2>\n<ul>\n  <li><strong>Total compensation summary:</strong> A to Z > My Pay > Total Compensation</li>\n  <li><strong>RSU grant details and vesting schedule:</strong> A to Z > My Pay > Equity</li>\n  <li><strong>Benefits enrolment:</strong> <a href=\"https://benefits.amazon.com\">benefits.amazon.com</a></li>\n  <li><strong>Compensation questions:</strong> Speak with your HR Business Partner or submit a query via A to Z</li>\n</ul>\n<blockquote>\"The structure is designed for people who believe in what we're building. If you're here for the long term, the equity is the story.\" \u2014 Amazon Total Rewards team</blockquote>",
+        "status": "Published",
+        "tags": [
+          "compensation",
+          "rsu",
+          "benefits",
+          "hr",
+          "equity"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4jfs22r1b8vjhskx0pe1hg8vx6\", \"versionId\": \"4zry3ybste3cxvmzzs7cerf6m1\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4r6hp1sj2rf2mtwxt86ht8vd5v/understanding-your-amazon-compensation-base-rsus-and-why-the-structure-looks-the-way-it-does\"}}",
+      "result_size_chars": 281,
+      "success": true,
+      "latency_ms": 1649.5810420019552,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:37:05.889869",
+      "turn": 22,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4kfm3r93vv5wz2vp4zv850wpmh",
+        "title": "Andy Jassy to Amazonians: Our Four Strategic Priorities for the Next Five Years",
+        "body": "<h2>A Letter from Andy Jassy, President & CEO</h2>\n<p>To all Amazonians,</p>\n<p>We are, by any measure, one of the most operationally complex and strategically diverse companies ever built. Over 1.5 million people work at Amazon. We operate retail businesses in more than 20 countries, a cloud platform that powers a significant fraction of the global internet, an advertising business that has grown into a top-three global platform in under a decade, and physical retail operations serving millions of customers every week through Whole Foods, Amazon Fresh, and Amazon Go.</p>\n<p>I want to use this letter to be direct about how I think about the next five years \u2014 not in the abstract language of corporate strategy documents, but in the way we actually talk to each other here. Four priorities will define this period.</p>\n<h2>Priority 1: AWS Must Win the AI Infrastructure Race</h2>\n<p>Generative AI is not a feature cycle. It is a platform shift of the kind we last saw with mobile, and before that, the internet itself. The companies that build the foundational infrastructure for this shift will compound those advantages for decades. AWS is positioned to be that infrastructure. Our Bedrock multi-model platform, our $4 billion Anthropic investment, the launch of Amazon Q, and our Graviton and Trainium custom silicon are all part of a coherent strategy to make AWS the preferred platform for AI workloads at enterprise scale. This is the most important strategic battle we are in. Everyone at Amazon \u2014 not just AWS teams \u2014 should understand what we're doing and why it matters.</p>\n<h2>Priority 2: Retail Profitability Without Sacrificing the Flywheel</h2>\n<p>Our North America retail business generates $387 billion in revenue. Our International retail business generates $143 billion. Both operate on thin margins by design \u2014 the flywheel of Prime membership, advertising data, and logistics scale compounds more value than margin extraction in the near term. But the 2023 restructuring demonstrated that we can operate this business more efficiently. We must continue to reduce cost-to-serve, invest in same-day and drone delivery, and grow advertising revenue \u2014 all without degrading the customer experience that earns Prime renewals.</p>\n<h2>Priority 3: Becoming a More Human Company</h2>\n<p>Leadership Principles 15 and 16 \u2014 added in 2021 \u2014 were a deliberate signal. We are big enough now that our choices as an employer and as a corporate citizen have consequences at scale. The 5-day return-to-office mandate, the Rivian EV fleet, Career Choice, the minimum wage increases \u2014 these are not PR moves. They are attempts to close the gap between our stated values and our daily operations. We have more work to do. I expect every leader to take Principle 15 seriously in their promotion decisions, their team culture, and the way they handle performance conversations.</p>\n<h2>Priority 4: Regulatory Resilience</h2>\n<p>We face the FTC antitrust lawsuit, the EU Digital Markets Act designation, ongoing labour relations work, and a privacy and data governance environment that is tightening in every major market. I want to be clear: we will compete hard for every customer, defend every legal position we believe is correct, and simultaneously take our obligations to workers, communities, and regulators seriously. These are not in conflict. A company that operates with integrity wins in the long run. Our Chief Legal Officer David Zapolsky and his team are managing these matters with full executive support.</p>\n<h2>What I Ask of You</h2>\n<p>Think big. Write clearly. Disagree when you have a point worth making \u2014 then commit fully when the decision is made. The 16 Leadership Principles are not aspirational. They are operational. If you are using them every day, you are already doing what I am asking.</p>\n<blockquote>\"Amazon at its best is when every person in the company is acting like an owner. Not a shareholder \u2014 an owner. Someone who cares about the outcome, not just the output.\" \u2014 Andy Jassy</blockquote>\n<p>Thank you for what you build every day.</p>\n<p><em>Andy Jassy<br>President & CEO, Amazon.com, Inc.</em></p>",
+        "status": "Published",
+        "tags": [
+          "leadership",
+          "ceo",
+          "strategy",
+          "andy-jassy",
+          "priorities"
+        ],
+        "is_main_highlight": true,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"469x7mk2tq5z9zf443kzpr8pxt\", \"versionId\": \"41wqcgg99t55mvjbh7x8gngsw6\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4kfm3r93vv5wz2vp4zv850wpmh/andy-jassy-to-amazonians-our-four-strategic-priorities-for-the-next-five-years\"}}",
+      "result_size_chars": 267,
+      "success": true,
+      "latency_ms": 3357.219040997734,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:37:33.603717",
+      "turn": 23,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4kfm3r93vv5wz2vp4zv850wpmh",
+        "title": "The 6-Pager: Why Amazon Bans PowerPoint and What That Means for How You Work",
+        "body": "<h2>The Document That Runs Amazon</h2>\n<p>If you are new to Amazon \u2014 or if you've worked here for years but never fully understood why the writing culture feels so deliberate \u2014 this is the article to read. The <strong>6-page narrative memo</strong> is not a quirk of Amazon culture. It is the operating system of how decisions get made at every level of the company, from two-pizza team decisions to S-Team (senior leadership) meetings.</p>\n<p>PowerPoint decks are banned in Amazon executive meetings. Not discouraged. Banned. The meeting begins with <strong>silent reading</strong> of the 6-pager \u2014 typically 20 to 30 minutes \u2014 and discussion follows. There are no slides. There is no presenter talking over bullet points. There is a document, and there is a room of people who have read it before they open their mouths.</p>\n<h2>Why This Matters</h2>\n<p>The discipline enforced by a good 6-pager is not formatting discipline. It is thinking discipline. A bullet point can hide an unclear idea behind a confident-sounding phrase. A paragraph cannot. If you cannot write the logic in full sentences \u2014 with causality, data, and acknowledged trade-offs \u2014 you do not yet understand your proposal well enough to get approval for it.</p>\n<p>Jeff Bezos explained the reasoning directly in a shareholder letter: \"The narrative structure of a good memo forces better thought and better understanding of what's more important than what, and how things are related.\" This principle is as operative under Andy Jassy as it was under Bezos.</p>\n<h2>What Makes a Good 6-Pager</h2>\n<h3>1. Problem Statement</h3>\n<p>What is the problem you are solving? Defined specifically, with data. Not \"our customer satisfaction is declining\" but \"NPS in our US operations fulfilment segment dropped 7 points year-on-year, driven by late delivery rates in our Midwest stations.\"</p>\n<h3>2. Current State / Background</h3>\n<p>What exists today? What have we already tried? What do we know from data? This section demonstrates you have done the analysis, not just the storytelling.</p>\n<h3>3. Proposed Solution</h3>\n<p>The recommendation, with enough detail that readers can evaluate it \u2014 not just react to it. If there are multiple options, present them with honest trade-offs.</p>\n<h3>4. Supporting Data</h3>\n<p>Amazon is a data company. Your 6-pager is weakened by every claim that is asserted rather than evidenced. If you don't have the data, say so and explain how you will get it.</p>\n<h3>5. Risks and Mitigations</h3>\n<p>What could go wrong? What is your mitigation plan? This is where intellectual honesty is most visibly tested.</p>\n<h3>6. Appendix (optional)</h3>\n<p>Supporting tables, calculations, and reference data. Not part of the 6 pages \u2014 appended for readers who want to go deeper.</p>\n<h2>The PR/FAQ: A Related Tool</h2>\n<p>For new products, features, and customer-facing initiatives, the <strong>PR/FAQ</strong> (Press Release / Frequently Asked Questions) is a companion document type. You write the press release for a product as if it already exists and has launched \u2014 including customer quotes, key metrics, and the problem it solves. This forces teams to reason backwards from the customer outcome, not forwards from the technology capability.</p>\n<blockquote>\"Start with the customer and work backwards. That is what the PR/FAQ forces. It is the discipline that has produced more Amazon products than any other tool we have.\" \u2014 Amazon product development guidance</blockquote>\n<p>Templates for both the 6-pager and PR/FAQ are available in the Amazon internal wiki. Search \"Writing Standards\" on your internal wiki home page.</p>",
+        "status": "Published",
+        "tags": [
+          "6-pager",
+          "writing-culture",
+          "leadership",
+          "prfaq",
+          "communication"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4d3kasm0k9xs7674q9rf81zrcn\", \"versionId\": \"4w1rs6qyh1zvwwbd3z34rxvy5f\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4kfm3r93vv5wz2vp4zv850wpmh/the-6-pager-why-amazon-bans-powerpoint-and-what-that-means-for-how-you-work\"}}",
+      "result_size_chars": 264,
+      "success": true,
+      "latency_ms": 2965.980833003414,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:38:03.125175",
+      "turn": 24,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4kfm3r93vv5wz2vp4zv850wpmh",
+        "title": "Amazon's 16 Leadership Principles: Not a Values Poster \u2014 the Actual Operating System",
+        "body": "<h2>Why the Principles Are Different Here</h2>\n<p>Every company has values. Most companies have them printed on the wall in reception and forgotten the moment the meeting starts. Amazon's <strong>16 Leadership Principles</strong> are different. They are used in hiring interviews, promotion decisions, performance reviews, and daily written communication. If you have not yet memorised them and internalised their meaning, you are operating at a disadvantage \u2014 because every Amazonian around you has.</p>\n<p>This article is a working reference for all 16 principles, with context on how they are actually applied \u2014 not just what they say.</p>\n<h2>The 16 Principles in Full</h2>\n<ol>\n  <li><strong>Customer Obsession</strong> \u2014 Leaders start with the customer and work backwards. Not competitor-first, not technology-first, not even revenue-first. Customer-first, always.</li>\n  <li><strong>Ownership</strong> \u2014 Leaders act on behalf of the entire company, beyond just their own team. \"That's not my job\" is not an Amazon answer.</li>\n  <li><strong>Invent and Simplify</strong> \u2014 Leaders expect and require innovation. They also expect simplification \u2014 complexity that doesn't serve the customer is a failure of thinking, not a sign of thoroughness.</li>\n  <li><strong>Are Right, A Lot</strong> \u2014 Leaders have strong judgment and good instincts. They seek diverse perspectives and work to disconfirm their own beliefs. Being right means being willing to be wrong first.</li>\n  <li><strong>Learn and Be Curious</strong> \u2014 Leaders never stop learning. They explore new possibilities and are never satisfied that they know everything about their domain.</li>\n  <li><strong>Hire and Develop the Best</strong> \u2014 Leaders raise the bar with every hire. They develop leaders and take the coaching role seriously. Every manager is also a talent developer.</li>\n  <li><strong>Insist on the Highest Standards</strong> \u2014 Leaders have relentlessly high standards. These may seem unreasonably high to outsiders. That is by design.</li>\n  <li><strong>Think Big</strong> \u2014 Thinking small is a self-fulfilling prophecy. Leaders communicate a bold direction that inspires results. Small, safe thinking produces small, safe outcomes.</li>\n  <li><strong>Bias for Action</strong> \u2014 Speed matters. Many decisions are reversible. Calculated risk-taking is valued over analysis paralysis.</li>\n  <li><strong>Frugality</strong> \u2014 Accomplish more with less. Constraints breed resourcefulness, self-sufficiency, and invention. There is no extra credit for headcount or budget spend.</li>\n  <li><strong>Earn Trust</strong> \u2014 Leaders are vocally self-critical, even when it is awkward. They benchmark against the best and never settle for \"good enough for here.\"</li>\n  <li><strong>Dive Deep</strong> \u2014 Leaders operate at all levels, stay connected to detail, and audit frequently. No topic is beneath a leader's interest if it matters to the outcome.</li>\n  <li><strong>Have Backbone; Disagree and Commit</strong> \u2014 Leaders respectfully challenge decisions they disagree with, even when it is uncomfortable. Once a decision is made, they commit fully.</li>\n  <li><strong>Deliver Results</strong> \u2014 Leaders focus on key inputs, deliver them with quality and timeliness. They rise to the occasion and never settle for \"we tried our best\" when results weren't delivered.</li>\n  <li><strong>Strive to be Earth's Best Employer</strong> \u2014 Leaders work to create a safer, more productive, higher-performing, more diverse, and more just work environment. (Added 2021.)</li>\n  <li><strong>Success and Scale Bring Broad Responsibility</strong> \u2014 Amazon's scale creates impact in communities and on the planet. Leaders create more than they consume. (Added 2021.)</li>\n</ol>\n<h2>Principles 15 and 16: The 2021 Additions</h2>\n<p>It is worth noting the significance of adding these two principles under Andy Jassy. They represent a deliberate repositioning of Amazon's self-image: a company large enough that its internal culture and its external impact are now inseparable. Principle 16 in particular is a direct acknowledgement that Amazon's scale creates obligations \u2014 to workers, to communities, to the environment \u2014 that did not exist in the same way when the company was smaller.</p>\n<blockquote>\"These additions weren't symbolic. They changed what we ask of our leaders in reviews, in hiring, and in how we evaluate success. Culture is what you measure.\" \u2014 Amazon leadership communications</blockquote>\n<p>The full Leadership Principles document is available on A to Z under <strong>Our Culture > Leadership Principles</strong>. Interview and performance review guidance mapped to each principle is available in the Amazon hiring manager toolkit.</p>",
+        "status": "Published",
+        "tags": [
+          "leadership-principles",
+          "culture",
+          "amazon",
+          "hiring",
+          "performance"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4p51zx2a36kbz1e6twk2191dcp\", \"versionId\": \"42vsra5efqqcazww6mgye4r0cc\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4kfm3r93vv5wz2vp4zv850wpmh/amazon-s-16-leadership-principles-not-a-values-poster-the-actual-operating-system\"}}",
+      "result_size_chars": 270,
+      "success": true,
+      "latency_ms": 3018.299167000805,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:38:23.894630",
+      "turn": 25,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4kfm3r93vv5wz2vp4zv850wpmh",
+        "title": "Alexa+ Announced: AI-Enhanced Voice Assistant Marks Amazon's Consumer AI Moment",
+        "body": "<h2>Alexa Gets Its Intelligence Upgrade</h2>\n<p>Amazon announced <strong>Alexa+</strong> in February 2025 \u2014 a fundamentally redesigned version of its voice assistant powered by large language model capabilities. After years of incremental updates to the original Alexa, Alexa+ represents a step-change: conversational depth, multi-turn context retention, integration with third-party services, and the ability to handle complex, multi-step requests that the original Alexa could not process.</p>\n<p>Alexa+ is Amazon's answer to the AI assistant race sparked by ChatGPT and Google Gemini \u2014 and it is built on a foundation that neither competitor has: <strong>hundreds of millions of Echo devices already in homes worldwide</strong>, an established habit of voice interaction, and deep integration with Amazon's retail, entertainment, and smart home ecosystems.</p>\n<h2>What's New in Alexa+</h2>\n<ul>\n  <li><strong>Conversational memory:</strong> Alexa+ retains context across a conversation, enabling natural multi-turn exchanges without repeating context</li>\n  <li><strong>Reasoning and planning:</strong> Alexa+ can handle complex requests \u2014 \"plan a dinner party for eight people with dietary restrictions and order the ingredients\" \u2014 as a coherent task, not a series of disconnected commands</li>\n  <li><strong>Third-party integrations:</strong> Deep connections to restaurant booking, travel, calendar, and productivity apps via a new Alexa developer platform</li>\n  <li><strong>Proactive assistance:</strong> Alexa+ can initiate suggestions based on your schedule, habits, and preferences \u2014 not just respond to commands</li>\n  <li><strong>Alexa+ for Prime members:</strong> Available as part of the Prime subscription for members with compatible Echo devices</li>\n</ul>\n<h2>The Internal Dimension: Amazon Q</h2>\n<p>Alexa+ is the consumer product. <strong>Amazon Q</strong> is the enterprise equivalent \u2014 an AI assistant for Amazonians and AWS customers that integrates with internal wikis, ticketing systems, code repositories, and business data. Amazon Q Business and Amazon Q Developer are now generally available and are being rolled out across Amazon teams.</p>\n<p>For Amazonians, Amazon Q is accessible via the AWS Console and, for internal use, through the A to Z integrations being rolled out by the Amazon Technology organisation. Watch your A to Z homepage for announcements about Q's internal availability in your team.</p>\n<h2>What This Means for Alexa-Adjacent Teams</h2>\n<p>Alexa+ changes the developer platform. The Alexa Skills Kit is being redesigned to accommodate the new conversational model, and skill developers will need to update integrations. If your team has existing Alexa skills or device integrations, review the Alexa developer changelog at <a href=\"https://developer.amazon.com/en-US/alexa\">developer.amazon.com/alexa</a> and plan for migration timelines before the LLM-based Alexa+ reaches full rollout.</p>\n<blockquote>\"Alexa was always supposed to be this \u2014 a genuinely helpful presence in your life. The technology has finally caught up to the original vision.\" \u2014 Amazon Alexa leadership</blockquote>",
+        "status": "Published",
+        "tags": [
+          "alexa-plus",
+          "ai",
+          "announcement",
+          "consumer",
+          "amazon-q"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4g4gb4rsxyq282wgg9mkg93152\", \"versionId\": \"419myqjqg8md9vmhygcj97xvd4\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4kfm3r93vv5wz2vp4zv850wpmh/alexa-announced-ai-enhanced-voice-assistant-marks-amazon-s-consumer-ai-moment\"}}",
+      "result_size_chars": 266,
+      "success": true,
+      "latency_ms": 932.0335410011467,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:38:50.709400",
+      "turn": 26,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4rsh7tns22agxn2tkgpntbwh4h",
+        "title": "The Climate Pledge: Amazon's Commitment to Net-Zero Carbon by 2040 \u2014 Where We Stand",
+        "body": "<h2>Ten Years Ahead of the Paris Agreement</h2>\n<p>In 2019, Amazon co-founded <strong>The Climate Pledge</strong> \u2014 a commitment to reach net-zero carbon emissions across all operations by <strong>2040</strong>, ten years ahead of the Paris Agreement's 2050 target. That commitment now has more than 400 signatories from companies across the globe who have made the same pledge. Amazon's role is both founder and benchmark: what Amazon does on sustainability, at Amazon's scale, matters in ways that most corporate sustainability commitments do not.</p>\n<p>This article summarises where we stand today across our three major sustainability pillars: renewable energy, electric delivery, and packaging.</p>\n<h2>Pillar 1: Renewable Energy</h2>\n<p>Amazon is the <strong>world's largest corporate purchaser of renewable energy</strong>, with more than <strong>100 gigawatts of contracted renewable energy capacity</strong> across solar and wind projects in the US, Europe, India, Australia, and beyond.</p>\n<p>Key data points:</p>\n<ul>\n  <li>Amazon matched <strong>100% of its electricity consumption</strong> with renewable energy for the first time in 2023 \u2014 a major milestone</li>\n  <li>Amazon has invested in over 400 renewable energy projects across 24 countries</li>\n  <li>The company is developing wind and solar projects that will power not just Amazon's operations but feed into local electricity grids, creating clean energy access beyond Amazon's footprint</li>\n</ul>\n<h2>Pillar 2: Electric Delivery Vehicles</h2>\n<p>In 2020, Amazon ordered <strong>100,000 custom electric delivery vehicles</strong> from Rivian \u2014 the largest electric vehicle procurement order in history at the time. The first Rivian delivery vans entered service in 2022 and are now operating in multiple US cities.</p>\n<ul>\n  <li><strong>Vehicles on road:</strong> Thousands of Rivian EDVs (Electric Delivery Vans) now operational in US cities including Seattle, Nashville, and Phoenix</li>\n  <li><strong>Full deployment target:</strong> 100,000 Rivian vans on road by 2030</li>\n  <li><strong>Supplementary EV investment:</strong> Additional electric vans from Mercedes (Europe), Stellantis, and other manufacturers supplement the Rivian order in international markets</li>\n  <li><strong>Prime Air drones:</strong> Zero-emission last-mile delivery for eligible orders (see Daily Headline for the latest)</li>\n</ul>\n<h2>Pillar 3: Packaging</h2>\n<p>Amazon's frustration-free packaging programme has been running since 2008. The latest targets:</p>\n<ul>\n  <li><strong>Single-use plastic:</strong> Eliminated from delivery packaging in most markets; replacement with paper-based materials ongoing</li>\n  <li><strong>Right-sized packaging:</strong> Machine-learning-driven packaging selection reduces box size and eliminates void fill in millions of shipments per day</li>\n  <li><strong>Shipment Zero goal:</strong> Amazon's commitment to make 50% of all shipments net-zero carbon \u2014 measuring not just the packaging but the full transport footprint</li>\n</ul>\n<h2>The Climate Pledge Fund</h2>\n<p>Amazon has committed <strong>$2 billion</strong> to The Climate Pledge Fund \u2014 a venture capital initiative that invests in companies developing clean technologies that will help Amazon and other signatories meet their climate commitments. Investments span renewable energy, sustainable agriculture, circular economy, and carbon capture.</p>\n<blockquote>\"The Climate Pledge is a race to zero. We founded it because we believe in the urgency, and because Amazon's scale means our progress \u2014 or our failure \u2014 matters at a global level.\" \u2014 Amazon Sustainability</blockquote>\n<p>Read the full Amazon Sustainability Report at <a href=\"https://sustainability.aboutamazon.com\">sustainability.aboutamazon.com</a>. For internal sustainability initiatives, projects, and local office programmes, visit A to Z > Sustainability Hub.</p>",
+        "status": "Published",
+        "tags": [
+          "climate-pledge",
+          "sustainability",
+          "net-zero",
+          "renewable-energy",
+          "2040"
+        ],
+        "is_main_highlight": true,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"error\": \"http_error\", \"status_code\": 400, \"url\": \"https://localhost:44313/cms/api/content-management\", \"method\": \"POST\", \"body\": {\"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\", \"title\": \"Bad Request\", \"status\": 400, \"detail\": \"Channel with the specified channelId was not found.\", \"t",
+      "result_size_chars": 368,
+      "success": true,
+      "latency_ms": 57.07004199939547,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:38:54.105739",
+      "turn": 27,
+      "server_name": "diggspace",
+      "tool_name": "check_connection",
+      "arguments": {},
+      "result_preview": "{\"ok\": true, \"status_code\": 200}",
+      "result_size_chars": 32,
+      "success": true,
+      "latency_ms": 17.293375000008382,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:38:57.061724",
+      "turn": 28,
+      "server_name": "diggspace",
+      "tool_name": "resolve_scope",
+      "arguments": {
+        "name_or_route": "Amazon"
+      },
+      "result_preview": "{\"query\": \"Amazon\", \"match_count\": 1, \"matches\": [{\"name\": \"Amazon Central\", \"route\": \"amazon-central\", \"id\": \"4mrcj6s49xy1m162zftrjj8d4e\"}]}",
+      "result_size_chars": 141,
+      "success": true,
+      "latency_ms": 65.38908299989998,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:39:00.472449",
+      "turn": 29,
+      "server_name": "diggspace",
+      "tool_name": "list_channels",
+      "arguments": {
+        "scope_id": "4mrcj6s49xy1m162zftrjj8d4e",
+        "take": 20
+      },
+      "result_preview": "- The Daily Headline \u2014 type: ? \u2014 id: 4c1n9cqz66hcx7we0gtrc5a7mp\n- AWS & Cloud \u2014 type: ? \u2014 id: 4cnr24wa8ah3ktxj3a5tmn6mxm\n- People & Belonging \u2014 type: ? \u2014 id: 4r6hp1sj2rf2mtwxt86ht8vd5v\n- Leadership & Strategy \u2014 type: ? \u2014 id: 4kfm3r93vv5wz2vp4zv850wpmh\n- Compliance & Legal \u2014 type: ? \u2014 id: 4m3gf17pbtr",
+      "result_size_chars": 447,
+      "success": true,
+      "latency_ms": 92.6182909970521,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:39:15.525439",
+      "turn": 30,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "49deppyavfzrrvfw8ekhpdn54m",
+        "title": "The Climate Pledge: Amazon's Commitment to Net-Zero Carbon by 2040 \u2014 Where We Stand",
+        "body": "<h2>Ten Years Ahead of the Paris Agreement</h2>\n<p>In 2019, Amazon co-founded <strong>The Climate Pledge</strong> \u2014 a commitment to reach net-zero carbon emissions across all operations by <strong>2040</strong>, ten years ahead of the Paris Agreement's 2050 target. That commitment now has more than 400 signatories from companies across the globe who have made the same pledge. Amazon's role is both founder and benchmark: what Amazon does on sustainability, at Amazon's scale, matters in ways that most corporate sustainability commitments do not.</p>\n<p>This article summarises where we stand today across our three major sustainability pillars: renewable energy, electric delivery, and packaging.</p>\n<h2>Pillar 1: Renewable Energy</h2>\n<p>Amazon is the <strong>world's largest corporate purchaser of renewable energy</strong>, with more than <strong>100 gigawatts of contracted renewable energy capacity</strong> across solar and wind projects in the US, Europe, India, Australia, and beyond.</p>\n<p>Key data points:</p>\n<ul>\n  <li>Amazon matched <strong>100% of its electricity consumption</strong> with renewable energy for the first time in 2023 \u2014 a major milestone</li>\n  <li>Amazon has invested in over 400 renewable energy projects across 24 countries</li>\n  <li>The company is developing wind and solar projects that will power not just Amazon's operations but feed into local electricity grids, creating clean energy access beyond Amazon's footprint</li>\n</ul>\n<h2>Pillar 2: Electric Delivery Vehicles</h2>\n<p>In 2020, Amazon ordered <strong>100,000 custom electric delivery vehicles</strong> from Rivian \u2014 the largest electric vehicle procurement order in history at the time. The first Rivian delivery vans entered service in 2022 and are now operating in multiple US cities.</p>\n<ul>\n  <li><strong>Vehicles on road:</strong> Thousands of Rivian EDVs (Electric Delivery Vans) now operational in US cities including Seattle, Nashville, and Phoenix</li>\n  <li><strong>Full deployment target:</strong> 100,000 Rivian vans on road by 2030</li>\n  <li><strong>Supplementary EV investment:</strong> Additional electric vans from Mercedes (Europe), Stellantis, and other manufacturers supplement the Rivian order in international markets</li>\n</ul>\n<h2>Pillar 3: Packaging</h2>\n<p>Amazon's frustration-free packaging programme has been running since 2008. The latest targets:</p>\n<ul>\n  <li><strong>Single-use plastic:</strong> Eliminated from delivery packaging in most markets; replacement with paper-based materials ongoing</li>\n  <li><strong>Right-sized packaging:</strong> Machine-learning-driven packaging selection reduces box size and eliminates void fill in millions of shipments per day</li>\n  <li><strong>Shipment Zero goal:</strong> Amazon's commitment to make 50% of all shipments net-zero carbon</li>\n</ul>\n<h2>The Climate Pledge Fund</h2>\n<p>Amazon has committed <strong>$2 billion</strong> to The Climate Pledge Fund \u2014 a venture capital initiative that invests in companies developing clean technologies that will help Amazon and other signatories meet their climate commitments. Investments span renewable energy, sustainable agriculture, circular economy, and carbon capture.</p>\n<blockquote>\"The Climate Pledge is a race to zero. We founded it because we believe in the urgency, and because Amazon's scale means our progress \u2014 or our failure \u2014 matters at a global level.\" \u2014 Amazon Sustainability</blockquote>\n<p>Read the full Amazon Sustainability Report at <a href=\"https://sustainability.aboutamazon.com\">sustainability.aboutamazon.com</a>. For internal sustainability initiatives and local office programmes, visit A to Z > Sustainability Hub.</p>",
+        "status": "Published",
+        "tags": [
+          "climate-pledge",
+          "sustainability",
+          "net-zero",
+          "renewable-energy",
+          "2040"
+        ],
+        "is_main_highlight": true,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4196rb8dqy26a1qrhxfg87v945\", \"versionId\": \"4y71th7werfdg3ahmm2pnwvtnr\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/49deppyavfzrrvfw8ekhpdn54m/the-climate-pledge-amazon-s-commitment-to-net-zero-carbon-by-2040-where-we-stand\"}}",
+      "result_size_chars": 269,
+      "success": true,
+      "latency_ms": 3175.3921670024283,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:40:48.022343",
+      "turn": 31,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "49deppyavfzrrvfw8ekhpdn54m",
+        "title": "Rivian EDVs Hit the Road: Amazon's Electric Delivery Fleet Is Growing Every Quarter",
+        "body": "<h2>The Largest EV Order in History \u2014 Now Delivering to Your Neighbours</h2>\n<p>Amazon's order of <strong>100,000 Rivian Electric Delivery Vans (EDVs)</strong> is the largest electric vehicle order ever placed by a single company. The first vehicles entered service in 2022, and as of 2024 they are operating in a growing number of US cities, with international electric delivery vehicles deployed in Europe and other markets.</p>\n<p>These are not test pilots. The Rivian vans are operational delivery vehicles completing full routes every day \u2014 carrying Amazon packages to customers' doors with zero tailpipe emissions. Each van replaced a diesel or petrol vehicle that was previously making the same route.</p>\n<h2>The Vehicles</h2>\n<p>Rivian built the EDV specifically for Amazon, in two configurations: EDV 700 (for standard residential routes) and EDV 500 (for urban and high-density areas). The vans feature:</p>\n<ul>\n  <li><strong>Purpose-built driver experience:</strong> ergonomic cab, 360-degree camera system, Alexa integration for route guidance and package lookup</li>\n  <li><strong>Range:</strong> 150+ miles per charge \u2014 sufficient for a full delivery shift in most markets</li>\n  <li><strong>Fleet management integration:</strong> real-time monitoring via Amazon's logistics platform for battery health, route optimisation, and maintenance scheduling</li>\n  <li><strong>Safety technology:</strong> automatic emergency braking, pedestrian detection, and side-view cameras to protect delivery associates and road users</li>\n</ul>\n<h2>Cities Currently Operating Rivian EDVs</h2>\n<p>Rivian EDVs are now delivering Amazon packages in over a dozen US cities, including:</p>\n<ul>\n  <li>Seattle, Washington (home city \u2014 a fitting starting point)</li>\n  <li>Nashville, Tennessee</li>\n  <li>Phoenix, Arizona</li>\n  <li>San Diego, California</li>\n  <li>Denver, Colorado</li>\n  <li>Baltimore, Maryland</li>\n</ul>\n<p>Additional city deployments are planned each quarter as Rivian's Bloomington, Illinois manufacturing plant scales production.</p>\n<h2>International: Electric Vans in Europe</h2>\n<p>In Europe, Amazon is deploying electric delivery vans from Mercedes-Benz (eSprinter) and Stellantis (Citro\u00ebn \u00eb-Dispatch and Peugeot e-Partner) across delivery stations in the UK, Germany, France, and Spain. The European rollout is accelerated by urban clean air zones (like the London ULEZ) that impose surcharges on diesel vehicles \u2014 making the economic case for electrification immediate, not just aspirational.</p>\n<h2>Charging Infrastructure</h2>\n<p>Amazon is building out EV charging infrastructure at its delivery stations across the US. Each station is being fitted with high-power charging equipment capable of fully charging multiple vans overnight. Amazon is working with utility companies on demand management to ensure charging loads are absorbed during off-peak grid periods, minimising carbon intensity of the charging itself.</p>\n<blockquote>\"Every Rivian van that goes out on a route is a diesel van that didn't. At scale, that's millions of tonnes of CO\u2082 not emitted over the life of the fleet.\" \u2014 Amazon Last Mile Sustainability team</blockquote>\n<p>Track Amazon's EV progress in the annual Sustainability Report at <a href=\"https://sustainability.aboutamazon.com\">sustainability.aboutamazon.com</a>.</p>",
+        "status": "Published",
+        "tags": [
+          "rivian",
+          "ev",
+          "electric",
+          "delivery",
+          "last-mile"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4y9m6zxpgycyb2s0w8srhjr05p\", \"versionId\": \"4wq2kej1gs0bsrtfg2qr3hxxcr\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/49deppyavfzrrvfw8ekhpdn54m/rivian-edvs-hit-the-road-amazon-s-electric-delivery-fleet-is-growing-every-quarter\"}}",
+      "result_size_chars": 271,
+      "success": true,
+      "latency_ms": 3697.8365420000046,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:41:14.240043",
+      "turn": 32,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "49deppyavfzrrvfw8ekhpdn54m",
+        "title": "Prime Air Drone Delivery Is Live: What Amazonians Need to Know About Our Drone Programme",
+        "body": "<h2>Commercial Drone Delivery: No Longer a Future Project</h2>\n<p>Amazon <strong>Prime Air</strong> \u2014 the drone delivery programme that has been in development since 2013 \u2014 is now commercially operational in two US markets: <strong>College Station, Texas</strong> and <strong>Lockeford, California</strong>. Eligible customers in these areas can receive packages weighing up to five pounds delivered by drone in under an hour, with no delivery fee for Prime members.</p>\n<p>This is not a demonstration or a limited trial. It is live commercial delivery service. And it represents a decade of engineering investment, regulatory navigation, and iteration on drone design, safety systems, and operating procedures reaching its first real-world proof of concept.</p>\n<h2>How Prime Air Works</h2>\n<p>The Prime Air delivery sequence works as follows:</p>\n<ol>\n  <li>Customer places an eligible Prime Air order via the Amazon app \u2014 items are flagged as Prime Air eligible at checkout</li>\n  <li>The order is picked and packed at a dedicated Prime Air fulfilment facility located close to the delivery zone</li>\n  <li>The drone autonomously navigates to the delivery address, descends to approximately 12 feet above ground, and uses a cable to lower the package before releasing and ascending</li>\n  <li>The entire process \u2014 from order to delivery \u2014 targets under <strong>60 minutes</strong></li>\n</ol>\n<h2>The MK30 Drone</h2>\n<p>The current Prime Air drone, the <strong>MK30</strong>, is Amazon's latest design \u2014 smaller, lighter, and quieter than previous models. It is designed to operate safely in residential neighbourhoods and can fly through light rain. Each drone is fully electric, producing zero direct emissions during delivery. Safety systems include redundant motors, autonomous obstacle detection, and a parachute-style failure mode that brings the drone to a controlled descent if primary systems fail.</p>\n<h2>Regulatory Progress</h2>\n<p>The FAA has granted Amazon an Air Carrier Certificate and Part 135 air carrier designation \u2014 the same certification required for commercial airlines. This was a significant regulatory milestone that unlocked commercial operations beyond restricted test zones. Amazon is working with the FAA on expanded certification to fly Beyond Visual Line of Sight (BVLOS) in more markets.</p>\n<ul>\n  <li>Current operational markets: College Station, TX; Lockeford, CA</li>\n  <li>Planned expansion markets: Additional US cities pending FAA approval</li>\n  <li>International markets: Regulatory engagement underway in the UK and select EU countries</li>\n</ul>\n<h2>Why This Matters Beyond the Headlines</h2>\n<p>Prime Air is not primarily about speed \u2014 same-day delivery already solves the speed problem in most markets. It is about <strong>last-mile cost reduction and zero-emission delivery at scale</strong>. A drone delivering five pounds of goods uses a fraction of the energy of a diesel van completing a route with the same package in it. If regulatory approval scales fast enough to deploy drones at meaningful volume, the impact on Amazon's delivery cost structure and carbon footprint is material.</p>\n<blockquote>\"We've been building toward this for over a decade. The regulatory path was always the long pole. We're now flying commercially and expanding from here.\" \u2014 Amazon Prime Air team</blockquote>\n<p>Learn more about Prime Air at <a href=\"https://www.aboutamazon.com\">aboutamazon.com</a> and follow expansion announcements on the Amazon Newsroom.</p>",
+        "status": "Published",
+        "tags": [
+          "prime-air",
+          "drones",
+          "delivery",
+          "innovation",
+          "sustainability"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4cwjx25yb4nzz7pee8dr0r9ym5\", \"versionId\": \"45tmjm503egy34s7gxe7s2rkm7\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/49deppyavfzrrvfw8ekhpdn54m/prime-air-drone-delivery-is-live-what-amazonians-need-to-know-about-our-drone-programme\"}}",
+      "result_size_chars": 276,
+      "success": true,
+      "latency_ms": 2940.812749999168,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:41:42.790876",
+      "turn": 33,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4m3gf17pbtr2166rs10fvkxjmp",
+        "title": "Amazon's Global Data Privacy Policy: Your Obligations Under GDPR, CCPA, and Data Residency Requirements",
+        "body": "<h2>Data Privacy Is a Legal Requirement and an Ethical Obligation</h2>\n<p>Amazon operates in more than 20 countries and processes personal data at a scale that is genuinely difficult to comprehend \u2014 customer data, employee data, partner data, and data generated by the operation of our services. This creates a legal obligation that every Amazonian who touches, processes, stores, or transfers personal data must understand and comply with.</p>\n<p>This policy document is mandatory reading for all employees in roles that involve personal data handling, including product, engineering, operations, HR, legal, finance, and customer service. It is also relevant to any employee who accesses customer records, employee records, or partner information as part of their role.</p>\n<h2>GDPR: European Data Obligations</h2>\n<p>The <strong>General Data Protection Regulation (GDPR)</strong> applies to all processing of personal data of individuals in the European Union and European Economic Area, regardless of where Amazon's processing infrastructure is located. Key obligations:</p>\n<ul>\n  <li><strong>Lawful basis:</strong> Every processing activity must have a documented lawful basis (consent, contract, legitimate interest, legal obligation, vital interests, or public task)</li>\n  <li><strong>Data minimisation:</strong> Collect only what is necessary. Do not retain data beyond the period required for its stated purpose</li>\n  <li><strong>Individual rights:</strong> EU residents have rights of access, correction, erasure (\"right to be forgotten\"), restriction, portability, and objection. These must be honoured within 30 days of a valid request</li>\n  <li><strong>Data transfers:</strong> Transferring personal data from the EU to countries outside the EEA requires a legal transfer mechanism (Standard Contractual Clauses, adequacy decision, or binding corporate rules)</li>\n  <li><strong>Breach notification:</strong> Data breaches must be reported to the relevant supervisory authority within <strong>72 hours</strong> of discovery. Report immediately via the Security Hub on A to Z</li>\n</ul>\n<p><em>Amazon received a \u20ac746 million GDPR fine from Luxembourg's CNPD in 2021. Compliance is not theoretical \u2014 regulators act.</em></p>\n<h2>CCPA: California Consumer Privacy Act</h2>\n<p>The <strong>California Consumer Privacy Act (CCPA)</strong>, as amended by the California Privacy Rights Act (CPRA), gives California residents rights over their personal information, including the right to know what data is collected, the right to delete, and the right to opt out of the sale of personal information. If your role involves consumer-facing data operations in the US, CCPA compliance is mandatory.</p>\n<h2>AWS Data Residency and Sovereignty</h2>\n<p>AWS customers in many countries require guarantees that their data remains within specific geographic boundaries. Amazon's obligations as both an AWS operator and an AWS customer include:</p>\n<ul>\n  <li>Understanding data residency requirements in each market before deploying services</li>\n  <li>Using AWS Region selection to ensure data residency for customer workloads</li>\n  <li>Complying with national data localisation laws (e.g., Germany's BDSG, India's DPDP Act, Saudi Arabia's PDPL)</li>\n</ul>\n<h2>Your Responsibilities</h2>\n<p>Every Amazonian is responsible for:</p>\n<ul>\n  <li>Completing the mandatory annual <strong>Data Privacy Training</strong> module on A to Z</li>\n  <li>Not accessing personal data beyond what is required for your specific role</li>\n  <li>Reporting suspected data breaches, loss of devices, or unauthorised access immediately via the Security Hub</li>\n  <li>Consulting your Legal Business Partner before building any new system or process that involves personal data collection or processing</li>\n</ul>\n<blockquote>\"Privacy by design is not a technical checklist. It is a mindset. Build systems that collect the minimum necessary data, protect it appropriately, and make it easy for customers and employees to exercise their rights.\" \u2014 Amazon Legal & Privacy</blockquote>\n<p>Questions: Contact your Legal Business Partner or submit via A to Z > Legal > Privacy Enquiry.</p>",
+        "status": "Published",
+        "tags": [
+          "gdpr",
+          "ccpa",
+          "privacy",
+          "compliance",
+          "legal"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": true,
+        "require_read_confirmation": true,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4m44wta4exfn353tqmsmhngt4s\", \"versionId\": \"4zer9q2r5bcqavjcxnjn1j8qd7\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4m3gf17pbtr2166rs10fvkxjmp/amazon-s-global-data-privacy-policy-your-obligations-under-gdpr-ccpa-and-data-residency-requirements\"}}",
+      "result_size_chars": 289,
+      "success": true,
+      "latency_ms": 2986.668124998687,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:42:04.631859",
+      "turn": 34,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4m3gf17pbtr2166rs10fvkxjmp",
+        "title": "Amazon's Antitrust Environment: What the FTC Lawsuit Means for Amazonians",
+        "body": "<h2>What You Need to Know \u2014 and What You Should Not Speculate About</h2>\n<p>In September 2023, the <strong>Federal Trade Commission (FTC)</strong> filed a lawsuit against Amazon alleging that Amazon illegally maintains monopoly power in online retail and online marketplace services. This is one of the most significant antitrust cases involving a technology company in the United States in a generation. Trial is expected in 2026.</p>\n<p>This article is the authoritative internal briefing on this matter. It will be updated as material developments occur. Please read it carefully \u2014 and please follow the guidelines at the bottom regarding communications and documentation.</p>\n<h2>The Nature of the Allegations</h2>\n<p>The FTC's complaint focuses on two claims:</p>\n<ol>\n  <li><strong>Anti-competitive conduct in the online retail market:</strong> The FTC alleges that Amazon uses various practices \u2014 including pricing parity enforcement and Prime eligibility conditions \u2014 that harm third-party sellers and ultimately consumers by suppressing competition from rival retail platforms</li>\n  <li><strong>Anti-competitive conduct in the online marketplace services market:</strong> The FTC alleges that Amazon's fulfilment requirements and platform rules foreclose competition in the marketplace services space</li>\n</ol>\n<p>Amazon disputes these allegations in their entirety. Amazon's legal position is that its practices are pro-competitive, have led to lower prices and better selection for customers, and have created economic opportunity for hundreds of thousands of small and medium-sized businesses who sell through the Amazon store.</p>\n<h2>Additional Regulatory Proceedings</h2>\n<p>In parallel with the FTC matter, Amazon faces additional regulatory scrutiny:</p>\n<ul>\n  <li><strong>EU Digital Markets Act:</strong> Amazon has been designated as a \"gatekeeper\" under the DMA, which imposes specific interoperability, data access, and fairness obligations on how Amazon operates its marketplace in Europe</li>\n  <li><strong>UK CMA:</strong> The UK Competition and Markets Authority has ongoing investigations into Amazon's marketplace practices</li>\n  <li><strong>NLRB proceedings:</strong> The National Labor Relations Board has ongoing proceedings related to worker organising and labour practices at Amazon facilities</li>\n</ul>\n<h2>Your Responsibilities During This Period</h2>\n<p>Active legal proceedings create specific obligations for all Amazon employees. These are not optional:</p>\n<ul>\n  <li><strong>Litigation Hold:</strong> If you have received a litigation hold notice, you must preserve all relevant documents, emails, and records as directed. Destruction of documents under a hold notice has severe legal consequences</li>\n  <li><strong>Do not speculate in writing:</strong> Do not write emails, Slack/Chime messages, or documents that speculate about Amazon's legal position, liability, or settlement prospects. Written internal speculation can be discoverable</li>\n  <li><strong>Do not discuss with external parties:</strong> Do not discuss the litigation with journalists, analysts, social media followers, or any non-Amazon parties. Refer all press enquiries to press@amazon.com</li>\n  <li><strong>Contact Legal first:</strong> If you are contacted by the FTC, another regulator, or any third party in connection with these proceedings, contact your Legal Business Partner immediately before responding</li>\n</ul>\n<blockquote>\"Amazon will contest these allegations vigorously. We are confident in our legal position. In the meantime, every employee should follow the document preservation and communications protocols above \u2014 not because we have anything to hide, but because legal discipline is how you defend a strong position effectively.\" \u2014 David Zapolsky, Chief Legal Officer</blockquote>\n<p>Questions about the litigation hold or your specific obligations: contact your Legal Business Partner via A to Z > Legal > My Legal Team.</p>",
+        "status": "Published",
+        "tags": [
+          "ftc",
+          "antitrust",
+          "legal",
+          "regulatory",
+          "compliance"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": true,
+        "require_read_confirmation": true,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4m94c04vx0fbw7y7qc1y4krjch\", \"versionId\": \"41dbewf8wwfjhs0nmbbd66aqcm\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4m3gf17pbtr2166rs10fvkxjmp/amazon-s-antitrust-environment-what-the-ftc-lawsuit-means-for-amazonians\"}}",
+      "result_size_chars": 261,
+      "success": true,
+      "latency_ms": 985.1678749982966,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:42:27.669568",
+      "turn": 35,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "4m3gf17pbtr2166rs10fvkxjmp",
+        "title": "EthicsLine: How to Report Concerns Anonymously \u2014 and Why It Matters",
+        "body": "<h2>Amazon's EthicsLine: Your Anonymous Reporting Channel</h2>\n<p>Amazon's <strong>EthicsLine</strong> is the company's confidential and anonymous reporting system for ethics, compliance, legal, and safety concerns. It is managed by an independent third-party provider \u2014 not Amazon employees \u2014 which means reports can be made anonymously with genuine confidentiality. Amazon's policy strictly prohibits retaliation against anyone who makes a good-faith report.</p>\n<p>This article explains what EthicsLine is for, how to use it, and what happens after you submit a report.</p>\n<h2>What You Can Report</h2>\n<p>EthicsLine is the right channel for a wide range of concerns, including but not limited to:</p>\n<ul>\n  <li><strong>Financial misconduct:</strong> fraud, falsification of records, misuse of company funds, expense fraud</li>\n  <li><strong>Anti-competitive behaviour:</strong> coordination with competitors, price-fixing, market allocation</li>\n  <li><strong>Privacy violations:</strong> unauthorised access to customer or employee data, improper data sharing</li>\n  <li><strong>Harassment and discrimination:</strong> conduct that violates Amazon's Equal Employment Opportunity policy or anti-harassment standards</li>\n  <li><strong>Safety violations:</strong> unsafe working conditions in fulfilment centres, delivery stations, or offices (though safety concerns should also be logged via the Safety Hub in A to Z for immediate operational response)</li>\n  <li><strong>Conflicts of interest:</strong> undisclosed outside business interests, insider trading, supplier kickbacks</li>\n  <li><strong>Data and information security:</strong> suspected breaches, credential sharing, suspicious access patterns</li>\n  <li><strong>Legal and regulatory violations:</strong> any conduct that you believe violates applicable law</li>\n</ul>\n<h2>What EthicsLine Is NOT For</h2>\n<p>EthicsLine is for ethics and compliance concerns \u2014 not for HR grievances, performance disputes, or general workplace complaints. For those matters, use A to Z > My HR > Raise a Concern, or speak with your HR Business Partner directly.</p>\n<h2>How to Submit a Report</h2>\n<ul>\n  <li><strong>Online:</strong> Via the EthicsLine portal (access via A to Z > Legal & Compliance > EthicsLine)</li>\n  <li><strong>Phone:</strong> EthicsLine telephone numbers by country are listed on A to Z</li>\n  <li><strong>Anonymous:</strong> You may submit a report without identifying yourself. The third-party provider ensures Amazon does not know the identity of anonymous reporters</li>\n</ul>\n<h2>What Happens After You Report</h2>\n<p>All EthicsLine reports are reviewed by Amazon's Global Ethics & Compliance team. The process:</p>\n<ol>\n  <li>Report is received and triaged within 2 business days</li>\n  <li>An investigator is assigned (independent of the team or subject of the report)</li>\n  <li>Investigation is conducted. If you provided contact information, you will receive updates</li>\n  <li>Findings are documented. Appropriate action is taken, which may include disciplinary measures, process changes, or regulatory reporting</li>\n  <li>If your report identified a genuine compliance issue, you will be informed of the outcome to the extent permissible</li>\n</ol>\n<h2>Non-Retaliation Policy</h2>\n<p>Amazon's non-retaliation policy is absolute. Any Amazon employee, manager, or executive who retaliates against a person for making a good-faith EthicsLine report will face disciplinary action up to and including termination. If you believe you have experienced retaliation, report it through EthicsLine immediately.</p>\n<blockquote>\"Speak up. The culture we want to build requires that people feel safe saying when something is wrong. EthicsLine is the mechanism. Use it.\" \u2014 Amazon Global Ethics & Compliance</blockquote>",
+        "status": "Published",
+        "tags": [
+          "ethics",
+          "compliance",
+          "reporting",
+          "safety",
+          "culture"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": true,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4q0xt9pe69kk3zrq0d6nfezcmv\", \"versionId\": \"4s54z6hwah35451xqe06yyjrnm\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/4m3gf17pbtr2166rs10fvkxjmp/ethicsline-how-to-report-concerns-anonymously-and-why-it-matters\"}}",
+      "result_size_chars": 253,
+      "success": true,
+      "latency_ms": 3004.372333001811,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:42:52.581288",
+      "turn": 36,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "486m56cbs7wvetjw34ctbmdccy",
+        "title": "Project Sequoia: The Next Generation of Fulfilment Centre Robotics Is Here",
+        "body": "<h2>What Is Project Sequoia?</h2>\n<p>Amazon's fulfilment centre robotics programme has been running since the acquisition of Kiva Systems in 2012 \u2014 now operating as <strong>Amazon Robotics</strong>. The hundreds of thousands of drive units moving pods of inventory across FC floors represent one of the largest deployments of autonomous mobile robots anywhere in the world. And we're about to leap forward again.</p>\n<p><strong>Project Sequoia</strong> is Amazon's next-generation robotics system for inventory management inside fulfilment centres. It represents a fundamental redesign of how inventory is received, stored, and retrieved \u2014 with the goal of reducing the time between an item arriving at an FC and being available for purchase by <strong>up to 75%</strong>.</p>\n<h2>How Sequoia Works</h2>\n<p>Sequoia integrates several robotic subsystems into a unified inventory workflow:</p>\n<ul>\n  <li><strong>Automated receiving:</strong> Inbound inventory is sorted, identified, and stowed by robotic systems, reducing manual receiving time from hours to minutes per pallet</li>\n  <li><strong>High-density storage:</strong> Sequoia uses a vertical storage system with tighter pod spacing and higher rack density than the current Kiva-era systems \u2014 more inventory per square foot, without expanding the building footprint</li>\n  <li><strong>Integrated Sparrow system:</strong> The Sparrow robotic arm \u2014 capable of identifying and handling over 200 million different Amazon products \u2014 works within the Sequoia architecture to pick individual items from pods and transfer them to packing stations</li>\n  <li><strong>Project Titan compatibility:</strong> For heavy items, Project Titan autonomous mobile robots (capable of handling pallets and large items) are being integrated into the Sequoia workflow</li>\n</ul>\n<h2>Associate Impact</h2>\n<p>Sequoia changes the nature of FC associate roles. The most physically demanding tasks \u2014 walking long distances to retrieve inventory, lifting heavy items from low or high storage positions \u2014 are handled by robotic systems. Associates work at ergonomic workstations where items come to them, rather than walking miles per shift to retrieve them.</p>\n<p>This is a point of emphasis for Amazon's operations leadership: automation at Amazon is designed to reduce the most physically demanding and injury-prone elements of FC work, while creating new roles in robotics maintenance, fleet management, and quality assurance. Amazon Technical Academy provides a pathway for operations associates to move into technical roles as robotics density increases.</p>\n<h2>Scale of Deployment</h2>\n<p>Sequoia is being deployed at selected fulfilment centres in the US first, with rollout plans extending to international FCs. The first Sequoia-enabled facility began operations in 2023, and the learnings from early deployment are informing the next phase of rollout across Amazon's 350+ global fulfilment network.</p>\n<blockquote>\"Sequoia isn't about replacing people. It's about redesigning how the work gets done so that it's safer, faster, and less physically punishing. That matters if you want to be Earth's Best Employer.\" \u2014 Amazon Robotics & Operations leadership</blockquote>\n<p>Associates with questions about automation in their facility should speak with their Operations Manager or visit the Robotics Hub on A to Z.</p>",
+        "status": "Published",
+        "tags": [
+          "robotics",
+          "fulfilment",
+          "operations",
+          "sequoia",
+          "automation"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": true,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"40x5fczxpez5ky58s45rf1y259\", \"versionId\": \"4wvcwpvzh6n0s2qz3gb5v9ct53\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/486m56cbs7wvetjw34ctbmdccy/project-sequoia-the-next-generation-of-fulfilment-centre-robotics-is-here\"}}",
+      "result_size_chars": 262,
+      "success": true,
+      "latency_ms": 2961.57108299667,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:43:17.938657",
+      "turn": 37,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "486m56cbs7wvetjw34ctbmdccy",
+        "title": "Amazon Logistics: How We Went from 0% to 70% of Our Own US Deliveries in a Decade",
+        "body": "<h2>The Last-Mile Revolution That Changed Amazon's Cost Structure</h2>\n<p>In 2012, Amazon relied almost entirely on UPS, FedEx, and USPS to deliver its packages. Today, <strong>Amazon Logistics handles approximately 70% of Amazon's US deliveries</strong> \u2014 a shift that is one of the most significant strategic transformations in the company's history, and one of the most underappreciated from the outside.</p>\n<p>Understanding the Amazon last-mile delivery network \u2014 its components, its economics, and where it is going \u2014 is essential context for anyone working in operations, supply chain, transportation, or related roles.</p>\n<h2>The Four Layers of Amazon's Delivery Network</h2>\n<h3>1. Delivery Service Partners (DSPs)</h3>\n<p>Amazon's DSP programme allows entrepreneurs to start small delivery businesses with Amazon as their primary customer. Amazon provides vans (including Rivian EDVs), a technology platform, and package volume. DSPs hire drivers, manage operations, and are paid per package delivered. There are now thousands of DSPs operating across the US, each running fleets of 20 to 40 vans. This model gives Amazon control over the last mile without the direct employment costs and labour relations complexity of a unionised delivery workforce.</p>\n<h3>2. Amazon Flex</h3>\n<p>Amazon Flex enables individuals to make deliveries using their own vehicles \u2014 similar in concept to Uber's model. Flex drivers are independent contractors who pick up packages from delivery stations and deliver them in their personal vehicles. Flex is used primarily for surge capacity, rural areas where DSP density is low, and same-day delivery programmes where small batches of packages need to move quickly.</p>\n<h3>3. Amazon Air</h3>\n<p>Amazon Air is the company's cargo aircraft network, operating a fleet of dedicated Amazon-branded aircraft from regional air hubs. Amazon Air moves packages between Amazon's sort centres and regional delivery stations overnight \u2014 enabling next-day and same-day delivery commitments in markets that are too far from fulfilment centres for ground transport to meet time windows. Key Amazon Air hubs include Cincinnati/Northern Kentucky Airport (the primary hub), Denver, and Dallas Fort Worth.</p>\n<h3>4. Amazon Robotics \u2014 Delivery Stations</h3>\n<p>Amazon's network of delivery stations \u2014 the final link before packages go on vans \u2014 is now increasingly automated. Automated sortation systems read package labels, route them to the correct DSP bag, and significantly reduce the manual labour involved in station sorting. This reduces cost-per-package at the station level and reduces the error rate in misrouted packages.</p>\n<h2>The Economics of Owning the Last Mile</h2>\n<p>The decision to build Amazon Logistics was ultimately an economic one. At Amazon's volume, third-party carrier rates \u2014 even with the negotiating leverage of Amazon's volume \u2014 were increasing faster than Amazon's ability to absorb the cost within its Prime commitments. Building the last mile in-house allowed Amazon to:</p>\n<ul>\n  <li>Control delivery speed and quality without dependence on external carriers</li>\n  <li>Reduce cost-per-delivery below external carrier rates at scale</li>\n  <li>Electrify the fleet directly (the Rivian order is only possible because Amazon owns the fleet)</li>\n  <li>Generate data about delivery performance that could be fed back into FC and sortation operations</li>\n</ul>\n<blockquote>\"We didn't build Amazon Logistics to disrupt the parcel industry. We built it because it was the only way to make our delivery promises economics work at the scale we were growing to.\" \u2014 Amazon Transportation leadership</blockquote>",
+        "status": "Published",
+        "tags": [
+          "logistics",
+          "last-mile",
+          "delivery",
+          "dsp",
+          "operations"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": false,
+        "notify": false,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4bz2pt3e2tja86jepc1n09nc5x\", \"versionId\": \"47g7n7erddjh771nkg5xf28nn9\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/486m56cbs7wvetjw34ctbmdccy/amazon-logistics-how-we-went-from-0-to-70-of-our-own-us-deliveries-in-a-decade\"}}",
+      "result_size_chars": 267,
+      "success": true,
+      "latency_ms": 2960.538250001264,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:43:44.592916",
+      "turn": 38,
+      "server_name": "diggspace",
+      "tool_name": "create_article",
+      "arguments": {
+        "channel_id": "486m56cbs7wvetjw34ctbmdccy",
+        "title": "Workplace Safety in Amazon Fulfilment: OSHA Compliance, Recordables, and What Every Associate Needs to Know",
+        "body": "<h2>Safety Is Non-Negotiable</h2>\n<p>Amazon operates one of the world's largest industrial workforces \u2014 approximately 1.15 million people in operations, fulfilment, and logistics roles globally. The safety of every associate, driver, and contractor in that workforce is a direct operational responsibility, not a compliance checkbox. This article covers what every operations associate and manager needs to know about Amazon's safety obligations, OSHA requirements, and how to report concerns.</p>\n<h2>OSHA Compliance: The Legal Framework</h2>\n<p>In the United States, Amazon's fulfilment centres and delivery stations are regulated by the <strong>Occupational Safety and Health Administration (OSHA)</strong>. OSHA requires employers to:</p>\n<ul>\n  <li>Maintain a workplace free from recognised hazards that are causing or are likely to cause serious physical harm or death</li>\n  <li>Record and report work-related injuries and illnesses that meet the OSHA recordable criteria</li>\n  <li>Allow OSHA inspectors access to the workplace and records</li>\n  <li>Post the OSHA \"It's The Law\" poster in a prominent location in every facility</li>\n  <li>Provide required safety training in a language and vocabulary that workers can understand</li>\n</ul>\n<p>International operations are subject to equivalent regulations: HSE (UK), DGUV (Germany), WorkSafe (Australia), and national equivalents elsewhere. The obligations are broadly similar even where the regulatory body differs.</p>\n<h2>Amazon's Safety Programmes</h2>\n<h3>Ergonomics and Injury Prevention</h3>\n<p>Musculoskeletal injuries \u2014 strains, sprains, and overexertion \u2014 are the most common work-related injuries in fulfilment operations. Amazon's primary prevention programme focuses on:</p>\n<ul>\n  <li><strong>Workstation design:</strong> Adjustable heights, reduced reach distances, and ergonomic tool selection reduce injury risk at the process level</li>\n  <li><strong>Task rotation:</strong> Rotating associates through different task types limits cumulative strain on specific muscle groups</li>\n  <li><strong>WorkingWell:</strong> Amazon's investment programme for physical and mental health in operations, including on-site physical therapists, AmaZen mindfulness stations, and strength-building equipment in break rooms</li>\n</ul>\n<h3>Reporting Safety Concerns</h3>\n<p>Every safety concern must be reported. There are no consequences for reporting a hazard \u2014 there are consequences for ignoring one. Report via:</p>\n<ul>\n  <li><strong>A to Z Safety Hub:</strong> Log any safety hazard, near-miss, or unsafe condition digitally in real time</li>\n  <li><strong>Your Area Manager or Safety Team:</strong> For immediate risks, alert your manager or your site's Safety team directly and immediately</li>\n  <li><strong>EthicsLine:</strong> If you believe a safety concern is being ignored or suppressed, you can report anonymously via EthicsLine</li>\n</ul>\n<h2>Recordable vs. Non-Recordable Incidents</h2>\n<p>Not every incident is OSHA-recordable. An incident is recordable if it results in days away from work, restricted work or job transfer, medical treatment beyond first aid, loss of consciousness, or a significant diagnosis. Near-misses \u2014 incidents that could have resulted in injury but did not \u2014 are not recordable under OSHA but are strongly encouraged to be reported internally as part of Amazon's proactive safety culture.</p>\n<blockquote>\"The goal isn't zero recordables on a spreadsheet. The goal is zero injuries in the real world. That requires every person on every shift to report every hazard, every time \u2014 no exceptions.\" \u2014 Amazon Global Safety leadership</blockquote>\n<p>Your facility's injury and illness logs are available from your site's Safety Manager. Amazon publishes aggregate safety data in its annual Sustainability Report.</p>",
+        "status": "Published",
+        "tags": [
+          "safety",
+          "osha",
+          "fulfilment",
+          "operations",
+          "workplace"
+        ],
+        "is_main_highlight": false,
+        "is_sticky": false,
+        "require_read_confirmation": true,
+        "notify": true,
+        "hide_likes": false,
+        "hide_comments": false
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"40wpwdcz82khf6ty8w2tr1evwv\", \"versionId\": \"4ypjsjbcykyc05f1xb1pg8nr5b\", \"url\": \"/scope/4mrcj6s49xy1m162zftrjj8d4e/channel/486m56cbs7wvetjw34ctbmdccy/workplace-safety-in-amazon-fulfilment-osha-compliance-recordables-and-what-every-associate-needs-to-know\"}}",
+      "result_size_chars": 293,
+      "success": true,
+      "latency_ms": 2950.7997920009075,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:43:49.133276",
+      "turn": 39,
+      "server_name": "diggspace",
+      "tool_name": "verify_scope",
+      "arguments": {
+        "scope_id": "4mrcj6s49xy1m162zftrjj8d4e"
+      },
+      "result_preview": "{\n  \"scope_id\": \"4mrcj6s49xy1m162zftrjj8d4e\",\n  \"scope_name\": \"Amazon Central\",\n  \"route\": \"amazon-central\",\n  \"brand_colors\": {\n    \"primary\": \"#FF9900\",\n    \"secondary\": \"#232F3E\",\n    \"warn\": \"#CC0C39\"\n  },\n  \"highlights\": {\n    \"count\": 4,\n    \"carousel\": true,\n    \"style\": \"BannerCarousel\"\n  },",
+      "result_size_chars": 2145,
+      "success": true,
+      "latency_ms": 357.39337500126567,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-27T22:43:58.021328",
+      "turn": 40,
+      "server_name": "diggspace",
+      "tool_name": "update_global_settings",
+      "arguments": {
+        "company_name": "Amazon.com, Inc.",
+        "website_name": "Amazon Central",
+        "default_language": "en-US",
+        "supported_languages": [
+          "en-US",
+          "de-DE",
+          "ja-JP",
+          "pt-PT",
+          "fr-FR",
+          "es-ES"
+        ],
+        "login_quick_links": [
+          {
+            "text": "Amazon Careers",
+            "url": "https://www.amazon.jobs"
+          },
+          {
+            "text": "Investor Relations",
+            "url": "https://ir.aboutamazon.com"
+          },
+          {
+            "text": "Amazon Newsroom",
+            "url": "https://www.aboutamazon.com/news"
+          },
+          {
+            "text": "AWS Console",
+            "url": "https://aws.amazon.com"
+          },
+          {
+            "text": "The Climate Pledge",
+            "url": "https://www.theclimatepledge.com"
+          }
+        ],
+        "sidebar_navigation": [
+          "apps",
+          "documents",
+          "collaborators",
+          "workgroups",
+          "ideation",
+          "learning",
+          "approvalRequests"
+        ],
+        "primary_color": "#FF9900",
+        "primary_color_contrast": "#232F3E",
+        "secondary_color": "#232F3E",
+        "warn_color": "#CC0C39",
+        "warn_color_contrast": "#FFFFFF"
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": null}",
+      "result_size_chars": 34,
+      "success": true,
+      "latency_ms": 340.9390410015476,
+      "error": null
+    }
+  ],
+  "error": null
+}

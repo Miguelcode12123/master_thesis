@@ -1,0 +1,81 @@
+{
+  "session_id": "sess_20260311_192457",
+  "timestamp_start": "2026-03-11T19:24:57.053493",
+  "timestamp_end": "2026-03-11T19:25:05.921635",
+  "user_query": "what is the onboarding process?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "mcp_server"
+  ],
+  "final_answer_preview": "Here is the Engineering onboarding guide (covers the first two weeks):\n\nEngineering Onboarding Guide\nWelcome to the Engineering team! This guide covers your first two weeks.\nWeek 1: Set up your development environment using the DevSetup script in the Platform repo. Install Docker, configure VPN, and request access to Azure DevOps. Your buddy is assigned by your manager.\nWeek 2: Shadow your team, a",
+  "total_latency_ms": 8868.355832993984,
+  "total_tokens": 3658,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-11T19:25:00.531025",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "search_intranet"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 1097,
+      "completion_tokens": 347,
+      "total_tokens": 1444,
+      "latency_ms": 3476.192541886121,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-11T19:25:05.915691",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here is the Engineering onboarding guide (covers the first two weeks):\n\nEngineering Onboarding Guide\nWelcome to the Engineering team! This guide covers your first two weeks.\nWeek 1: Set up your develo",
+      "prompt_tokens": 1290,
+      "completion_tokens": 924,
+      "total_tokens": 2214,
+      "latency_ms": 5369.402749929577,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-03-11T19:25:00.543689",
+      "turn": 1,
+      "server_name": "mcp_server",
+      "tool_name": "search_intranet",
+      "arguments": {
+        "query": "onboarding process"
+      },
+      "result_preview": "{\n  \"results\": [\n    {\n      \"id\": \"page_001\",\n      \"title\": \"Engineering Onboarding Guide\",\n      \"content\": \"Welcome to the Engineering team! This guide covers your first two weeks. Week 1: Set up your development environment using the DevSetup script in the Platform repo. Install Docker, configu",
+      "result_size_chars": 669,
+      "success": true,
+      "latency_ms": 4.720208700746298,
+      "error": null
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,40 @@
+{
+  "session_id": "sess_20260310_214047",
+  "timestamp_start": "2026-03-10T21:40:47.620936",
+  "timestamp_end": "2026-03-10T21:40:57.883696",
+  "user_query": "@employees/emp_002 can you tell me more about this employee?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "Here are the details for emp_002, Bob Martens:\n\n- Name: Bob Martens\n- ID: emp_002\n- Role: Product Manager\n- Team: Product\n- Location: Amsterdam\n- Email: bob@createit.com\n\nSource: resource block employees/emp_002 (internal directory entry).",
+  "total_latency_ms": 10263.01670819521,
+  "total_tokens": 2040,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-10T21:40:57.878178",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here are the details for emp_002, Bob Martens:\n\n- Name: Bob Martens\n- ID: emp_002\n- Role: Product Manager\n- Team: Product\n- Location: Amsterdam\n- Email: bob@createit.com\n\nSource: resource block employ",
+      "prompt_tokens": 1388,
+      "completion_tokens": 652,
+      "total_tokens": 2040,
+      "latency_ms": 10248.560457956046,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

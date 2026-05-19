@@ -1,0 +1,139 @@
+{
+  "session_id": "sess_20260424_033946",
+  "timestamp_start": "2026-04-24T03:39:46.653887",
+  "timestamp_end": "2026-04-24T03:40:18.215225",
+  "user_query": "could you get me the global settings?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 3,
+  "total_tool_calls": 2,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Here are your global (hub-wide) settings:\n\n- General\n  - Website name: Diggspace Demo\n  - Company name: Diggspace Demo\n  - Welcome message: none set\n  - Logos and images:\n    - Website logo URL: cms/media/images/public/4xeqeqkwk674y7eqyyn6q6tqmy/diggspace-d1-0.png\n    - Login logo URL: cms/media/images/public/4xeqeqkwk674y7eqyyn6q6tqmy/diggspace-d1-0.png\n    - Favicon URL: cms/media/images/public/",
+  "total_latency_ms": 31562.01987498207,
+  "total_tokens": 23242,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T03:39:55.078680",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "check_connection"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 6538,
+      "completion_tokens": 789,
+      "total_tokens": 7327,
+      "latency_ms": 8422.049959015567,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T03:39:58.545595",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "get_global_settings"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 6574,
+      "completion_tokens": 277,
+      "total_tokens": 6851,
+      "latency_ms": 3358.8675829814747,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T03:40:18.209522",
+      "model": "gpt-5-nano",
+      "turn": 3,
+      "messages_count": 6,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here are your global (hub-wide) settings:\n\n- General\n  - Website name: Diggspace Demo\n  - Company name: Diggspace Demo\n  - Welcome message: none set\n  - Logos and images:\n    - Website logo URL: cms/m",
+      "prompt_tokens": 7337,
+      "completion_tokens": 1727,
+      "total_tokens": 9064,
+      "latency_ms": 19646.4732500026,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-24T03:39:55.185165",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "check_connection",
+      "arguments": {},
+      "result_preview": "{\"ok\": true, \"status_code\": 200}",
+      "result_size_chars": 32,
+      "success": true,
+      "latency_ms": 98.32529100822285,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T03:39:58.561129",
+      "turn": 2,
+      "server_name": "diggspace",
+      "tool_name": "get_global_settings",
+      "arguments": {},
+      "result_preview": "{\"status_code\": 200, \"data\": {\"general\": {\"websiteName\": \"Diggspace Demo\", \"companyName\": \"Diggspace Demo\", \"welcomeMessage\": null, \"websiteLogo\": {\"url\": \"cms/media/images/public/4xeqeqkwk674y7eqyyn6q6tqmy/diggspace-d1-0.png\", \"previewUrl\": null, \"id\": null, \"name\": null, \"centerX\": null, \"centerY\"",
+      "result_size_chars": 2257,
+      "success": true,
+      "latency_ms": 12.794375012163073,
+      "error": null
+    }
+  ],
+  "error": null
+}

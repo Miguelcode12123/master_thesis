@@ -1,0 +1,48 @@
+{
+  "session_id": "sess_20260425_235421",
+  "timestamp_start": "2026-04-25T23:54:21.836108",
+  "timestamp_end": "2026-04-25T23:54:43.441146",
+  "user_query": "are you finished?",
+  "model_used": "gpt-5-mini",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "Not quite finished \u2014 but nearly.\n\nWhat\u2019s done (summary)\n- Scope created: Apple \u2014 Internal \u2192 id: 4hbpbnhjz4p2d4ap2qxvq0mece (route: apple-internal)\n- Channels created (CHANNEL_MAP):\n  - Ch1 Apple Newsroom \u2192 49mqzhxcfenjqtfat6crnt9anw\n  - Ch2 Leadership & Executive Comms \u2192 4h47fdx6keeks74vdq92zet4n6\n  - Ch3 People & Inclusion \u2192 4jbe482k5nrjyz7s3rvytqvrnz\n  - Ch4 Product & Engineering \u2192 42rb491a4tnbx",
+  "total_latency_ms": 21603.879625035916,
+  "total_tokens": 35401,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-25T23:54:43.437710",
+      "model": "gpt-5-mini",
+      "turn": 1,
+      "messages_count": 88,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Not quite finished \u2014 but nearly.\n\nWhat\u2019s done (summary)\n- Scope created: Apple \u2014 Internal \u2192 id: 4hbpbnhjz4p2d4ap2qxvq0mece (route: apple-internal)\n- Channels created (CHANNEL_MAP):\n  - Ch1 Apple Newsr",
+      "prompt_tokens": 33246,
+      "completion_tokens": 2155,
+      "total_tokens": 35401,
+      "latency_ms": 21598.882415972184,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

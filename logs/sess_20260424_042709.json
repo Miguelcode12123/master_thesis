@@ -1,0 +1,97 @@
+{
+  "session_id": "sess_20260424_042709",
+  "timestamp_start": "2026-04-24T04:27:09.762607",
+  "timestamp_end": "2026-04-24T04:27:25.407408",
+  "user_query": "Find me the scope called the soccer events workspace",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "I couldn\u2019t find a scope exactly named \u201csoccer events\u201d (no matches found).\n\nWhat would you like to do?\n- Provide the exact spelling or a slightly different name (e.g., \u201cSoccer Events,\u201d \u201cSoccer Events Workspace,\u201d etc.)?\n- I can pull a full list of all workspaces to help you spot the correct one\u2014would you like me to list all workspaces?\n- If you have a partial name or another hint (like the route or ",
+  "total_latency_ms": 15645.125375012867,
+  "total_tokens": 15000,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T04:27:15.467323",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 8,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "resolve_scope"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 6729,
+      "completion_tokens": 412,
+      "total_tokens": 7141,
+      "latency_ms": 5703.368790971581,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T04:27:25.401979",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 10,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "I couldn\u2019t find a scope exactly named \u201csoccer events\u201d (no matches found).\n\nWhat would you like to do?\n- Provide the exact spelling or a slightly different name (e.g., \u201cSoccer Events,\u201d \u201cSoccer Events W",
+      "prompt_tokens": 6781,
+      "completion_tokens": 1078,
+      "total_tokens": 7859,
+      "latency_ms": 9868.845832999796,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-24T04:27:15.530899",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "resolve_scope",
+      "arguments": {
+        "name_or_route": "soccer events"
+      },
+      "result_preview": "{\"query\": \"soccer events\", \"match_count\": 0, \"matches\": []}",
+      "result_size_chars": 59,
+      "success": true,
+      "latency_ms": 59.73012500908226,
+      "error": null
+    }
+  ],
+  "error": null
+}

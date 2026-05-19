@@ -1,0 +1,108 @@
+{
+  "session_id": "sess_20260426_174105",
+  "timestamp_start": "2026-04-26T17:41:05.892823",
+  "timestamp_end": "2026-04-26T17:41:33.542660",
+  "user_query": "proceed",
+  "model_used": "gpt-5-mini",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Success \u2014 global settings updated.\n\nWhat changed:\n- company_name \u2192 Apple\n- website_name \u2192 Apple Internal\n- default_language \u2192 en\n- supported_languages \u2192 [\"en-US\"]\n- sidebar_navigation \u2192 [\"documents\",\"workgroups\",\"apps\",\"learning\"]\n\nNo errors returned.\n\nAnything else you'd like to publish or modify?",
+  "total_latency_ms": 27650.312250014395,
+  "total_tokens": 42792,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-26T17:41:30.167583",
+      "model": "gpt-5-mini",
+      "turn": 1,
+      "messages_count": 71,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "update_global_settings"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 20657,
+      "completion_tokens": 1273,
+      "total_tokens": 21930,
+      "latency_ms": 24273.57158297673,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-26T17:41:33.539187",
+      "model": "gpt-5-mini",
+      "turn": 2,
+      "messages_count": 73,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Success \u2014 global settings updated.\n\nWhat changed:\n- company_name \u2192 Apple\n- website_name \u2192 Apple Internal\n- default_language \u2192 en\n- supported_languages \u2192 [\"en-US\"]\n- sidebar_navigation \u2192 [\"documents\",\"",
+      "prompt_tokens": 20795,
+      "completion_tokens": 67,
+      "total_tokens": 20862,
+      "latency_ms": 3015.8195829717442,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-26T17:41:30.520474",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "update_global_settings",
+      "arguments": {
+        "company_name": "Apple",
+        "website_name": "Apple Internal",
+        "default_language": "en",
+        "supported_languages": [
+          "en-US"
+        ],
+        "sidebar_navigation": [
+          "documents",
+          "workgroups",
+          "apps",
+          "learning"
+        ]
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": null}",
+      "result_size_chars": 34,
+      "success": true,
+      "latency_ms": 349.08845799509436,
+      "error": null
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,81 @@
+{
+  "session_id": "sess_20260424_014252",
+  "timestamp_start": "2026-04-24T01:42:52.908580",
+  "timestamp_end": "2026-04-24T01:43:13.941900",
+  "user_query": "could you give me a list of the scopes so that i can choose?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Here are the scopes I see in your hub:\n\n- Global \u2014 route: global \u2014 id: 4jpp2bpb93dj8v7w7wpw44r2xe\n- CreateIT \u2014 route: createit \u2014 id: 475wgnavypvj04jj7ky08wc9dw\n- EN \u2014 route: en \u2014 id: 4ae09mexqaez83qhnt2bv672ca\n- PT \u2014 route: pt \u2014 id: 4fzpa3fprz53k3rt8qg9v31cwq\n- ULS Demo \u2014 route: uls-demo \u2014 id: 4y9p9kq6sempr58k8km6tc5anp\n- Test Scope Updated \u2014 route: test-scope-updated \u2014 id: 4s2hrs2ry9da82r69yj78ep",
+  "total_latency_ms": 21033.879125025123,
+  "total_tokens": 9445,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T01:42:59.465975",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 6,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "list_scopes"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 3881,
+      "completion_tokens": 341,
+      "total_tokens": 4222,
+      "latency_ms": 6556.305875012185,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T01:43:13.937220",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 8,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here are the scopes I see in your hub:\n\n- Global \u2014 route: global \u2014 id: 4jpp2bpb93dj8v7w7wpw44r2xe\n- CreateIT \u2014 route: createit \u2014 id: 475wgnavypvj04jj7ky08wc9dw\n- EN \u2014 route: en \u2014 id: 4ae09mexqaez83qhn",
+      "prompt_tokens": 4113,
+      "completion_tokens": 1110,
+      "total_tokens": 5223,
+      "latency_ms": 14386.143167037517,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-24T01:42:59.548241",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "list_scopes",
+      "arguments": {},
+      "result_preview": "- Global \u2014 route: global \u2014 id: 4jpp2bpb93dj8v7w7wpw44r2xe\n- CreateIT \u2014 route: createit \u2014 id: 475wgnavypvj04jj7ky08wc9dw\n- EN \u2014 route: en \u2014 id: 4ae09mexqaez83qhnt2bv672ca\n- PT \u2014 route: pt \u2014 id: 4fzpa3fprz53k3rt8qg9v31cwq\n- ULS Demo \u2014 route: uls-demo \u2014 id: 4y9p9kq6sempr58k8km6tc5anp\n- Test Scope Updat",
+      "result_size_chars": 435,
+      "success": true,
+      "latency_ms": 76.60258398391306,
+      "error": null
+    }
+  ],
+  "error": null
+}

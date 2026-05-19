@@ -1,0 +1,40 @@
+{
+  "session_id": "sess_20260311_192659",
+  "timestamp_start": "2026-03-11T19:26:59.446055",
+  "timestamp_end": "2026-03-11T19:27:12.052987",
+  "user_query": "change Alice's name to Alicia",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "I can help with this, but I need to note a limitation:\n\n- The employee directory does not allow changing a person\u2019s name. Names (and IDs) are read-only in the system.\n- A legal name change (Alice -> Alicia) typically requires HR assistance and a formal process.\n\nIf you\u2019d like, I can help with one of these options:\n1) Prepare a formal name-change request for HR. Please confirm:\n   - Employee identi",
+  "total_latency_ms": 12607.237291987985,
+  "total_tokens": 2477,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-11T19:27:12.045132",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "I can help with this, but I need to note a limitation:\n\n- The employee directory does not allow changing a person\u2019s name. Names (and IDs) are read-only in the system.\n- A legal name change (Alice -> A",
+      "prompt_tokens": 1097,
+      "completion_tokens": 1380,
+      "total_tokens": 2477,
+      "latency_ms": 12597.325791604817,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

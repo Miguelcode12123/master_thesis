@@ -1,0 +1,82 @@
+{
+  "session_id": "sess_20260311_192401",
+  "timestamp_start": "2026-03-11T19:24:01.900590",
+  "timestamp_end": "2026-03-11T19:24:07.619778",
+  "user_query": "what is the coworking budget in the remote work policy?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "mcp_server"
+  ],
+  "final_answer_preview": "\u20ac150 per month, available if you lack a suitable home office.",
+  "total_latency_ms": 5719.320250209421,
+  "total_tokens": 2908,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-11T19:24:04.862532",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "search_intranet"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 1103,
+      "completion_tokens": 227,
+      "total_tokens": 1330,
+      "latency_ms": 2959.91204213351,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-11T19:24:07.615807",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "\u20ac150 per month, available if you lack a suitable home office.",
+      "prompt_tokens": 1298,
+      "completion_tokens": 280,
+      "total_tokens": 1578,
+      "latency_ms": 2737.6788328401744,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-03-11T19:24:04.875353",
+      "turn": 1,
+      "server_name": "mcp_server",
+      "tool_name": "search_intranet",
+      "arguments": {
+        "query": "coworking budget remote work policy",
+        "category": null
+      },
+      "result_preview": "{\n  \"results\": [\n    {\n      \"id\": \"page_005\",\n      \"title\": \"Remote Work Policy 2025\",\n      \"content\": \"Create IT supports a hybrid-first work model. Employees may work remotely up to 3 days per week. Home office equipment budget: \u20ac500 one-time, \u20ac100/year recurring. Team anchor days (mandatory in",
+      "result_size_chars": 608,
+      "success": true,
+      "latency_ms": 4.843041766434908,
+      "error": null
+    }
+  ],
+  "error": null
+}

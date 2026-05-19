@@ -1,0 +1,97 @@
+{
+  "session_id": "sess_20260426_202807",
+  "timestamp_start": "2026-04-26T20:28:07.139928",
+  "timestamp_end": "2026-04-26T20:28:39.111762",
+  "user_query": "build it end-to-end",
+  "model_used": "gpt-5-mini",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "The initial connection attempt failed with a 401 Unauthorized from the Diggspace API. I can\u2019t proceed until your bearer token is refreshed.\n\nDetails:\n- Error: 401 Unauthorized\n- Endpoint: GET https://localhost:44313/cms/api/settings\n- Action needed: refresh DIGGSPACE_BEARER_TOKEN (your API bearer token) and ensure it has the required scopes/roles.\n\nNext steps (pick one):\n- You refresh the DIGGSPAC",
+  "total_latency_ms": 31972.366583999246,
+  "total_tokens": 37470,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-26T20:28:31.018573",
+      "model": "gpt-5-mini",
+      "turn": 1,
+      "messages_count": 4,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "check_connection"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 17511,
+      "completion_tokens": 1876,
+      "total_tokens": 19387,
+      "latency_ms": 23878.06062505115,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-26T20:28:39.107117",
+      "model": "gpt-5-mini",
+      "turn": 2,
+      "messages_count": 6,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "The initial connection attempt failed with a 401 Unauthorized from the Diggspace API. I can\u2019t proceed until your bearer token is refreshed.\n\nDetails:\n- Error: 401 Unauthorized\n- Endpoint: GET https://",
+      "prompt_tokens": 17575,
+      "completion_tokens": 508,
+      "total_tokens": 18083,
+      "latency_ms": 7947.382915997878,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-26T20:28:31.158328",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "check_connection",
+      "arguments": {},
+      "result_preview": "{\"error\": \"http_error\", \"status_code\": 401, \"url\": \"https://localhost:44313/cms/api/settings\", \"method\": \"GET\", \"body\": null}",
+      "result_size_chars": 125,
+      "success": true,
+      "latency_ms": 135.75395802035928,
+      "error": null
+    }
+  ],
+  "error": null
+}

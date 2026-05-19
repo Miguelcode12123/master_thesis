@@ -1,0 +1,37 @@
+{
+  "session_id": "sess_20260310_225137",
+  "timestamp_start": "2026-03-10T22:51:37.171635",
+  "timestamp_end": "2026-03-10T22:51:44.405369",
+  "user_query": "@employees/emp_006 what team is this person on?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "The Platform team.\n\nSource: injected resource data for emp_006 (Frank M\u00fcller).",
+  "total_latency_ms": 7233.890374656767,
+  "total_tokens": 1725,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-10T22:51:44.401539",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 4,
+      "tools_available": [
+        "get_employee_info",
+        "search_intranet",
+        "update_employee_info"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "The Platform team.\n\nSource: injected resource data for emp_006 (Frank M\u00fcller).",
+      "prompt_tokens": 994,
+      "completion_tokens": 731,
+      "total_tokens": 1725,
+      "latency_ms": 7208.765416871756,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

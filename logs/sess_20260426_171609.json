@@ -1,0 +1,48 @@
+{
+  "session_id": "sess_20260426_171609",
+  "timestamp_start": "2026-04-26T17:16:09.848449",
+  "timestamp_end": "2026-04-26T17:16:50.168722",
+  "user_query": "let's build it end-to-end please",
+  "model_used": "gpt-5-mini",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "Great \u2014 I'll build the scope now. Before I make any changes I need your explicit go-ahead (per the write-confirmation protocol). Below is the exact create payload I will send if you confirm.\n\nWhat I'll create\n- Entity: Scope\n- Name: Apple \u2014 Internal Hub\n- Id: (none yet \u2014 will be generated)\n\nPlanned values (every field I will send)\n- name: \"Apple \u2014 Internal Hub\"\n- description: \"Company-wide interna",
+  "total_latency_ms": 40320.96295803785,
+  "total_tokens": 19329,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-26T17:16:50.162723",
+      "model": "gpt-5-mini",
+      "turn": 1,
+      "messages_count": 4,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Great \u2014 I'll build the scope now. Before I make any changes I need your explicit go-ahead (per the write-confirmation protocol). Below is the exact create payload I will send if you confirm.\n\nWhat I'l",
+      "prompt_tokens": 17569,
+      "completion_tokens": 1760,
+      "total_tokens": 19329,
+      "latency_ms": 40313.67133295862,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

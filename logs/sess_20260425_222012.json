@@ -1,0 +1,48 @@
+{
+  "session_id": "sess_20260425_222012",
+  "timestamp_start": "2026-04-25T22:20:12.261539",
+  "timestamp_end": "2026-04-25T22:20:47.825760",
+  "user_query": "everything looks right. let's build it",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "CONFIRMATION BLOCK \u2014 Phase 1: BUILD SCOPE (Apple Inc. Intranet)\n\nWhat I\u2019ll update/create\n- Entity: Scope (new)\n- Name: Apple Inc. Intranet\n- Expected ID: to be assigned by the system (will appear after creation)\n- Phase: Phase 1 build of the scope (no channels yet)\n\nPlanned values (all fields sent to create_scope)\n- name: \"Apple Inc. Intranet\"\n- description: \"Intranet hub for Apple Inc.\u2014a dense, l",
+  "total_latency_ms": 35564.90779097658,
+  "total_tokens": 18034,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-25T22:20:47.816627",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 6,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "CONFIRMATION BLOCK \u2014 Phase 1: BUILD SCOPE (Apple Inc. Intranet)\n\nWhat I\u2019ll update/create\n- Entity: Scope (new)\n- Name: Apple Inc. Intranet\n- Expected ID: to be assigned by the system (will appear afte",
+      "prompt_tokens": 14511,
+      "completion_tokens": 3523,
+      "total_tokens": 18034,
+      "latency_ms": 35553.46316698706,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

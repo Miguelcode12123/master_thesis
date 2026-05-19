@@ -1,0 +1,81 @@
+{
+  "session_id": "sess_20260423_203422",
+  "timestamp_start": "2026-04-23T20:34:22.836994",
+  "timestamp_end": "2026-04-23T20:34:38.501713",
+  "user_query": "please get scope",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Here are the full details for the scope you asked about:\n\n- ID: 4s2hrs2ry9da82r69yj78ep25r\n- Route: test-scope-updated\n- Name: Test Scope Updated\n- Description: Updated description for MCP validation\n- Welcome message: Welcome to the updated test scope!\n- Image: none configured\n- Admins: isAdmin = false\n- Channel creation by admins only: false\n- Number of highlights: 5\n- Highlights carousel: true\n",
+  "total_latency_ms": 15665.097666962538,
+  "total_tokens": 9208,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-23T20:34:28.248639",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 8,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "get_scope"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 3824,
+      "completion_tokens": 424,
+      "total_tokens": 4248,
+      "latency_ms": 5410.03108402947,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-23T20:34:38.496625",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 10,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here are the full details for the scope you asked about:\n\n- ID: 4s2hrs2ry9da82r69yj78ep25r\n- Route: test-scope-updated\n- Name: Test Scope Updated\n- Description: Updated description for MCP validation\n",
+      "prompt_tokens": 4075,
+      "completion_tokens": 885,
+      "total_tokens": 4960,
+      "latency_ms": 10069.303874974139,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-23T20:34:28.425259",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "get_scope",
+      "arguments": {
+        "scope_id": "4s2hrs2ry9da82r69yj78ep25r"
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": {\"id\": \"4s2hrs2ry9da82r69yj78ep25r\", \"route\": \"test-scope-updated\", \"name\": \"Test Scope Updated\", \"description\": \"Updated description for MCP validation\", \"image\": {\"url\": null, \"previewUrl\": null, \"id\": null, \"name\": null, \"centerX\": null, \"centerY\": null}, \"navigationL",
+      "result_size_chars": 718,
+      "success": true,
+      "latency_ms": 174.1057499893941,
+      "error": null
+    }
+  ],
+  "error": null
+}

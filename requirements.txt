@@ -1,0 +1,20 @@
+# MCP SDK - the official Python SDK (includes FastMCP)
+mcp>=1.0.0
+
+# Azure OpenAI / OpenAI SDK (works with Azure AI Foundry)
+openai>=1.30.0
+
+# Async support
+anyio>=4.0.0
+asyncio-mqtt>=0.16.0  # not needed but good for context
+
+# Logging & observability
+rich>=13.0.0          # pretty terminal logging
+structlog>=24.0.0     # structured JSON logging
+
+# Config management
+python-dotenv>=1.0.0  # load .env files
+
+# Utilities
+httpx>=0.27.0         # async HTTP (useful for future real API calls)
+pydantic>=2.0.0       # data validation (FastMCP uses this internally)

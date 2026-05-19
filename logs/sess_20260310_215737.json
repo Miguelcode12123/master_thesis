@@ -1,0 +1,36 @@
+{
+  "session_id": "sess_20260310_215737",
+  "timestamp_start": "2026-03-10T21:57:37.228932",
+  "timestamp_end": "2026-03-10T21:57:47.082911",
+  "user_query": "@announcements can you summarize all of the announcements and only give me the topic?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "- New AI Tools Available\n- Office Closed December 24\u201326\n- Q3 Results: Strong Growth\n- Platform Team Hiring\nSource: announcements resource",
+  "total_latency_ms": 9854.22845883295,
+  "total_tokens": 1909,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-10T21:57:47.075258",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "get_recent_announcements",
+        "create_announcement"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "- New AI Tools Available\n- Office Closed December 24\u201326\n- Q3 Results: Strong Growth\n- Platform Team Hiring\nSource: announcements resource",
+      "prompt_tokens": 907,
+      "completion_tokens": 1002,
+      "total_tokens": 1909,
+      "latency_ms": 9839.734291192144,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

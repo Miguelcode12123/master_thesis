@@ -1,0 +1,115 @@
+{
+  "session_id": "sess_20260423_200745",
+  "timestamp_start": "2026-04-23T20:07:45.242054",
+  "timestamp_end": "2026-04-23T20:08:01.875145",
+  "user_query": "could you list all of the scopes that are available?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 3,
+  "total_tool_calls": 2,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Here are the available scopes (workspaces):\n\n- Global \u2014 route: global \u2014 id: 4jpp2bpb93dj8v7w7wpw44r2xe\n- CreateIT \u2014 route: createit \u2014 id: 475wgnavypvj04jj7ky08wc9dw\n- EN \u2014 route: en \u2014 id: 4ae09mexqaez83qhnt2bv672ca\n- PT \u2014 route: pt \u2014 id: 4fzpa3fprz53k3rt8qg9v31cwq\n- ULS Demo \u2014 route: uls-demo \u2014 id: 4y9p9kq6sempr58k8km6tc5anp\n- Test Scope Updated \u2014 route: test-scope-updated \u2014 id: 4s2hrs2ry9da82r69y",
+  "total_latency_ms": 16633.49370798096,
+  "total_tokens": 17226,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-23T20:07:49.771931",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "check_connection"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 3495,
+      "completion_tokens": 212,
+      "total_tokens": 3707,
+      "latency_ms": 4525.76983399922,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-23T20:07:53.096902",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "list_scopes"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 4256,
+      "completion_tokens": 149,
+      "total_tokens": 4405,
+      "latency_ms": 3210.340208024718,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-23T20:08:01.870256",
+      "model": "gpt-5-nano",
+      "turn": 3,
+      "messages_count": 6,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here are the available scopes (workspaces):\n\n- Global \u2014 route: global \u2014 id: 4jpp2bpb93dj8v7w7wpw44r2xe\n- CreateIT \u2014 route: createit \u2014 id: 475wgnavypvj04jj7ky08wc9dw\n- EN \u2014 route: en \u2014 id: 4ae09mexqaez",
+      "prompt_tokens": 8126,
+      "completion_tokens": 988,
+      "total_tokens": 9114,
+      "latency_ms": 8622.259708005004,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-23T20:07:49.884586",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "check_connection",
+      "arguments": {},
+      "result_preview": "{\"status_code\": 200, \"data\": {\"general\": {\"websiteName\": \"Diggspace Demo\", \"companyName\": \"Diggspace Demo\", \"welcomeMessage\": null, \"websiteLogo\": {\"url\": \"cms/media/images/public/4xeqeqkwk674y7eqyyn6q6tqmy/diggspace-d1-0.png\", \"previewUrl\": null, \"id\": null, \"name\": null, \"centerX\": null, \"centerY\"",
+      "result_size_chars": 2257,
+      "success": true,
+      "latency_ms": 104.04491703957319,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-23T20:07:53.243953",
+      "turn": 2,
+      "server_name": "diggspace",
+      "tool_name": "list_scopes",
+      "arguments": {},
+      "result_preview": "{\"status_code\": 200, \"data\": [{\"id\": \"4jpp2bpb93dj8v7w7wpw44r2xe\", \"route\": \"global\", \"name\": \"Global\", \"description\": null, \"image\": {\"url\": \"cms/media/images/4jpp2bpb93dj8v7w7wpw44r2xe/diggspace-dw1-0.png\", \"previewUrl\": null, \"id\": \"40zk76gxt8qff0jha6qawepdxc\", \"name\": null, \"centerX\": null, \"cen",
+      "result_size_chars": 12246,
+      "success": true,
+      "latency_ms": 142.40650000283495,
+      "error": null
+    }
+  ],
+  "error": null
+}

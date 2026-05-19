@@ -1,0 +1,122 @@
+{
+  "session_id": "sess_20260424_040509",
+  "timestamp_start": "2026-04-24T04:05:09.539560",
+  "timestamp_end": "2026-04-24T04:05:25.456169",
+  "user_query": "yes",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Update complete.\n\n- What changed: Global Settings\n  - company_name: \"Diggspace Demo\"\n  - website_name: \"Diggspace Demo\"\n  - sidebar_navigation: [\"apps\", \"collaborators\", \"documents\", \"workgroups\", \"ideation\", \"learning\", \"approvalRequests\"]\n  - supported_languages: [\"en-US\", \"pt-PT\", \"es-ES\"]\n  - login_quick_links: [\n      { \"text\": \"Homepage\", \"url\": \"https://diggspace.com\" },\n      { \"text\": \"Kn",
+  "total_latency_ms": 15916.953833017033,
+  "total_tokens": 17200,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T04:05:16.543826",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 16,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "update_global_settings"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 7923,
+      "completion_tokens": 566,
+      "total_tokens": 8489,
+      "latency_ms": 7003.342417010572,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T04:05:25.451308",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 18,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Update complete.\n\n- What changed: Global Settings\n  - company_name: \"Diggspace Demo\"\n  - website_name: \"Diggspace Demo\"\n  - sidebar_navigation: [\"apps\", \"collaborators\", \"documents\", \"workgroups\", \"id",
+      "prompt_tokens": 8058,
+      "completion_tokens": 653,
+      "total_tokens": 8711,
+      "latency_ms": 8585.167499957606,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-24T04:05:16.864522",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "update_global_settings",
+      "arguments": {
+        "company_name": "Diggspace Demo",
+        "website_name": "Diggspace Demo",
+        "sidebar_navigation": [
+          "apps",
+          "collaborators",
+          "documents",
+          "workgroups",
+          "ideation",
+          "learning",
+          "approvalRequests"
+        ],
+        "supported_languages": [
+          "en-US",
+          "pt-PT",
+          "es-ES"
+        ],
+        "login_quick_links": [
+          {
+            "text": "Homepage",
+            "url": "https://diggspace.com"
+          },
+          {
+            "text": "Knowledge Base",
+            "url": "https://support.diggspace.com/portal/en/kb/diggspace"
+          }
+        ]
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": null}",
+      "result_size_chars": 34,
+      "success": true,
+      "latency_ms": 316.6014580056071,
+      "error": null
+    }
+  ],
+  "error": null
+}

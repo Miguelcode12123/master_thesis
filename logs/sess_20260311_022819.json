@@ -1,0 +1,35 @@
+{
+  "session_id": "sess_20260311_022819",
+  "timestamp_start": "2026-03-11T02:28:19.316501",
+  "timestamp_end": "2026-03-11T02:28:28.229816",
+  "user_query": "what are the PR review rules?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "- Code reviews within 24 hours.\n- PRs should be small (<400 lines).\n- All PRs need at least 2 approvals.",
+  "total_latency_ms": 8913.480167277157,
+  "total_tokens": 2110,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-11T02:28:28.226059",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 12,
+      "tools_available": [
+        "search_intranet"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "- Code reviews within 24 hours.\n- PRs should be small (<400 lines).\n- All PRs need at least 2 approvals.",
+      "prompt_tokens": 1175,
+      "completion_tokens": 935,
+      "total_tokens": 2110,
+      "latency_ms": 8905.700417235494,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

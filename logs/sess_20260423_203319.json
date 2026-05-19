@@ -1,0 +1,115 @@
+{
+  "session_id": "sess_20260423_203319",
+  "timestamp_start": "2026-04-23T20:33:19.139189",
+  "timestamp_end": "2026-04-23T20:33:34.761797",
+  "user_query": "could you find the scope that is used for testing?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 3,
+  "total_tool_calls": 2,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "The scope used for testing appears to be:\n\n- Name: Test Scope Updated\n- Route: test-scope-updated\n- ID: 4s2hrs2ry9da82r69yj78ep25r\n\nWould you like me to fetch full details for this scope (get_scope), or inspect its channels (list_channels) to confirm it\u2019s the correct testing environment?",
+  "total_latency_ms": 15622.97058396507,
+  "total_tokens": 11910,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-23T20:33:25.027765",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "check_connection"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 3494,
+      "completion_tokens": 340,
+      "total_tokens": 3834,
+      "latency_ms": 5885.979166952893,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-23T20:33:28.551311",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "list_scopes"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 3530,
+      "completion_tokens": 213,
+      "total_tokens": 3743,
+      "latency_ms": 3403.664999990724,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-23T20:33:34.758156",
+      "model": "gpt-5-nano",
+      "turn": 3,
+      "messages_count": 6,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "The scope used for testing appears to be:\n\n- Name: Test Scope Updated\n- Route: test-scope-updated\n- ID: 4s2hrs2ry9da82r69yj78ep25r\n\nWould you like me to fetch full details for this scope (get_scope), ",
+      "prompt_tokens": 3733,
+      "completion_tokens": 600,
+      "total_tokens": 4333,
+      "latency_ms": 6159.370583016425,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-23T20:33:25.146189",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "check_connection",
+      "arguments": {},
+      "result_preview": "{\"ok\": true, \"status_code\": 200}",
+      "result_size_chars": 32,
+      "success": true,
+      "latency_ms": 113.56554203666747,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-23T20:33:28.596003",
+      "turn": 2,
+      "server_name": "diggspace",
+      "tool_name": "list_scopes",
+      "arguments": {},
+      "result_preview": "- Global \u2014 route: global \u2014 id: 4jpp2bpb93dj8v7w7wpw44r2xe\n- CreateIT \u2014 route: createit \u2014 id: 475wgnavypvj04jj7ky08wc9dw\n- EN \u2014 route: en \u2014 id: 4ae09mexqaez83qhnt2bv672ca\n- PT \u2014 route: pt \u2014 id: 4fzpa3fprz53k3rt8qg9v31cwq\n- ULS Demo \u2014 route: uls-demo \u2014 id: 4y9p9kq6sempr58k8km6tc5anp\n- Test Scope Updat",
+      "result_size_chars": 363,
+      "success": true,
+      "latency_ms": 40.68416700465605,
+      "error": null
+    }
+  ],
+  "error": null
+}

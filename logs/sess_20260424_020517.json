@@ -1,0 +1,44 @@
+{
+  "session_id": "sess_20260424_020517",
+  "timestamp_start": "2026-04-24T02:05:17.143849",
+  "timestamp_end": "2026-04-24T02:05:42.937682",
+  "user_query": "could you please suggest a channel that i could add",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "Here are some starter channel ideas you could add to the Soccer events scope. I\u2019ve kept them fan-friendly and easy to manage. For each, I added a quick purpose note and a recommended default type.\n\n- Matchday News\n  - Purpose: Headlines, lineup news, kickoff times, and day-of updates.\n  - Suggested type: Public\n\n- Live Updates\n  - Purpose: Real-time minute-by-minute updates during matches.\n  - Sug",
+  "total_latency_ms": 25794.4757079822,
+  "total_tokens": 6877,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T02:05:42.932697",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 10,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here are some starter channel ideas you could add to the Soccer events scope. I\u2019ve kept them fan-friendly and easy to manage. For each, I added a quick purpose note and a recommended default type.\n\n- ",
+      "prompt_tokens": 5133,
+      "completion_tokens": 1744,
+      "total_tokens": 6877,
+      "latency_ms": 25786.291083029937,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

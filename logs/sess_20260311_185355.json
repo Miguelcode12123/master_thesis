@@ -1,0 +1,71 @@
+{
+  "session_id": "sess_20260311_185355",
+  "timestamp_start": "2026-03-11T18:53:55.557591",
+  "timestamp_end": "2026-03-11T18:54:15.408668",
+  "user_query": "@employees/emp_999 who is this?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "mcp_server"
+  ],
+  "final_answer_preview": "I checked the directory for emp_999 and there is no match. No employee with ID emp_999 exists in our system.\n\nIf you can share any of the following, I can try again:\n- The person\u2019s name (full or approximate)\n- The person\u2019s role or title\n- The team or department\n- Location or email (if you have one)\n\nAlso note: the resource you referenced may be outdated or the employee may no longer be in the dire",
+  "total_latency_ms": 19851.60220786929,
+  "total_tokens": 3154,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-11T18:54:01.361773",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "get_employee_info"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "get_employee_info"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 598,
+      "completion_tokens": 475,
+      "total_tokens": 1073,
+      "latency_ms": 5794.795665889978,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-11T18:54:15.404952",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "get_employee_info"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "I checked the directory for emp_999 and there is no match. No employee with ID emp_999 exists in our system.\n\nIf you can share any of the following, I can try again:\n- The person\u2019s name (full or appro",
+      "prompt_tokens": 673,
+      "completion_tokens": 1408,
+      "total_tokens": 2081,
+      "latency_ms": 14032.713999971747,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-03-11T18:54:01.370130",
+      "turn": 1,
+      "server_name": "mcp_server",
+      "tool_name": "get_employee_info",
+      "arguments": {
+        "identifier": "emp_999"
+      },
+      "result_preview": "{\n  \"found\": false,\n  \"error\": \"No employee found matching 'emp_999'.\",\n  \"hint\": \"Retry with corrected spelling, or use search_intranet with role/team context.\"\n}",
+      "result_size_chars": 163,
+      "success": true,
+      "latency_ms": 3.081707749515772,
+      "error": null
+    }
+  ],
+  "error": null
+}

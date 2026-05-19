@@ -1,0 +1,81 @@
+{
+  "session_id": "sess_20260313_102115",
+  "timestamp_start": "2026-03-13T10:21:15.677823",
+  "timestamp_end": "2026-03-13T10:21:26.100232",
+  "user_query": "who is Alice?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "mcp_server"
+  ],
+  "final_answer_preview": "Alice Johansson is a Senior Engineer on the Platform team, located in Stockholm. Contact: alice@createit.com. Employee ID: emp_001.\n\nWould you like me to share her profile, or help you reach out to her?",
+  "total_latency_ms": 10422.651707660407,
+  "total_tokens": 2836,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-13T10:21:21.091053",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "get_employee_info"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 1105,
+      "completion_tokens": 153,
+      "total_tokens": 1258,
+      "latency_ms": 5411.175916902721,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-13T10:21:26.095418",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Alice Johansson is a Senior Engineer on the Platform team, located in Stockholm. Contact: alice@createit.com. Employee ID: emp_001.\n\nWould you like me to share her profile, or help you reach out to he",
+      "prompt_tokens": 1201,
+      "completion_tokens": 377,
+      "total_tokens": 1578,
+      "latency_ms": 4990.239582955837,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-03-13T10:21:21.102887",
+      "turn": 1,
+      "server_name": "mcp_server",
+      "tool_name": "get_employee_info",
+      "arguments": {
+        "identifier": "Alice"
+      },
+      "result_preview": "{\n  \"found\": true,\n  \"employee\": {\n    \"id\": \"emp_001\",\n    \"name\": \"Alice Johansson\",\n    \"role\": \"Senior Engineer\",\n    \"team\": \"Platform\",\n    \"email\": \"alice@createit.com\",\n    \"location\": \"Stockholm\"\n  }\n}",
+      "result_size_chars": 210,
+      "success": true,
+      "latency_ms": 4.895457997918129,
+      "error": null
+    }
+  ],
+  "error": null
+}

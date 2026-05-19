@@ -1,0 +1,97 @@
+{
+  "session_id": "sess_20260424_034102",
+  "timestamp_start": "2026-04-24T03:41:02.783867",
+  "timestamp_end": "2026-04-24T03:41:23.553654",
+  "user_query": "yes",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Update complete.\n\n- What changed: Global setting updated\n  - company_name: now \"Create IT Diggspace Demo\"\n  - Previous value: \"Diggspace Demo\"\n- Other global fields: unchanged\n\nWould you like me to pull the latest global settings to show you the updated view, or make any other branding changes (e.g., website_name, logos, etc.)?",
+  "total_latency_ms": 20769.808750017546,
+  "total_tokens": 17701,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T03:41:07.565031",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 10,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "update_global_settings"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 8255,
+      "completion_tokens": 351,
+      "total_tokens": 8606,
+      "latency_ms": 4779.781083983835,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T03:41:23.548458",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 12,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Update complete.\n\n- What changed: Global setting updated\n  - company_name: now \"Create IT Diggspace Demo\"\n  - Previous value: \"Diggspace Demo\"\n- Other global fields: unchanged\n\nWould you like me to pu",
+      "prompt_tokens": 8303,
+      "completion_tokens": 792,
+      "total_tokens": 9095,
+      "latency_ms": 15603.339915978722,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-24T03:41:07.942246",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "update_global_settings",
+      "arguments": {
+        "company_name": "Create IT Diggspace Demo"
+      },
+      "result_preview": "{\"status_code\": 200, \"data\": null}",
+      "result_size_chars": 34,
+      "success": true,
+      "latency_ms": 372.274124994874,
+      "error": null
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,97 @@
+{
+  "session_id": "sess_20260426_203153",
+  "timestamp_start": "2026-04-26T20:31:53.953223",
+  "timestamp_end": "2026-04-26T20:32:31.051837",
+  "user_query": "build it end-to-end",
+  "model_used": "gpt-5-mini",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Confirmation before I create the scope (required)\n\nWhat I'll create\n- Entity: Scope \u2014 Apple \u2014 Internal\n- ID: (will be assigned by server)\n\nPlanned values to send in create_scope (no fields left null)\n- name: \"Apple \u2014 Internal\"\n- description: \"Internal workspace for Apple employees: company news, leadership communications, people resources, product & R&D updates, and mandatory policies.\"\n- welcome_",
+  "total_latency_ms": 37099.22458400251,
+  "total_tokens": 39087,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-26T20:32:15.433390",
+      "model": "gpt-5-mini",
+      "turn": 1,
+      "messages_count": 4,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "check_connection"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 18234,
+      "completion_tokens": 1556,
+      "total_tokens": 19790,
+      "latency_ms": 21479.316084005404,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-26T20:32:31.046725",
+      "model": "gpt-5-mini",
+      "turn": 2,
+      "messages_count": 6,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "verify_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Confirmation before I create the scope (required)\n\nWhat I'll create\n- Entity: Scope \u2014 Apple \u2014 Internal\n- ID: (will be assigned by server)\n\nPlanned values to send in create_scope (no fields left null)\n",
+      "prompt_tokens": 18270,
+      "completion_tokens": 1027,
+      "total_tokens": 19297,
+      "latency_ms": 15482.33462497592,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-26T20:32:15.562928",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "check_connection",
+      "arguments": {},
+      "result_preview": "{\"ok\": true, \"status_code\": 200}",
+      "result_size_chars": 32,
+      "success": true,
+      "latency_ms": 125.51549996715039,
+      "error": null
+    }
+  ],
+  "error": null
+}

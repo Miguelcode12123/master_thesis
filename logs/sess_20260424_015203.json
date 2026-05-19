@@ -1,0 +1,87 @@
+{
+  "session_id": "sess_20260424_015203",
+  "timestamp_start": "2026-04-24T01:52:03.002424",
+  "timestamp_end": "2026-04-24T01:52:14.790577",
+  "user_query": "could you please tell me a joke",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Here\u2019s a quick one:\n\nWhy do programmers prefer dark mode? Because light attracts bugs. \n\nWant another joke?",
+  "total_latency_ms": 11788.179541996215,
+  "total_tokens": 10021,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T01:52:07.730588",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "check_connection"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 4582,
+      "completion_tokens": 276,
+      "total_tokens": 4858,
+      "latency_ms": 4725.118416012265,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T01:52:14.785893",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here\u2019s a quick one:\n\nWhy do programmers prefer dark mode? Because light attracts bugs. \n\nWant another joke?",
+      "prompt_tokens": 4618,
+      "completion_tokens": 545,
+      "total_tokens": 5163,
+      "latency_ms": 6948.790709022433,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-24T01:52:07.835187",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "check_connection",
+      "arguments": {},
+      "result_preview": "{\"ok\": true, \"status_code\": 200}",
+      "result_size_chars": 32,
+      "success": true,
+      "latency_ms": 97.25416597211733,
+      "error": null
+    }
+  ],
+  "error": null
+}

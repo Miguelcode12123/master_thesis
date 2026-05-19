@@ -1,0 +1,17 @@
+{
+  "session_id": "sess_20260331_124924",
+  "timestamp_start": "2026-03-31T12:49:24.862953",
+  "timestamp_end": "2026-03-31T12:49:26.768824",
+  "user_query": "npx @softeria/ms-365-mcp-server --list-presets",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "",
+  "total_latency_ms": 1905.8955000364222,
+  "total_tokens": 0,
+  "success": false,
+  "llm_calls": [],
+  "tool_calls": [],
+  "error": "Error code: 400 - {'error': {'message': \"Invalid 'tools': array too long. Expected an array with maximum length 128, but got an array with length 151 instead.\", 'type': 'invalid_request_error', 'param': 'tools', 'code': 'array_above_max_length'}}"
+}

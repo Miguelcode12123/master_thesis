@@ -1,0 +1,35 @@
+{
+  "session_id": "sess_20260310_225024",
+  "timestamp_start": "2026-03-10T22:50:24.463450",
+  "timestamp_end": "2026-03-10T22:50:35.749526",
+  "user_query": "@employees/emp_003",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "Here are the details for the employee from the injected resource:\n\n{\n  \"id\": \"emp_003\",\n  \"name\": \"Clara Ferreira\",\n  \"role\": \"UX Designer\",\n  \"team\": \"Design\",\n  \"email\": \"clara@createit.com\",\n  \"location\": \"Lisbon\"\n}\n\nUsed tool: injected resource data provided in your message. If you want to perform an action (e.g., update location, role, team, or email), please specify the field and the new val",
+  "total_latency_ms": 11286.32012475282,
+  "total_tokens": 1735,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-10T22:50:35.739819",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "get_employee_info"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here are the details for the employee from the injected resource:\n\n{\n  \"id\": \"emp_003\",\n  \"name\": \"Clara Ferreira\",\n  \"role\": \"UX Designer\",\n  \"team\": \"Design\",\n  \"email\": \"clara@createit.com\",\n  \"loc",
+      "prompt_tokens": 593,
+      "completion_tokens": 1142,
+      "total_tokens": 1735,
+      "latency_ms": 11268.205791711807,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

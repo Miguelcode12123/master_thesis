@@ -1,0 +1,74 @@
+{
+  "session_id": "sess_20260311_022513",
+  "timestamp_start": "2026-03-11T02:25:13.150300",
+  "timestamp_end": "2026-03-11T02:25:31.298526",
+  "user_query": "what is the remote work policy?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "mcp_server"
+  ],
+  "final_answer_preview": "Here are the details from the Remote Work Policy 2025:\n\n- Create IT supports a hybrid-first work model.\n- Employees may work remotely up to 3 days per week.\n- Home office equipment budget: \u20ac500 one-time, \u20ac100/year recurring.\n- Team anchor days (mandatory in-office): Tuesday and Thursday.\n- International remote work allowed for up to 30 days/year with manager approval.\n- Coworking space budget: \u20ac15",
+  "total_latency_ms": 18148.560791742057,
+  "total_tokens": 3059,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-11T02:25:21.473831",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "search_intranet",
+        "get_page_full_content"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "search_intranet"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 596,
+      "completion_tokens": 607,
+      "total_tokens": 1203,
+      "latency_ms": 8322.230832651258,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-11T02:25:31.293748",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "search_intranet",
+        "get_page_full_content"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here are the details from the Remote Work Policy 2025:\n\n- Create IT supports a hybrid-first work model.\n- Employees may work remotely up to 3 days per week.\n- Home office equipment budget: \u20ac500 one-ti",
+      "prompt_tokens": 787,
+      "completion_tokens": 1069,
+      "total_tokens": 1856,
+      "latency_ms": 9803.629291709512,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-03-11T02:25:21.487210",
+      "turn": 1,
+      "server_name": "mcp_server",
+      "tool_name": "search_intranet",
+      "arguments": {
+        "query": "remote work policy",
+        "category": "policy"
+      },
+      "result_preview": "{\n  \"results\": [\n    {\n      \"id\": \"page_005\",\n      \"title\": \"Remote Work Policy 2025\",\n      \"content\": \"Create IT supports a hybrid-first work model. Employees may work remotely up to 3 days per week. Home office equipment budget: \u20ac500 one-time, \u20ac100/year recurring. Team anchor days (mandatory in",
+      "result_size_chars": 608,
+      "success": true,
+      "latency_ms": 5.737582687288523,
+      "error": null
+    }
+  ],
+  "error": null
+}

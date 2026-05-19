@@ -1,0 +1,17 @@
+{
+  "session_id": "sess_20260426_172202",
+  "timestamp_start": "2026-04-26T17:22:02.917876",
+  "timestamp_end": "2026-04-26T17:22:37.498644",
+  "user_query": "create all subsequent channels without asking for confirmation",
+  "model_used": "gpt-5-mini",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "",
+  "total_latency_ms": 34581.3545419951,
+  "total_tokens": 0,
+  "success": false,
+  "llm_calls": [],
+  "tool_calls": [],
+  "error": "Error code: 400 - {'error': {'message': \"The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766\", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': True, 'detected': True}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': False, 'severity': 'safe'}}}}}"
+}

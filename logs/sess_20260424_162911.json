@@ -1,0 +1,48 @@
+{
+  "session_id": "sess_20260424_162911",
+  "timestamp_start": "2026-04-24T16:29:11.269868",
+  "timestamp_end": "2026-04-24T16:29:54.892880",
+  "user_query": "can you help me write an article for a channel in the soccer hub?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "Great idea. I can help you draft and publish an article for a channel in the Soccer Hub. I just need a few details to place it in the right spot and format it correctly.\n\nPlease confirm the following (or provide the exact values if you have them):\n\n- Scope ( Soccer Hub): Is this the correct scope name, or is there a specific scope ID you want me to use? If there are multiple with similar names, I ",
+  "total_latency_ms": 43624.23412501812,
+  "total_tokens": 9027,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T16:29:54.883377",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Great idea. I can help you draft and publish an article for a channel in the Soccer Hub. I just need a few details to place it in the right spot and format it correctly.\n\nPlease confirm the following ",
+      "prompt_tokens": 6545,
+      "completion_tokens": 2482,
+      "total_tokens": 9027,
+      "latency_ms": 43612.082040985115,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

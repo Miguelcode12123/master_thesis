@@ -1,0 +1,39 @@
+{
+  "schema_version": 3,
+  "conversation_id": "conv_20260504_144521",
+  "timestamp_start": "2026-05-04T14:45:21.515620",
+  "timestamp_end": "2026-05-04T14:48:03.599749",
+  "model_used": "DeepSeek-V4-Flash",
+  "servers_used": [],
+  "total_interactions": 1,
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "total_latency_ms": 30996.28616598784,
+  "total_tokens": 0,
+  "total_prompt_tokens": 0,
+  "total_completion_tokens": 0,
+  "estimated_cost_usd": 0,
+  "interactions": [
+    {
+      "interaction_index": 1,
+      "timestamp_start": "2026-05-04T14:45:57.175444",
+      "timestamp_end": "2026-05-04T14:46:28.171341",
+      "user_query": "[prompt] {\n  \"role\": \"assistant\",\n  \"content\": {\n    \"type\": \"text\",\n    \"text\": \"You are a senior digital workplace consultant o",
+      "final_answer": "",
+      "total_turns": 1,
+      "total_tool_calls": 0,
+      "total_latency_ms": 30996.28616598784,
+      "llm_latency_ms": 0,
+      "tool_latency_ms": 0,
+      "total_tokens": 0,
+      "total_prompt_tokens": 0,
+      "total_completion_tokens": 0,
+      "estimated_cost_usd": 0,
+      "success": false,
+      "llm_calls": [],
+      "tool_calls": [],
+      "error": "'NoneType' object has no attribute 'prompt_tokens'"
+    }
+  ],
+  "error": null
+}

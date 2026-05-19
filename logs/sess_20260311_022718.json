@@ -1,0 +1,76 @@
+{
+  "session_id": "sess_20260311_022718",
+  "timestamp_start": "2026-03-11T02:27:18.594669",
+  "timestamp_end": "2026-03-11T02:27:31.825321",
+  "user_query": "what is the standup time for the platform team?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "mcp_server"
+  ],
+  "final_answer_preview": "Standup: daily at 9:30 CET (15 min max).",
+  "total_latency_ms": 13230.891625396907,
+  "total_tokens": 3608,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-11T02:27:24.034139",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 8,
+      "tools_available": [
+        "get_employee_info",
+        "search_intranet",
+        "update_employee_info"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "search_intranet"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 1130,
+      "completion_tokens": 481,
+      "total_tokens": 1611,
+      "latency_ms": 5438.4617088362575,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-11T02:27:31.820235",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 10,
+      "tools_available": [
+        "get_employee_info",
+        "search_intranet",
+        "update_employee_info"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Standup: daily at 9:30 CET (15 min max).",
+      "prompt_tokens": 1332,
+      "completion_tokens": 665,
+      "total_tokens": 1997,
+      "latency_ms": 7778.40800024569,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-03-11T02:27:24.039567",
+      "turn": 1,
+      "server_name": "mcp_server",
+      "tool_name": "search_intranet",
+      "arguments": {
+        "query": "Platform team standup time",
+        "category": "team"
+      },
+      "result_preview": "{\n  \"results\": [\n    {\n      \"id\": \"page_004\",\n      \"title\": \"Platform Team \u2014 Working Agreements\",\n      \"content\": \"Our team agreements: Code reviews within 24 hours. PRs should be small (<400 lines). All PRs need at least 2 approvals. Deploy to staging every Wednesday, production every other Frid",
+      "result_size_chars": 631,
+      "success": true,
+      "latency_ms": 3.1045000068843365,
+      "error": null
+    }
+  ],
+  "error": null
+}

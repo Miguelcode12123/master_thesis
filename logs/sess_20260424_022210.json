@@ -1,0 +1,175 @@
+{
+  "session_id": "sess_20260424_022210",
+  "timestamp_start": "2026-04-24T02:22:10.511056",
+  "timestamp_end": "2026-04-24T02:22:34.453459",
+  "user_query": "could you give me all of the channels from the soccer scope?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 4,
+  "total_tool_calls": 3,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Here are the channels in the Soccer scope (Soccer events, ID: 438d6za7je70nzcnpx8qp87e4t):\n\n- Highlights & Replays \u2014 ID: 4an5xe2g2xq2n6h09n7hp8hemt\n- Economy \u2014 ID: 4j2tyq9fscw257xgx7rxs1fmdx\n\nWould you like me to fetch the full configurations for any of these channels, or perform any updates (e.g., rename, change visibility)?",
+  "total_latency_ms": 23942.99091695575,
+  "total_tokens": 23613,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T02:22:18.181146",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "check_connection"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 5209,
+      "completion_tokens": 788,
+      "total_tokens": 5997,
+      "latency_ms": 7667.422999977134,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T02:22:22.159439",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "resolve_scope"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 5245,
+      "completion_tokens": 347,
+      "total_tokens": 5592,
+      "latency_ms": 3863.0479170242324,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T02:22:26.050439",
+      "model": "gpt-5-nano",
+      "turn": 3,
+      "messages_count": 6,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "list_channels"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 5331,
+      "completion_tokens": 296,
+      "total_tokens": 5627,
+      "latency_ms": 3852.656124974601,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T02:22:34.449200",
+      "model": "gpt-5-nano",
+      "turn": 4,
+      "messages_count": 8,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Here are the channels in the Soccer scope (Soccer events, ID: 438d6za7je70nzcnpx8qp87e4t):\n\n- Highlights & Replays \u2014 ID: 4an5xe2g2xq2n6h09n7hp8hemt\n- Economy \u2014 ID: 4j2tyq9fscw257xgx7rxs1fmdx\n\nWould yo",
+      "prompt_tokens": 5438,
+      "completion_tokens": 959,
+      "total_tokens": 6397,
+      "latency_ms": 8337.818624975625,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-24T02:22:18.294789",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "check_connection",
+      "arguments": {},
+      "result_preview": "{\"ok\": true, \"status_code\": 200}",
+      "result_size_chars": 32,
+      "success": true,
+      "latency_ms": 106.58783296821639,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T02:22:22.195888",
+      "turn": 2,
+      "server_name": "diggspace",
+      "tool_name": "resolve_scope",
+      "arguments": {
+        "name_or_route": "soccer"
+      },
+      "result_preview": "{\"query\": \"soccer\", \"match_count\": 1, \"matches\": [{\"name\": \"Soccer events\", \"route\": \"soccer-events\", \"id\": \"438d6za7je70nzcnpx8qp87e4t\"}]}",
+      "result_size_chars": 139,
+      "success": true,
+      "latency_ms": 32.36316598486155,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T02:22:26.108407",
+      "turn": 3,
+      "server_name": "diggspace",
+      "tool_name": "list_channels",
+      "arguments": {
+        "scope_id": "438d6za7je70nzcnpx8qp87e4t"
+      },
+      "result_preview": "- Highlights & Replays \u2014 type: ? \u2014 id: 4an5xe2g2xq2n6h09n7hp8hemt\n- Economy \u2014 type: ? \u2014 id: 4j2tyq9fscw257xgx7rxs1fmdx",
+      "result_size_chars": 118,
+      "success": true,
+      "latency_ms": 55.35245896317065,
+      "error": null
+    }
+  ],
+  "error": null
+}

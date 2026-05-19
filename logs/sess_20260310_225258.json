@@ -1,0 +1,111 @@
+{
+  "session_id": "sess_20260310_225258",
+  "timestamp_start": "2026-03-10T22:52:58.623654",
+  "timestamp_end": "2026-03-10T22:53:22.931821",
+  "user_query": "@employees/emp_001 what is the travel expense policy?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 3,
+  "total_tool_calls": 2,
+  "servers_used": [
+    "mcp_server"
+  ],
+  "final_answer_preview": "Policy: International Travel Expense Policy\n\nEmployees traveling internationally for business may claim: flights (economy class for trips under 6 hours, business class for longer), hotels up to \u20ac200/night in Western Europe and \u20ac150/night elsewhere, meals up to \u20ac75/day. Submit all claims within 30 days of return via the HR portal. Receipts required for any individual expense over \u20ac25. Pre-approval ",
+  "total_latency_ms": 24308.70220810175,
+  "total_tokens": 7060,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-10T22:53:02.830225",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 8,
+      "tools_available": [
+        "get_employee_info",
+        "search_intranet",
+        "get_page_full_content"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "search_intranet"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 1297,
+      "completion_tokens": 415,
+      "total_tokens": 1712,
+      "latency_ms": 4196.69200014323,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-10T22:53:17.424408",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 10,
+      "tools_available": [
+        "get_employee_info",
+        "search_intranet",
+        "get_page_full_content"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "get_page_full_content"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 1472,
+      "completion_tokens": 1245,
+      "total_tokens": 2717,
+      "latency_ms": 14584.38754081726,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-10T22:53:22.927531",
+      "model": "gpt-5-nano",
+      "turn": 3,
+      "messages_count": 12,
+      "tools_available": [
+        "get_employee_info",
+        "search_intranet",
+        "get_page_full_content"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Policy: International Travel Expense Policy\n\nEmployees traveling internationally for business may claim: flights (economy class for trips under 6 hours, business class for longer), hotels up to \u20ac200/n",
+      "prompt_tokens": 1675,
+      "completion_tokens": 956,
+      "total_tokens": 2631,
+      "latency_ms": 5491.349749732763,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-03-10T22:53:02.838384",
+      "turn": 1,
+      "server_name": "mcp_server",
+      "tool_name": "search_intranet",
+      "arguments": {
+        "query": "travel expense policy",
+        "category": "policy"
+      },
+      "result_preview": "{\n  \"results\": [\n    {\n      \"id\": \"page_002\",\n      \"title\": \"International Travel Expense Policy\",\n      \"content_excerpt\": \"Employees traveling internationally for business may claim: flights (economy class for trips under 6 hours, business class for longer), hotels up to \u20ac200/night in Western Eu",
+      "result_size_chars": 556,
+      "success": true,
+      "latency_ms": 6.098834332078695,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-10T22:53:17.433303",
+      "turn": 2,
+      "server_name": "mcp_server",
+      "tool_name": "get_page_full_content",
+      "arguments": {
+        "page_id": "page_002"
+      },
+      "result_preview": "{\n  \"found\": true,\n  \"id\": \"page_002\",\n  \"title\": \"International Travel Expense Policy\",\n  \"content\": \"Employees traveling internationally for business may claim: flights (economy class for trips under 6 hours, business class for longer), hotels up to \u20ac200/night in Western Europe and \u20ac150/night else",
+      "result_size_chars": 662,
+      "success": true,
+      "latency_ms": 5.802417173981667,
+      "error": null
+    }
+  ],
+  "error": null
+}

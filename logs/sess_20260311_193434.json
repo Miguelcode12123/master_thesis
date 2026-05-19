@@ -1,0 +1,40 @@
+{
+  "session_id": "sess_20260311_193434",
+  "timestamp_start": "2026-03-11T19:34:34.150304",
+  "timestamp_end": "2026-03-11T19:34:40.867370",
+  "user_query": "what are you programmed to do?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "I\u2019m an enterprise assistant built to help with company-specific information and workflows. I can:\n\n- Look up people: get details about a person\u2019s role, team, location, or contact info (even if you only provide a first name or title). I\u2019ll ask for clarification if needed.\n- Share company updates: fetch recent announcements, leadership messages, and events (with limit and time window options).\n- Acc",
+  "total_latency_ms": 6717.229290865362,
+  "total_tokens": 1932,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-11T19:34:40.863924",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 4,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "I\u2019m an enterprise assistant built to help with company-specific information and workflows. I can:\n\n- Look up people: get details about a person\u2019s role, team, location, or contact info (even if you onl",
+      "prompt_tokens": 1158,
+      "completion_tokens": 774,
+      "total_tokens": 1932,
+      "latency_ms": 6711.798749864101,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

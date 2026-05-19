@@ -1,0 +1,40 @@
+{
+  "session_id": "sess_20260310_195833",
+  "timestamp_start": "2026-03-10T19:58:33.547892",
+  "timestamp_end": "2026-03-10T19:58:41.623058",
+  "user_query": "@pages/page_001",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "It looks like your message didn\u2019t come through. How can I help?\n\nHere are a few examples of what I can do:\n- Look up an employee in the company directory\n- Retrieve recent company-wide announcements\n- Search the intranet for a specific policy or topic\n- Update an employee\u2019s information (location, role, team, or email)\n- Post a new company-wide announcement\n\nIf you want me to update content or post",
+  "total_latency_ms": 8075.330417137593,
+  "total_tokens": 1825,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-10T19:58:41.618040",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "It looks like your message didn\u2019t come through. How can I help?\n\nHere are a few examples of what I can do:\n- Look up an employee in the company directory\n- Retrieve recent company-wide announcements\n-",
+      "prompt_tokens": 1251,
+      "completion_tokens": 574,
+      "total_tokens": 1825,
+      "latency_ms": 8067.581249866635,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

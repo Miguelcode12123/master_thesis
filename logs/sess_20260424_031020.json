@@ -1,0 +1,89 @@
+{
+  "session_id": "sess_20260424_031020",
+  "timestamp_start": "2026-04-24T03:10:20.846563",
+  "timestamp_end": "2026-04-24T03:10:59.885553",
+  "user_query": "i want you to help me create a scope and some channels for Ferrari",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Great idea. I can help set up a Ferrari workspace and then add channels. Here\u2019s how we\u2019ll proceed and what I\u2019m planning to do next.\n\nStep 1 \u2014 Clarification\n- I don\u2019t see any typos in \"Ferrari.\" I\u2019ll proceed with creating a scope named \u201cFerrari.\u201d If you want a description or welcome message right away, tell me and I\u2019ll add it.\n\nStep 2 \u2014 Confirmation block\nWhat I\u2019ll create:\n- Entity: Scope (workspac",
+  "total_latency_ms": 39039.866957988124,
+  "total_tokens": 13062,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T03:10:32.345489",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "check_connection"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 5210,
+      "completion_tokens": 852,
+      "total_tokens": 6062,
+      "latency_ms": 11496.147709025536,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-24T03:10:59.880587",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Great idea. I can help set up a Ferrari workspace and then add channels. Here\u2019s how we\u2019ll proceed and what I\u2019m planning to do next.\n\nStep 1 \u2014 Clarification\n- I don\u2019t see any typos in \"Ferrari.\" I\u2019ll p",
+      "prompt_tokens": 5246,
+      "completion_tokens": 1754,
+      "total_tokens": 7000,
+      "latency_ms": 27440.514540998265,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-24T03:10:32.438981",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "check_connection",
+      "arguments": {},
+      "result_preview": "{\"ok\": true, \"status_code\": 200}",
+      "result_size_chars": 32,
+      "success": true,
+      "latency_ms": 85.69783304119483,
+      "error": null
+    }
+  ],
+  "error": null
+}

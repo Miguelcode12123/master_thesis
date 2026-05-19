@@ -1,0 +1,48 @@
+{
+  "session_id": "sess_20260424_034042",
+  "timestamp_start": "2026-04-24T03:40:42.245480",
+  "timestamp_end": "2026-04-24T03:40:56.613323",
+  "user_query": "could you help me change the company name to Create IT Diggspace Demo?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "I can do that. Before I proceed, here\u2019s the plan and a confirmation block for you to approve.\n\nWhat I\u2019ll update\n- Entity: Global settings\n- Field: company_name\n- New value: \"Create IT Diggspace Demo\"\n- Other global fields: unchanged\n\nPlanned values (full view)\n- company_name: \"Create IT Diggspace Demo\"\n- website_name: \"Diggspace Demo\" (unchanged)\n- welcome_message: unchanged\n- All other settings: ",
+  "total_latency_ms": 14368.155707954429,
+  "total_tokens": 8894,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-24T03:40:56.608750",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 8,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "I can do that. Before I proceed, here\u2019s the plan and a confirmation block for you to approve.\n\nWhat I\u2019ll update\n- Entity: Global settings\n- Field: company_name\n- New value: \"Create IT Diggspace Demo\"\n",
+      "prompt_tokens": 8056,
+      "completion_tokens": 838,
+      "total_tokens": 8894,
+      "latency_ms": 14362.600624968763,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

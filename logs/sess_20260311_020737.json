@@ -1,0 +1,74 @@
+{
+  "session_id": "sess_20260311_020737",
+  "timestamp_start": "2026-03-11T02:07:37.371794",
+  "timestamp_end": "2026-03-11T02:07:50.119094",
+  "user_query": "what's the latest company news?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "mcp_server"
+  ],
+  "final_answer_preview": "I used the company announcements tool to pull the latest updates.\n\nRecent company-wide announcements (within the last 30 days):\n- 2025-12-01 \u2014 New AI Tools Available\n  Summary: We've rolled out GitHub Copilot to all engineering staff. Licenses are now in your GitHub settings.\n  Author: Frank M\u00fcller\n\n- 2025-12-10 \u2014 Office Closed December 24\u201326\n  Summary: The Amsterdam and Stockholm offices will be ",
+  "total_latency_ms": 12747.526250313967,
+  "total_tokens": 4004,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-11T02:07:40.477289",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 8,
+      "tools_available": [
+        "get_recent_announcements",
+        "search_intranet"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "get_recent_announcements"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 1160,
+      "completion_tokens": 159,
+      "total_tokens": 1319,
+      "latency_ms": 3104.5233327895403,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-11T02:07:50.114949",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 10,
+      "tools_available": [
+        "get_recent_announcements",
+        "search_intranet"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "I used the company announcements tool to pull the latest updates.\n\nRecent company-wide announcements (within the last 30 days):\n- 2025-12-01 \u2014 New AI Tools Available\n  Summary: We've rolled out GitHub",
+      "prompt_tokens": 1493,
+      "completion_tokens": 1192,
+      "total_tokens": 2685,
+      "latency_ms": 9627.436583861709,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-03-11T02:07:40.481909",
+      "turn": 1,
+      "server_name": "mcp_server",
+      "tool_name": "get_recent_announcements",
+      "arguments": {
+        "limit": 5,
+        "days_back": 30
+      },
+      "result_preview": "{\n  \"announcements\": [\n    {\n      \"id\": \"ann_001\",\n      \"title\": \"New AI Tools Available\",\n      \"summary\": \"We've rolled out GitHub Copilot to all engineering staff. Licenses are now in your GitHub settings.\",\n      \"date\": \"2025-12-01\",\n      \"author\": \"Frank M\u00fcller\"\n    },\n    {\n      \"id\": \"an",
+      "result_size_chars": 1041,
+      "success": true,
+      "latency_ms": 2.7829171158373356,
+      "error": null
+    }
+  ],
+  "error": null
+}

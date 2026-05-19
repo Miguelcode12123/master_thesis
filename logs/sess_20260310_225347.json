@@ -1,0 +1,35 @@
+{
+  "session_id": "sess_20260310_225347",
+  "timestamp_start": "2026-03-10T22:53:47.342442",
+  "timestamp_end": "2026-03-10T22:53:54.475327",
+  "user_query": "@employees/emp_0015",
+  "model_used": "gpt-5-nano",
+  "total_turns": 1,
+  "total_tool_calls": 0,
+  "servers_used": [],
+  "final_answer_preview": "The injected resource indicates an error: No employee with ID 'emp_0015' exists.\n\nWhat would you like to do next?\n- Provide a valid employee ID, name, email, or role and I can look them up in the directory.\n- If you want me to search for someone by name or team, tell me the details (e.g., name, role, or team) and I\u2019ll locate them. \n\nNote: No tools were used in this response.",
+  "total_latency_ms": 7133.028625044972,
+  "total_tokens": 2479,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-10T22:53:54.467732",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 14,
+      "tools_available": [
+        "get_employee_info"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "The injected resource indicates an error: No employee with ID 'emp_0015' exists.\n\nWhat would you like to do next?\n- Provide a valid employee ID, name, email, or role and I can look them up in the dire",
+      "prompt_tokens": 1669,
+      "completion_tokens": 810,
+      "total_tokens": 2479,
+      "latency_ms": 7108.7807500734925,
+      "error": null
+    }
+  ],
+  "tool_calls": [],
+  "error": null
+}

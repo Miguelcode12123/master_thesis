@@ -1,0 +1,18 @@
+{
+  "schema_version": 3,
+  "conversation_id": "conv_20260501_020637",
+  "timestamp_start": "2026-05-01T02:06:37.591999",
+  "timestamp_end": "2026-05-01T02:07:25.993532",
+  "model_used": "grok-4-1-fast-reasoning",
+  "servers_used": [],
+  "total_interactions": 0,
+  "total_turns": 0,
+  "total_tool_calls": 0,
+  "total_latency_ms": 0,
+  "total_tokens": 0,
+  "total_prompt_tokens": 0,
+  "total_completion_tokens": 0,
+  "estimated_cost_usd": 0,
+  "interactions": [],
+  "error": null
+}

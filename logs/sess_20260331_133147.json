@@ -1,0 +1,95 @@
+{
+  "session_id": "sess_20260331_133147",
+  "timestamp_start": "2026-03-31T13:31:47.644157",
+  "timestamp_end": "2026-03-31T13:32:11.916248",
+  "user_query": "What emails did I receive today?",
+  "model_used": "gpt-5-nano",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "ms365"
+  ],
+  "final_answer_preview": "I can pull those, but you need to sign in to Microsoft 365 first.\n\nWhat to do:\n- On a web browser, go to https://login.microsoft.com/device\n- Enter code: DVSTL7HQ3\n- Complete the sign-in\n\nOnce you\u2019ve signed in, tell me you\u2019re signed in or I\u2019ll retry verification automatically, and I\u2019ll fetch today\u2019s inbox emails for you. I\u2019ll return a concise list including sender, subject, and received time (top ",
+  "total_latency_ms": 24272.644209035207,
+  "total_tokens": 7428,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-03-31T13:31:57.986517",
+      "model": "gpt-5-nano",
+      "turn": 1,
+      "messages_count": 2,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement",
+        "login",
+        "logout",
+        "verify-login",
+        "list-accounts",
+        "select-account",
+        "remove-account",
+        "list-mail-messages",
+        "get-mail-message"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "login"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 2565,
+      "completion_tokens": 851,
+      "total_tokens": 3416,
+      "latency_ms": 10337.80158299487,
+      "error": null
+    },
+    {
+      "timestamp": "2026-03-31T13:32:11.911208",
+      "model": "gpt-5-nano",
+      "turn": 2,
+      "messages_count": 4,
+      "tools_available": [
+        "get_employee_info",
+        "get_recent_announcements",
+        "search_intranet",
+        "get_page_full_content",
+        "update_employee_info",
+        "create_announcement",
+        "login",
+        "logout",
+        "verify-login",
+        "list-accounts",
+        "select-account",
+        "remove-account",
+        "list-mail-messages",
+        "get-mail-message"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "I can pull those, but you need to sign in to Microsoft 365 first.\n\nWhat to do:\n- On a web browser, go to https://login.microsoft.com/device\n- Enter code: DVSTL7HQ3\n- Complete the sign-in\n\nOnce you\u2019ve ",
+      "prompt_tokens": 2638,
+      "completion_tokens": 1374,
+      "total_tokens": 4012,
+      "latency_ms": 12732.475208991673,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-03-31T13:31:59.176313",
+      "turn": 1,
+      "server_name": "ms365",
+      "tool_name": "login",
+      "arguments": {},
+      "result_preview": "{\"error\":\"device_code_required\",\"message\":\"To sign in, use a web browser to open the page https://login.microsoft.com/device and enter the code DVSTL7HQ3 to authenticate.\\nAfter login run the \\\"verify login\\\" command\"}",
+      "result_size_chars": 218,
+      "success": true,
+      "latency_ms": 1181.8764159688726,
+      "error": null
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,95 @@
+{
+  "session_id": "sess_20260425_232626",
+  "timestamp_start": "2026-04-25T23:26:26.353854",
+  "timestamp_end": "2026-04-25T23:26:58.499487",
+  "user_query": "let's build it",
+  "model_used": "gpt-5-mini",
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "servers_used": [
+    "diggspace"
+  ],
+  "final_answer_preview": "Great \u2014 I\u2019m ready to build. Below is the required confirmation block before I make any writes.\n\nWhat I'll create\n- Entity: Scope \"Apple \u2014 Internal\" (new scope; no id yet)\n\nPlanned values (every field I will send)\n- name: \"Apple \u2014 Internal\"\n- description: \"Internal workspace for Apple employees: leadership updates, product news, people programs, and essential policies.\"\n- welcome_message: \"Welcome ",
+  "total_latency_ms": 32146.099125035107,
+  "total_tokens": 37656,
+  "success": true,
+  "llm_calls": [
+    {
+      "timestamp": "2026-04-25T23:26:33.517737",
+      "model": "gpt-5-mini",
+      "turn": 1,
+      "messages_count": 4,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "tool_call",
+      "tool_calls_made": [
+        "check_connection"
+      ],
+      "content_preview": "",
+      "prompt_tokens": 17692,
+      "completion_tokens": 468,
+      "total_tokens": 18160,
+      "latency_ms": 7162.1274999924935,
+      "error": null
+    },
+    {
+      "timestamp": "2026-04-25T23:26:58.489217",
+      "model": "gpt-5-mini",
+      "turn": 2,
+      "messages_count": 6,
+      "tools_available": [
+        "check_connection",
+        "list_scopes",
+        "get_scope",
+        "resolve_scope",
+        "create_scope",
+        "update_scope",
+        "list_channels",
+        "get_channel",
+        "resolve_channel",
+        "create_channel",
+        "update_channel",
+        "create_article",
+        "get_global_settings",
+        "update_global_settings"
+      ],
+      "response_type": "final_answer",
+      "tool_calls_made": [],
+      "content_preview": "Great \u2014 I\u2019m ready to build. Below is the required confirmation block before I make any writes.\n\nWhat I'll create\n- Entity: Scope \"Apple \u2014 Internal\" (new scope; no id yet)\n\nPlanned values (every field ",
+      "prompt_tokens": 17728,
+      "completion_tokens": 1768,
+      "total_tokens": 19496,
+      "latency_ms": 24849.806166952476,
+      "error": null
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-04-25T23:26:33.637720",
+      "turn": 1,
+      "server_name": "diggspace",
+      "tool_name": "check_connection",
+      "arguments": {},
+      "result_preview": "{\"ok\": true, \"status_code\": 200}",
+      "result_size_chars": 32,
+      "success": true,
+      "latency_ms": 116.78558401763439,
+      "error": null
+    }
+  ],
+  "error": null
+}
