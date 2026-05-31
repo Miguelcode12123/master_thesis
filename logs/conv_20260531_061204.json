@@ -1,0 +1,131 @@
+{
+  "schema_version": 3,
+  "conversation_id": "conv_20260531_061204",
+  "timestamp_start": "2026-05-31T06:12:04.401024",
+  "timestamp_end": "2026-05-31T06:15:45.509336",
+  "model_used": "gpt-5.4-nano",
+  "servers_used": [
+    "diggspace"
+  ],
+  "total_interactions": 1,
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "total_latency_ms": 4958.898083015811,
+  "total_tokens": 18083,
+  "total_prompt_tokens": 18014,
+  "total_completion_tokens": 69,
+  "estimated_cost_usd": 0.0036373000000000004,
+  "interactions": [
+    {
+      "interaction_index": 1,
+      "timestamp_start": "2026-05-31T06:12:10.028977",
+      "timestamp_end": "2026-05-31T06:12:14.987861",
+      "user_query": "can you check connection",
+      "final_answer": "I attempted a connection check, but it failed with **403 Forbidden**.\n\nThat usually means your token/session is missing the required permissions/role.  \nIf you recently changed credentials, please refresh your **DIGGSPACE_BEARER_TOKEN** and retry.",
+      "total_turns": 2,
+      "total_tool_calls": 1,
+      "total_latency_ms": 4958.898083015811,
+      "llm_latency_ms": 4888.045082974713,
+      "tool_latency_ms": 61.275666987057775,
+      "total_tokens": 18083,
+      "total_prompt_tokens": 18014,
+      "total_completion_tokens": 69,
+      "estimated_cost_usd": 0.0036373000000000004,
+      "success": true,
+      "llm_calls": [
+        {
+          "timestamp": "2026-05-31T06:12:12.634295",
+          "model": "gpt-5.4-nano",
+          "turn": 1,
+          "messages_count": 2,
+          "tools_available": [
+            "check_connection",
+            "list_scopes",
+            "get_scope",
+            "resolve_scope",
+            "create_scope",
+            "update_scope",
+            "verify_scope",
+            "list_channels",
+            "get_channel",
+            "resolve_channel",
+            "create_channel",
+            "update_channel",
+            "create_content",
+            "get_content",
+            "update_content",
+            "list_content",
+            "create_scope_with_channels",
+            "seed_channel_content",
+            "get_global_settings",
+            "update_global_settings"
+          ],
+          "response_type": "tool_call",
+          "tool_calls_made": [
+            "check_connection"
+          ],
+          "content": "",
+          "prompt_tokens": 8983,
+          "completion_tokens": 14,
+          "total_tokens": 8997,
+          "latency_ms": 2602.6665829704143,
+          "estimated_cost_usd": 0.0018036,
+          "error": null
+        },
+        {
+          "timestamp": "2026-05-31T06:12:14.984943",
+          "model": "gpt-5.4-nano",
+          "turn": 2,
+          "messages_count": 4,
+          "tools_available": [
+            "check_connection",
+            "list_scopes",
+            "get_scope",
+            "resolve_scope",
+            "create_scope",
+            "update_scope",
+            "verify_scope",
+            "list_channels",
+            "get_channel",
+            "resolve_channel",
+            "create_channel",
+            "update_channel",
+            "create_content",
+            "get_content",
+            "update_content",
+            "list_content",
+            "create_scope_with_channels",
+            "seed_channel_content",
+            "get_global_settings",
+            "update_global_settings"
+          ],
+          "response_type": "final_answer",
+          "tool_calls_made": [],
+          "content": "I attempted a connection check, but it failed with **403 Forbidden**.\n\nThat usually means your token/session is missing the required permissions/role.  \nIf you recently changed credentials, please refresh your **DIGGSPACE_BEARER_TOKEN** and retry.",
+          "prompt_tokens": 9031,
+          "completion_tokens": 55,
+          "total_tokens": 9086,
+          "latency_ms": 2285.378500004299,
+          "estimated_cost_usd": 0.0018337000000000002,
+          "error": null
+        }
+      ],
+      "tool_calls": [
+        {
+          "timestamp": "2026-05-31T06:12:12.698408",
+          "turn": 1,
+          "server_name": "diggspace",
+          "tool_name": "check_connection",
+          "arguments": {},
+          "result": "{\"ok\": false, \"error\": \"http_error\", \"detail\": null, \"status_code\": 403}",
+          "result_size_chars": 72,
+          "success": true,
+          "latency_ms": 61.275666987057775,
+          "error": null
+        }
+      ],
+      "error": null
+    }
+  ],
+  "error": null
+}

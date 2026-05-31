@@ -29,20 +29,20 @@ SYSTEM_PROMPT = """\
 HARD RULES — read these first, they override everything else
 • Never fabricate IDs, names, image paths, routes, or field values. Use only values
   returned by tool calls or supplied by the user.
-• Never call a write tool (create_*, update_*, seed_channel_articles) without
+• Never call a write tool (create_*, update_*, seed_channel_content) without
   first presenting a confirmation block and receiving explicit user approval.
 • Never call `get_*` before an `update_*` — every update tool fetches current
   state internally and merges. Calling get first wastes tokens.
 • Never use `list_*` to look up by name — use `resolve_scope` / `resolve_channel`.
 • Never guess a channel or scope ID. IDs come from tool responses only.
-• Article bodies must be valid HTML. Never use plain text — wrap in <p>...</p>.
+• Content bodies must be valid HTML. Never use plain text — wrap in <p>...</p>.
 • On resolver 0 matches: tell the user, ask them to check spelling. Do not retry.
 • On resolver 2+ matches: list candidates and ask which. Never pick silently.
 
 ROLE
 You are an AI assistant for the Diggspace CMS. You help admins manage scopes
-(workspaces), channels (sections), articles, and global settings.
-Hierarchy: Global Settings > Scopes > Channels > Articles.
+(workspaces), channels (sections), content (articles or events), and global settings.
+Hierarchy: Global Settings > Scopes > Channels > Content (Articles / Events).
 
 WRITE CONFIRMATION PROTOCOL
 For every write tool, before calling it:
@@ -50,7 +50,7 @@ For every write tool, before calling it:
   2. PRESENT a confirmation block:
        • Entity type, name, id (if known)
        • Every field you will send. Mark omitted fields as "unchanged" for updates.
-       • Any follow-up calls planned (e.g. "then seed 3 articles").
+       • Any follow-up calls planned (e.g. "then seed 3 content items").
      End with: "Shall I proceed, or would you like to change anything?"
   3. WAIT for explicit confirmation. A follow-up question is NOT confirmation.
   4. REPORT after each write — what changed and the returned id. On error,
@@ -58,18 +58,18 @@ For every write tool, before calling it:
 
 TOOL ROUTING
 - Lookup by name       → `resolve_scope` or `resolve_channel`
-- Show inventory       → `list_scopes` / `list_channels` / `get_articles`
-- Read full config     → `get_scope` / `get_channel` / `get_article` / `get_global_settings`
-- Patch an entity      → `update_scope` / `update_channel` / `update_article` / `update_global_settings`
+- Show inventory       → `list_scopes` / `list_channels` / `list_content`
+- Read full config     → `get_scope` / `get_channel` / `get_content` / `get_global_settings`
+- Patch an entity      → `update_scope` / `update_channel` / `update_content` / `update_global_settings`
   All update tools share the same contract: pass only the fields you want changed —
   omitted fields are preserved. Each tool fetches current state internally and merges
   before sending. List-type fields (e.g. tabs, footer_block_links, sticky_channel_ids,
   frequent_questions) replace the entire list when passed — they are not appended to.
 - Build scope + channels together → `create_scope_with_channels` (preferred over chaining)
-- Seed multiple articles/events   → `seed_channel_articles` (preferred over looping `create_article`)
-- Create an Event instead of an Article → use `create_article` or `seed_channel_articles`
-  with `event_start` and `event_end`; the API determines content type automatically.
-  Add `location` when known.
+- Seed multiple content items → `seed_channel_content` (preferred over looping `create_content`)
+- Create content              → `create_content`. Pass `event_start` + `event_end` for Events;
+  omit them for Articles. The API determines content type automatically.
+  Add `location` for Events when known.
 - End of build run                → `verify_scope`
 
 SESSION START
@@ -163,25 +163,25 @@ class LoginQuickLink(BaseModel):
 
 # ─── Composite-tool input models ─────────────────────────────────────────────
 
-class ArticleSpec(BaseModel):
-    """Full specification for a single article or event. Used by `seed_channel_articles`.
-    All fields are written verbatim into the article-create payload.
-    To create an Event instead of an Article, provide `event_start` and `event_end`.
-    The API determines content type automatically based on the presence of `event_start`.
+class ContentSpec(BaseModel):
+    """Full specification for a single content item — either an article or an event.
+    Used by `seed_channel_content`. All fields are written verbatim into the content-create payload.
+    Provide `event_start` and `event_end` to create an Event; omit them for an Article.
+    The API determines content type automatically from the presence of `event_start`.
     """
-    title                        : str                          = Field(description="Article title, plain text, no HTML.")
-    body                         : str                          = Field(description="Article body as HTML. Wrap plain text in <p>...</p>. Use <h2>/<h3> for headings.")
+    title                        : str                          = Field(description="Title, plain text, no HTML.")
+    body                         : str                          = Field(description="Body as HTML. Wrap plain text in <p>...</p>. Use <h2>/<h3> for headings.")
     status                       : Literal["Draft", "Published"] = Field(default="Published", description="'Draft' = saved but invisible. 'Published' = live.")
     tags                         : list[str]                    = Field(default_factory=list, description="Free-text tags, e.g. ['announcement', 'q4-2024']. Empty list is fine.")
     is_main_highlight            : bool                         = Field(default=False, description="Feature on the scope homepage carousel.")
     is_sticky                    : bool                         = Field(default=False, description="Pin to the top of the channel feed.")
-    hide_likes                   : bool                         = Field(default=False, description="Disable the like button on this article.")
+    hide_likes                   : bool                         = Field(default=False, description="Disable the like button on this item.")
     hide_comments                : bool                         = Field(default=False, description="Disable the comment section.")
     hide_image_in_article_detail : bool                         = Field(default=False, description="Hide hero image on the detail page (still shown in feed cards).")
-    disable_auto_related_articles: bool                         = Field(default=False, description="Turn off the auto Related-articles block.")
+    disable_auto_related_articles: bool                         = Field(default=False, description="Turn off the auto Related-content block.")
     require_read_confirmation    : bool                         = Field(default=False, description="Force users to click 'I have read this'. Use for policies, compliance, legal, security.")
     notify                       : bool                         = Field(default=False, description="Notify scope users on publish. Only meaningful when status='Published'. Use for major announcements and policies.")
-    image_url                    : str | None                   = Field(default=None, description="CMS media path for the article hero image, e.g. 'cms/media/.../hero.jpg'. Must already exist on the server. Omit if no image.")
+    image_url                    : str | None                   = Field(default=None, description="CMS media path for the hero image, e.g. 'cms/media/.../hero.jpg'. Must already exist on the server. Omit if no image.")
     event_start                  : str | None                   = Field(default=None, description="ISO 8601 datetime for event start, e.g. '2026-06-01T09:00:00Z'. Providing this turns the item into an Event.")
     event_end                    : str | None                   = Field(default=None, description="ISO 8601 datetime for event end, e.g. '2026-06-01T17:00:00Z'. Required when event_start is provided.")
     location                     : str | None                   = Field(default=None, description="Plain-text event location, e.g. 'Conference Room A, HQ'. Only meaningful for Events.")
@@ -189,16 +189,16 @@ class ArticleSpec(BaseModel):
 
 class ChannelConfig(BaseModel):
     """Full specification for one channel inside `create_scope_with_channels`.
-    Mirrors the parameters of `create_channel` exactly — no article seeding here
-    (use `seed_channel_articles` after the scope is built)."""
+    Mirrors the parameters of `create_channel` exactly — no content seeding here
+    (use `seed_channel_content` after the scope is built)."""
     name                 : str             = Field(description="Channel display name, e.g. 'The Daily'. Server derives the URL slug.")
     description          : str             = Field(description="HTML description, e.g. '<p>Company-wide announcements</p>'. Never empty.")
     channel_type         : ChannelType     = Field(default="public", description="'public' = visible to all; 'private' = opt-in; 'corporate' = restricted (leadership/legal/compliance).")
     is_sticky            : bool            = Field(default=False, description="Pin this channel to the top of the scope's channel list.")
     color                : HexColor        = Field(default="#ffbb33", description="Channel chrome color, 6-digit hex (e.g. '#FF9900').")
     image_url            : str | None      = Field(default=None, description="Optional CMS media path for the channel image. Must already exist.")
-    hide_on_homepage_feed: bool            = Field(default=False, description="Exclude this channel's articles from the scope homepage feed.")
-    hide_highlights      : bool            = Field(default=False, description="Disqualify this channel's articles from highlight slots.")
+    hide_on_homepage_feed: bool            = Field(default=False, description="Exclude this channel's content from the scope homepage feed.")
+    hide_highlights      : bool            = Field(default=False, description="Disqualify this channel's content from highlight slots.")
     default_role         : ChannelRole     = Field(default="None", description="Role automatically granted to every user in the parent scope.")
     tabs                 : list[ChannelTab] = Field(default_factory=lambda: ["Articles", "Pages"], description="Tabs shown on the channel page. Order matters.")
     initial_tab          : ChannelTab      = Field(default="Articles", description="Active tab on load. Must also appear in `tabs`.")
@@ -277,8 +277,8 @@ def _build_channel_components() -> dict:
     return {"mainComponents": [{"id": "", "type": "mainChannelFeed"}]}
 
 
-def _extract_articles(body_data: Any) -> list:
-    """Normalise the articles response, which may be a plain list or a paginated envelope."""
+def _extract_content(body_data: Any) -> list:
+    """Normalise the content response, which may be a plain list or a paginated envelope."""
     if isinstance(body_data, list):
         return body_data
     if isinstance(body_data, dict):
@@ -334,8 +334,8 @@ _QUERY_NOISE_WORDS = frozenset({
     "scope", "workspace", "workspaces", "scopes", "hub",
     # channel-level
     "channel", "channels", "section", "sections", "feed", "tab",
-    # article-level
-    "article", "articles", "post", "posts",
+    # content-level
+    "article", "articles", "event", "events", "post", "posts", "content",
     # generic
     "the", "a", "an", "my", "our",
 })
@@ -611,7 +611,7 @@ async def update_scope(
     name="verify_scope",
     description=(
         "Audit a finished scope: channel count, sticky channels, brand colors, "
-        "highlights config, and per-channel article counts."
+        "highlights config, and per-channel content counts."
     ),
 )
 async def verify_scope(
@@ -631,19 +631,19 @@ async def verify_scope(
             "warning"      : "No channels found — scope may be empty or id is wrong.",
         })
 
-    # 2. Fetch scope config + all channel details + article counts concurrently
+    # 2. Fetch scope config + all channel details + content item counts concurrently
     async def _fetch_channel_data(ch: dict) -> dict:
         ch_id   = ch.get("id", "")
         ch_name = ch.get("name", "?")
-        raw_detail, raw_arts = await asyncio.gather(
+        raw_detail, raw_content = await asyncio.gather(
             _request("GET", f"/cms/api/channels/{ch_id}"),
             _request("GET", "/cms/api/content-management", params={"channelId": ch_id, "skip": 0, "take": 200}),
         )
         ch_detail     = json.loads(raw_detail).get("data") or {}
-        env_arts      = json.loads(raw_arts)
-        article_count = 0
-        if not env_arts.get("error"):
-            article_count = len(_extract_articles(env_arts.get("data")))
+        env_content      = json.loads(raw_content)
+        content_count = 0
+        if not env_content.get("error"):
+            content_count = len(_extract_content(env_content.get("data")))
         return {
             "channel"      : ch_name,
             "id"           : ch_id,
@@ -651,7 +651,7 @@ async def verify_scope(
             "color"        : ch_detail.get("color"),
             "tabs"         : ch_detail.get("tabs"),
             "faq_count"    : len(ch_detail.get("frequentQuestions") or []),
-            "article_count": article_count,
+            "content_count": content_count,
         }
 
     channel_reports, raw_scope = await asyncio.gather(
@@ -659,7 +659,7 @@ async def verify_scope(
         _request("GET", f"/cms/api/scopes/{scope_id}"),
     )
     channel_reports = list(channel_reports)
-    total_articles  = sum(r["article_count"] for r in channel_reports)
+    total_content  = sum(r["content_count"] for r in channel_reports)
 
     # 3. Evaluate scope config
     env_scope  = json.loads(raw_scope)
@@ -667,7 +667,7 @@ async def verify_scope(
     theme      = scope_data.get("theme") or {}
 
     sticky_channels = [r for r in channel_reports if r["isSticky"]]
-    empty_channels  = [r["channel"] for r in channel_reports if r["article_count"] == 0]
+    empty_channels  = [r["channel"] for r in channel_reports if r["content_count"] == 0]
 
     warnings = []
     if not sticky_channels:
@@ -677,7 +677,7 @@ async def verify_scope(
     if not theme.get("primaryColor"):
         warnings.append("No brand colors set on scope.")
     if empty_channels:
-        warnings.append(f"Channels with no articles: {', '.join(empty_channels)}")
+        warnings.append(f"Channels with no content: {', '.join(empty_channels)}")
 
     return json.dumps({
         "scope_id"            : scope_id,
@@ -695,7 +695,7 @@ async def verify_scope(
         },
         "channel_count"       : len(channel_reports),
         "sticky_channel_count": len(sticky_channels),
-        "total_articles"      : total_articles,
+        "total_content"      : total_content,
         "channels"            : channel_reports,
         "warnings"            : warnings,
         "status"              : "OK" if not warnings else "WARNINGS",
@@ -919,31 +919,31 @@ async def update_channel(
 
 
 # ═════════════════════════════════════════════════════════════════════════════
-#                                 ARTICLES
+#                                 CONTENT
 # ═════════════════════════════════════════════════════════════════════════════
 
 @mcp.tool(
-    name="create_article",
+    name="create_content",
     description=(
         "Publish or draft a single article or event in a channel. Requires the channel ID."
     ),
 )
-async def create_article(
+async def create_content(
     channel_id                   : Annotated[str,                       Field(description="Destination channel ID (from `resolve_channel` / `list_channels`). Confirm with the user if ambiguous.")],
-    title                        : Annotated[str,                       Field(description="Article title, plain text, no HTML.")],
-    body                         : Annotated[str,                       Field(description="Article body as HTML. Wrap plain text in <p>...</p>. Use <h2>/<h3> for headings, <ul>/<ol> for lists.")],
+    title                        : Annotated[str,                       Field(description="Title, plain text, no HTML.")],
+    body                         : Annotated[str,                       Field(description="Body as HTML. Wrap plain text in <p>...</p>. Use <h2>/<h3> for headings, <ul>/<ol> for lists.")],
     status                       : Annotated[Literal["Draft", "Published"], Field(description="'Draft' = saved invisibly. 'Published' = live. Default 'Draft' when intent is unclear.")] = "Draft",
     tags                         : Annotated[list[str] | None,          Field(description="Free-text tags, e.g. ['announcement', 'policy']. Empty list / omitted is fine.")] = None,
     is_main_highlight            : Annotated[bool,                      Field(description="Feature on the scope homepage carousel.")] = False,
     is_sticky                    : Annotated[bool,                      Field(description="Pin to the top of the channel feed.")] = False,
-    hide_likes                   : Annotated[bool,                      Field(description="Disable the like button on this article.")] = False,
+    hide_likes                   : Annotated[bool,                      Field(description="Disable the like button on this item.")] = False,
     hide_comments                : Annotated[bool,                      Field(description="Disable the comment section.")] = False,
     hide_image_in_article_detail : Annotated[bool,                      Field(description="Hide hero image on the detail page (still shown in feed cards).")] = False,
-    disable_auto_related_articles: Annotated[bool,                      Field(description="Turn off the auto Related-articles block.")] = False,
+    disable_auto_related_articles: Annotated[bool,                      Field(description="Turn off the auto Related-content block.")] = False,
     require_read_confirmation    : Annotated[bool,                      Field(description="Force users to click 'I have read this'. Use for policies, compliance, legal, security.")] = False,
     notify                       : Annotated[bool,                      Field(description="Notify scope users on publish. Only meaningful when status='Published'.")] = False,
     image_url                    : Annotated[str | None,                Field(description="CMS media path for the hero image, e.g. 'cms/media/.../hero.jpg'. Must already exist on the server. Omit if no image.")] = None,
-    event_start                  : Annotated[str | None,                Field(description="ISO 8601 datetime for event start, e.g. '2026-06-01T09:00:00Z'. Providing this creates an Event instead of an Article.")] = None,
+    event_start                  : Annotated[str | None,                Field(description="ISO 8601 datetime for event start, e.g. '2026-06-01T09:00:00Z'. Providing this makes the item an Event; omitting it makes it an Article.")] = None,
     event_end                    : Annotated[str | None,                Field(description="ISO 8601 datetime for event end, e.g. '2026-06-01T17:00:00Z'. Required when event_start is provided.")] = None,
     location                     : Annotated[str | None,                Field(description="Plain-text event location, e.g. 'Conference Room A, HQ'. Only meaningful for Events.")] = None,
 ) -> str:
@@ -970,13 +970,13 @@ async def create_article(
 
 
 @mcp.tool(
-    name="get_article",
-    description="Fetch one article or event by ID — title, body HTML, tags, image, channel, all flags, and event fields if applicable.",
+    name="get_content",
+    description="Fetch one content item (article or event) by ID — title, body HTML, tags, image, channel, all flags, and event fields (eventStart, eventEnd, location) when present.",
 )
-async def get_article(
-    article_id: Annotated[str, Field(description="Opaque article ID (from `get_articles` / `create_article`).")],
+async def get_content(
+    content_id: Annotated[str, Field(description="Opaque content ID (from `list_content` / `create_content`). Works for both articles and events.")],
 ) -> str:
-    raw      = await _request("GET", f"/cms/api/content-management/{article_id}")
+    raw      = await _request("GET", f"/cms/api/content-management/{content_id}")
     envelope = json.loads(raw)
     if envelope.get("error"):
         return raw
@@ -987,21 +987,22 @@ async def get_article(
         "status", "isMainHighlight", "isSticky", "notify",
         "hideLikes", "hideComments", "hideImageInArticleDetail",
         "disableAutoRelatedArticles", "requireReadConfirmation",
+        "eventStart", "eventEnd", "location",
     )}
     return json.dumps({"status_code": envelope.get("status_code", 200), "data": slim})
 
 
 @mcp.tool(
-    name="update_article",
+    name="update_content",
     description=(
         "Update an existing article or event — change title, body, tags, image, flags, status, or move it to a different channel"
     ),
 )
-async def update_article(
-    article_id                   : Annotated[str,                       Field(description="ID of the article to update (from `get_articles` / `create_article`).")],
+async def update_content(
+    content_id                   : Annotated[str,                       Field(description="ID of the content item to update (from `list_content` / `create_content`). Works for both articles and events.")],
     title                        : Annotated[str | None,                Field(description="New title, plain text. Omit to keep current.")] = None,
     body                         : Annotated[str | None,                Field(description="New body as HTML. Wrap plain text in <p>...</p>. Omit to keep current.")] = None,
-    channel_id                   : Annotated[str | None,                Field(description="Move the article to this channel ID. Omit to keep it in its current channel.")] = None,
+    channel_id                   : Annotated[str | None,                Field(description="Move the content item to this channel ID. Omit to keep it in its current channel.")] = None,
     status                       : Annotated[Literal["Draft", "Published"] | None, Field(description="Change publication status. Omit to keep current. ⚠️ Defaults to 'Published' if omitted — pass 'Draft' explicitly for drafts.")] = None,
     tags                         : Annotated[list[str] | None,          Field(description="REPLACE the tag list entirely. Pass [] to clear all tags. Omit to keep current.")] = None,
     is_main_highlight            : Annotated[bool | None,               Field(description="Toggle homepage-carousel feature.")] = None,
@@ -1009,7 +1010,7 @@ async def update_article(
     hide_likes                   : Annotated[bool | None,               Field(description="Toggle like button.")] = None,
     hide_comments                : Annotated[bool | None,               Field(description="Toggle comment section.")] = None,
     hide_image_in_article_detail : Annotated[bool | None,               Field(description="Toggle hero image on detail page.")] = None,
-    disable_auto_related_articles: Annotated[bool | None,               Field(description="Toggle auto Related-articles block.")] = None,
+    disable_auto_related_articles: Annotated[bool | None,               Field(description="Toggle auto Related-content block.")] = None,
     require_read_confirmation    : Annotated[bool | None,               Field(description="Toggle the 'I have read this' requirement.")] = None,
     notify                       : Annotated[bool | None,               Field(description="Notify scope users on this update. Default False on edits — only set True for major republishes.")] = None,
     image_url                    : Annotated[str | None,                Field(description="New CMS media path for hero image. Pass '' to clear it. Omit to keep current.")] = None,
@@ -1017,7 +1018,7 @@ async def update_article(
     event_end                    : Annotated[str | None,                Field(description="ISO 8601 datetime for event end. Omit to keep current.")] = None,
     location                     : Annotated[str | None,                Field(description="Plain-text event location. Pass '' to clear. Omit to keep current.")] = None,
 ) -> str:
-    raw      = await _request("GET", f"/cms/api/content-management/{article_id}")
+    raw      = await _request("GET", f"/cms/api/content-management/{content_id}")
     envelope = json.loads(raw)
     if envelope.get("error"):
         return raw
@@ -1072,16 +1073,16 @@ async def update_article(
         overrides["location"] = None if location == "" else location
  
     merged = {**base, **overrides}
-    return await _request("PUT", f"/cms/api/content-management/{article_id}", json_b=merged)
+    return await _request("PUT", f"/cms/api/content-management/{content_id}", json_b=merged)
 
 
 @mcp.tool(
-    name="get_articles",
+    name="list_content",
     description=(
-        "List articles and events in one channel — returns channel_id, article_count, and a slim list of {id, title} per article."
+        "List content items (articles and events) in one channel — returns channel_id, content_count, and a slim list of {id, title} per item."
     ),
 )
-async def get_articles(
+async def list_content(
     channel_id: Annotated[str, Field(
         description=(
             "Channel ID to query (from `resolve_channel` / `list_channels` / "
@@ -1094,8 +1095,8 @@ async def get_articles(
     if envelope.get("error"):
         return raw
 
-    items    = _extract_articles(envelope.get("data"))
-    articles = [
+    items    = _extract_content(envelope.get("data"))
+    content_items = [
         {"id": a.get("id"), "title": a.get("title")}
         for a in items
         if isinstance(a, dict)
@@ -1103,9 +1104,9 @@ async def get_articles(
     return json.dumps({
         "status_code"  : envelope.get("status_code", 200),
         "channel_id"   : channel_id,
-        "article_count": len(articles),
-        "truncated"    : len(articles) >= 200,
-        "articles"     : articles,
+        "content_count": len(content_items),
+        "truncated"    : len(content_items) >= 200,
+        "items"     : content_items,
     })
 
 
@@ -1228,32 +1229,31 @@ async def create_scope_with_channels(
 
 
 @mcp.tool(
-    name="seed_channel_articles",
+    name="seed_channel_content",
     description=(
-        "Create multiple articles or eventsin one channel in a single call. "
-        "Idempotent — skips articles whose title already exists in the channel, "
+        "Create multiple articles or events in one channel in a single call. "
+        "Idempotent — skips items whose title already exists in the channel, "
         "so safe to retry after partial failures."
     ),
 )
-async def seed_channel_articles(
+async def seed_channel_content(
     channel_id: Annotated[str,               Field(description="Server-confirmed channel ID (from `create_scope_with_channels` / `list_channels`). Never guess.")],
-    articles  : Annotated[list[ArticleSpec], Field(description="Articles (or events) to create in this channel. Each ArticleSpec is a complete item with body HTML and all flags. Add event_start + event_end to any spec to make it an Event.")],
+    items  : Annotated[list[ContentSpec],    Field(description="Content items to create in this channel. Each ContentSpec is a complete item (article or event) with body HTML and all flags. Add event_start + event_end to make a spec an Event; omit them for an Article.")],
 ) -> str:
     raw_existing = await _request("GET", "/cms/api/content-management", params={"channelId": channel_id, "skip": 0, "take": 200})
     env_existing = json.loads(raw_existing)
     existing_titles: set[str] = set()
     existing_count  = 0
     if not env_existing.get("error"):
-        items           = _extract_articles(env_existing.get("data"))
-        existing_count  = len(items)
+        existing_raw    = _extract_content(env_existing.get("data"))
+        existing_count  = len(existing_raw)
         existing_titles = {
-            (a.get("title") or "").strip().lower()
-            for a in items
-            if isinstance(a, dict)
+            (item.get("title") or "").strip().lower()
+            for item in existing_raw
+            if isinstance(item, dict)
         }
- 
-    # 2. Skip articles whose title already exists — safe on retry / partial failure
-    to_create = [a for a in articles if a.title.strip().lower() not in existing_titles]
+
+    to_create = [item for item in items if item.title.strip().lower() not in existing_titles]
  
     created_ids: list[str] = []
     failed     : list[dict] = []
@@ -1278,21 +1278,21 @@ async def seed_channel_articles(
             "eventEnd"                  : spec.event_end,
             "location"                  : spec.location,
         })
-        raw_art = await _request("POST", "/cms/api/content-management", json_b=payload)
-        env_art = json.loads(raw_art)
-        if env_art.get("error"):
-            failed.append({"title": spec.title, "error": env_art.get("error")})
+        raw_item = await _request("POST", "/cms/api/content-management", json_b=payload)
+        env_item = json.loads(raw_item)
+        if env_item.get("error"):
+            failed.append({"title": spec.title, "error": env_item.get("error")})
         else:
-            created_ids.append((env_art.get("data") or {}).get("id", "unknown"))
+            created_ids.append((env_item.get("data") or {}).get("id", "unknown"))
  
     final_total = existing_count + len(created_ids)
     result: dict = {
         "channel_id"       : channel_id,
         "pre_existing"     : existing_count,
         "created_this_call": len(created_ids),
-        "total_articles"   : final_total,
-        "target"           : len(articles),
-        "status"           : "complete" if final_total >= len(articles) else "partial",
+        "total_content"   : final_total,
+        "target"           : len(items),
+        "status"           : "complete" if final_total >= len(items) else "partial",
     }
     if failed:
         result["failed"] = failed
@@ -1427,7 +1427,7 @@ async def update_global_settings(
     description=(
         "Build a FULLY POPULATED Diggspace hub from a company profile. "
         "Designs architecture, builds scope + channels with FAQs, seeds multiple "
-        "realistic articles per primary channel, and polishes hub-wide settings. "
+        "realistic content items per primary channel, and polishes hub-wide settings. "
         "This is the production-quality onboarding flow — use it for real demos."
     ),
 )
@@ -1435,10 +1435,10 @@ def build_hub_from_profile(company_profile: str) -> list:
     INSTRUCTIONS = """\
 You are a senior digital workplace consultant onboarding a client onto the Diggspace platform.
 You have been given a company profile. Your job is to design and build a complete, populated
-intranet hub — not a skeleton. A real internal workspace has density: multiple articles per
+intranet hub — not a skeleton. A real internal workspace has density: multiple content items per
 channel, FAQs where they make sense, highlights, pinned posts, policies requiring read
 confirmation, leadership updates, and hub-wide polish. You will use EVERY available feature
-of the Diggspace platform — scope branding, channel types, sticky channels, article flags,
+of the Diggspace platform — scope branding, channel types, sticky channels, content flags,
 FAQs, global settings, highlights. No field left at its default if a better value exists.
 
 ═══════════════════════════════════════════════════════════════════════
@@ -1498,30 +1498,29 @@ Produce a complete design across 4 sections:
    - default_role: 'Reader' for public channels; 'None' for private/corporate
 
 3. CONTENT CALENDAR
-   PRIMARY channels get 3 seeded articles each.
-   SECONDARY channels get 2 seeded articles each.
-   List articles grouped BY CHANNEL. For every article specify ALL flags:
+   PRIMARY channels get 3 content items each.
+   SECONDARY channels get 2 content items each.
+   Include 1-2 events across the hub where an event type makes sense.
+   List content items grouped BY CHANNEL. For every item specify ALL flags:
    - Title (specific and newsy — never 'Welcome to X' or 'Update from the team')
    - Type: announcement / policy / recap / spotlight / guide / milestone / event
    - tags: 3-5 specific tags (e.g. ['q4-2024', 'earnings', 'leadership'])
-   - is_main_highlight: pick exactly 3-4 articles TOTAL across the whole hub.
+   - is_main_highlight: pick exactly 3-4 items TOTAL across the whole hub.
      These appear on the homepage hero carousel. Choose high-signal content:
      financial results, product launches, major policy announcements.
-     IMPORTANT: is_main_highlight is set on the ArticleSpec — it is the ONLY
+     IMPORTANT: is_main_highlight is set on the ContentSpec — it is the ONLY
      correct mechanism for homepage highlights.
-   - is_sticky: pin 1-2 articles per channel (the most important ones)
+   - is_sticky: pin 1-2 items per channel (the most important ones)
    - require_read_confirmation: True for ALL policy, compliance, legal, and security
-     articles. False for news, spotlights, recaps, and leadership letters.
+     items. False for news, spotlights, recaps, and leadership letters.
    - status: 'Published' for everything (this is a live hub, not a draft)
-   - notify: True for major announcements and policy articles;
+   - notify: True for major announcements and policy items;
              False for evergreen content, guides, and spotlights
-   - image_url: CMS media path for the article image. Must already be uploaded.
+   - image_url: CMS media path for the item image. Must already be uploaded.
      Always try to assign an image if the profile provides one.
-   - event_start / event_end: ISO 8601 datetimes. Include on 1-2 articles across
-     the hub where an event type makes sense (e.g. a town hall, team day, or
-     product launch event). Add location when known.
+   - event_start / event_end: ISO 8601 datetimes for Event items; omit for Articles.
    - One-sentence outline of the body content
-   ARTICLE IDEAS — derive from the profile, never invent:
+   CONTENT IDEAS — derive from the profile, never invent:
    • Recent financial results  → quarterly recap with specific numbers
    • Product launches          → launch recap with dates and key details
    • ESG / sustainability      → progress update with targets and milestones
@@ -1550,7 +1549,7 @@ Produce a complete design across 4 sections:
 
 Present the COMPLETE design in structured sections. Then ask:
 'This is a complete design. Shall I build it end-to-end, or would you like to
-adjust anything first — channel names, article plan, colors, or hub settings?'
+adjust anything first — channel names, content plan, colors, or hub settings?'
 STOP. Do not call any tool until the user approves.
 
 ═══════════════════════════════════════════════════════════════════════
@@ -1595,7 +1594,7 @@ a. Call create_scope_with_channels with EVERY design field populated.
      tabs                   — ['Articles'] for broadcast; ['Articles', 'Pages'] for policy/reference
      initial_tab            — 'Articles'
 
-   ChannelConfig does NOT include articles — those are seeded in Phase 2 via seed_channel_articles.
+   ChannelConfig does NOT include content — those are seeded in Phase 2 via seed_channel_content
 
 b. The tool returns scope_id AND a complete channel_map with every confirmed
    channel ID — no manual tracking needed.
@@ -1609,20 +1608,20 @@ c. Report the full channel_map to the user:
 ═══════════════════════════════════════════════════════════════════════
 PHASE 2 — POPULATE CONTENT (the phase that makes this feel real)
 ═══════════════════════════════════════════════════════════════════════
-For EACH channel, call seed_channel_articles(channel_id, articles) once.
-Pass ALL articles for that channel as a list of ArticleSpec objects in a
-single call — do NOT call it once per article.
-seed_channel_articles is idempotent: it checks existing article count first
+For EACH channel, call seed_channel_content(channel_id, items) once.
+Pass ALL content items for that channel as a list of ContentSpec objects in a
+single call — do NOT call it once per item.
+seed_channel_content is idempotent: it checks existing content count first
 and only creates what's missing. It is safe to re-run on partial failures.
-Each ArticleSpec must explicitly set ALL of the following fields:
+Each ContentSpec must explicitly set ALL of the following fields:
   title                        — specific and newsy (from the content calendar)
   body                         — rich HTML (see body requirements below)
   status                       — 'Published'
   tags                         — 3-5 specific tags from the design
-  is_main_highlight            — True for the 3-4 hub-highlight articles.
+  is_main_highlight            — True for the 3-4 hub-highlight items.
                                   This is the ONLY correct mechanism for homepage
-                                  highlights. Set this on the ArticleSpec, not elsewhere.
-  is_sticky                    — True for the 1-2 pinned articles per channel
+                                  highlights. Set this on the ContentSpec, not elsewhere.
+  is_sticky                    — True for the 1-2 pinned items per channel
   require_read_confirmation    — True for policy, compliance, legal, IT/security.
                                   False for news, spotlights, recaps.
   notify                       — True for major announcements and policies; False for evergreen
@@ -1634,7 +1633,7 @@ Each ArticleSpec must explicitly set ALL of the following fields:
   event_start / event_end      — ISO 8601 datetimes for Event items; omit for plain Articles
   location                     — plain-text venue for Event items; omit otherwise
  
-BODY REQUIREMENTS — every article body must meet this bar:
+BODY REQUIREMENTS — every content body must meet this bar:
   - HTML with proper structure:
       <h2> for major sections, <h3> for subsections
       <ul>/<ol> for lists, <strong> for key terms
@@ -1649,7 +1648,7 @@ BODY REQUIREMENTS — every article body must meet this bar:
       Tech/startup           → energetic, first-person plural, forward-looking
       Retail/consumer        → warm, direct, employee-first
   - Length: 400-700 words of substantive content. Not filler.
-  - End with a closing line or CTA appropriate to the article type.
+  - End with a closing line or CTA appropriate to the content type.
  
 Quality bar example — NOT this:
   <p>Welcome to our company. We are a great place to work.</p>
@@ -1665,8 +1664,8 @@ But this:
   <blockquote>"We closed the year strong across every product line." — CEO</blockquote>
   <p>Read the full earnings release at investor.[company].com</p>
  
-After each seed_channel_articles call report:
-'Ch[N] [name]: [created_this_call] articles created — total: [total_articles]/[target] ✓'
+After each seed_channel_content call report:
+'Ch[N] [name]: [created_this_call] items created — total: [total_content]/[target] ✓'
 Continue channel by channel — do not pause for confirmation between channels.
 
 ═══════════════════════════════════════════════════════════════════════
@@ -1698,12 +1697,12 @@ Deliver a presentation-ready summary:
   Scope      : [name] — id: [SCOPE_ID] — route: /scope/[route]
   Brand      : primary [hex] / secondary [hex] / warn [hex]
   Channels   : [count] total — [list each: name, id, type, sticky=T/F]
-  Highlights : [list the 3-4 is_main_highlight articles with title]
-  Articles   : [total count] published across [N] channels
-  Policies   : [count] articles with require_read_confirmation=True
+  Highlights : [list the 3-4 is_main_highlight items with title]
+  Content   : [total count] published across [N] channels
+  Policies   : [count] items with require_read_confirmation=True
   Hub polish : company_name=[name], language=[tag], [N] login quick links
 Close with: 'The workspace is live. Want to iterate — rename a channel,
-add regional content, seed more articles, or adjust branding?'
+add regional content, seed more content, or adjust branding?'
 
 ═══════════════════════════════════════════════════════════════════════
 HARD RULES — build-specific
@@ -1714,8 +1713,8 @@ HARD RULES — build-specific
 • NEVER use generic channel names ('News', 'HR') when the profile
   suggests better ones ('Engineering Pulse', 'People & Belonging').
 • NEVER guess a channel id — use the channel_map from create_scope_with_channels.
-• Exactly 3-4 articles must have is_main_highlight=True across the hub.
-• At least one article per compliance/legal/IT/security channel must have
+• Exactly 3-4 items must have is_main_highlight=True across the hub.
+• At least one content item per compliance/legal/IT/security channel must have
   require_read_confirmation=True.
 • Primary channels must have is_sticky=True in their ChannelConfig.
 • Include 1-2 Events total across the hub where context supports it.

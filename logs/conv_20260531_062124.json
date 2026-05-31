@@ -1,0 +1,131 @@
+{
+  "schema_version": 3,
+  "conversation_id": "conv_20260531_062124",
+  "timestamp_start": "2026-05-31T06:21:24.163343",
+  "timestamp_end": "2026-05-31T06:25:28.900150",
+  "model_used": "gpt-5.4-nano",
+  "servers_used": [
+    "diggspace"
+  ],
+  "total_interactions": 1,
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "total_latency_ms": 5645.932374987751,
+  "total_tokens": 18114,
+  "total_prompt_tokens": 18016,
+  "total_completion_tokens": 98,
+  "estimated_cost_usd": 0.0036522000000000004,
+  "interactions": [
+    {
+      "interaction_index": 1,
+      "timestamp_start": "2026-05-31T06:21:28.237711",
+      "timestamp_end": "2026-05-31T06:21:33.883598",
+      "user_query": "can you check connection?",
+      "final_answer": "I tried to check the server connection, but the request was **forbidden (403)**.\n\nThat typically means your API token/account is **missing the required role/permission** to perform connection checks.\n\nIf you can, please:\n- confirm you’re using the correct **DIGGSPACE_BEARER_TOKEN**, and\n- ensure the user behind it has the CMS role that permits admin/config operations.",
+      "total_turns": 2,
+      "total_tool_calls": 1,
+      "total_latency_ms": 5645.932374987751,
+      "llm_latency_ms": 5517.585291992873,
+      "tool_latency_ms": 117.85804101964459,
+      "total_tokens": 18114,
+      "total_prompt_tokens": 18016,
+      "total_completion_tokens": 98,
+      "estimated_cost_usd": 0.0036522000000000004,
+      "success": true,
+      "llm_calls": [
+        {
+          "timestamp": "2026-05-31T06:21:31.104111",
+          "model": "gpt-5.4-nano",
+          "turn": 1,
+          "messages_count": 2,
+          "tools_available": [
+            "check_connection",
+            "list_scopes",
+            "get_scope",
+            "resolve_scope",
+            "create_scope",
+            "update_scope",
+            "verify_scope",
+            "list_channels",
+            "get_channel",
+            "resolve_channel",
+            "create_channel",
+            "update_channel",
+            "create_content",
+            "get_content",
+            "update_content",
+            "list_content",
+            "create_scope_with_channels",
+            "seed_channel_content",
+            "get_global_settings",
+            "update_global_settings"
+          ],
+          "response_type": "tool_call",
+          "tool_calls_made": [
+            "check_connection"
+          ],
+          "content": "",
+          "prompt_tokens": 8984,
+          "completion_tokens": 14,
+          "total_tokens": 8998,
+          "latency_ms": 2863.6158329900354,
+          "estimated_cost_usd": 0.0018038000000000004,
+          "error": null
+        },
+        {
+          "timestamp": "2026-05-31T06:21:33.880809",
+          "model": "gpt-5.4-nano",
+          "turn": 2,
+          "messages_count": 4,
+          "tools_available": [
+            "check_connection",
+            "list_scopes",
+            "get_scope",
+            "resolve_scope",
+            "create_scope",
+            "update_scope",
+            "verify_scope",
+            "list_channels",
+            "get_channel",
+            "resolve_channel",
+            "create_channel",
+            "update_channel",
+            "create_content",
+            "get_content",
+            "update_content",
+            "list_content",
+            "create_scope_with_channels",
+            "seed_channel_content",
+            "get_global_settings",
+            "update_global_settings"
+          ],
+          "response_type": "final_answer",
+          "tool_calls_made": [],
+          "content": "I tried to check the server connection, but the request was **forbidden (403)**.\n\nThat typically means your API token/account is **missing the required role/permission** to perform connection checks.\n\nIf you can, please:\n- confirm you’re using the correct **DIGGSPACE_BEARER_TOKEN**, and\n- ensure the user behind it has the CMS role that permits admin/config operations.",
+          "prompt_tokens": 9032,
+          "completion_tokens": 84,
+          "total_tokens": 9116,
+          "latency_ms": 2653.9694590028375,
+          "estimated_cost_usd": 0.0018484,
+          "error": null
+        }
+      ],
+      "tool_calls": [
+        {
+          "timestamp": "2026-05-31T06:21:31.225159",
+          "turn": 1,
+          "server_name": "diggspace",
+          "tool_name": "check_connection",
+          "arguments": {},
+          "result": "{\"ok\": false, \"error\": \"http_error\", \"detail\": null, \"status_code\": 403}",
+          "result_size_chars": 72,
+          "success": true,
+          "latency_ms": 117.85804101964459,
+          "error": null
+        }
+      ],
+      "error": null
+    }
+  ],
+  "error": null
+}

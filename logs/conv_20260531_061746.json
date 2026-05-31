@@ -1,0 +1,131 @@
+{
+  "schema_version": 3,
+  "conversation_id": "conv_20260531_061746",
+  "timestamp_start": "2026-05-31T06:17:46.866874",
+  "timestamp_end": "2026-05-31T06:20:04.580356",
+  "model_used": "gpt-5.4-nano",
+  "servers_used": [
+    "diggspace"
+  ],
+  "total_interactions": 1,
+  "total_turns": 2,
+  "total_tool_calls": 1,
+  "total_latency_ms": 5207.572916988283,
+  "total_tokens": 18129,
+  "total_prompt_tokens": 18014,
+  "total_completion_tokens": 115,
+  "estimated_cost_usd": 0.0036603,
+  "interactions": [
+    {
+      "interaction_index": 1,
+      "timestamp_start": "2026-05-31T06:17:52.492156",
+      "timestamp_end": "2026-05-31T06:17:57.699685",
+      "user_query": "can you check connection",
+      "final_answer": "Connection check failed: **403 Forbidden**.\n\nThis usually means your API token/user account lacks the required role/permission to access the Diggspace CMS endpoints.\n\nIf you can, please:\n- refresh/confirm your **DIGGSPACE_BEARER_TOKEN**, and\n- ensure the user has the correct **CMS/admin role** for this environment.\n\nIf you want, tell me what role you believe you have (or what admin role is assigned), and I’ll guide next steps.",
+      "total_turns": 2,
+      "total_tool_calls": 1,
+      "total_latency_ms": 5207.572916988283,
+      "llm_latency_ms": 5080.585291958414,
+      "tool_latency_ms": 115.68595800781623,
+      "total_tokens": 18129,
+      "total_prompt_tokens": 18014,
+      "total_completion_tokens": 115,
+      "estimated_cost_usd": 0.0036603,
+      "success": true,
+      "llm_calls": [
+        {
+          "timestamp": "2026-05-31T06:17:55.040815",
+          "model": "gpt-5.4-nano",
+          "turn": 1,
+          "messages_count": 2,
+          "tools_available": [
+            "check_connection",
+            "list_scopes",
+            "get_scope",
+            "resolve_scope",
+            "create_scope",
+            "update_scope",
+            "verify_scope",
+            "list_channels",
+            "get_channel",
+            "resolve_channel",
+            "create_channel",
+            "update_channel",
+            "create_content",
+            "get_content",
+            "update_content",
+            "list_content",
+            "create_scope_with_channels",
+            "seed_channel_content",
+            "get_global_settings",
+            "update_global_settings"
+          ],
+          "response_type": "tool_call",
+          "tool_calls_made": [
+            "check_connection"
+          ],
+          "content": "",
+          "prompt_tokens": 8983,
+          "completion_tokens": 14,
+          "total_tokens": 8997,
+          "latency_ms": 2545.861499966122,
+          "estimated_cost_usd": 0.0018036,
+          "error": null
+        },
+        {
+          "timestamp": "2026-05-31T06:17:57.695975",
+          "model": "gpt-5.4-nano",
+          "turn": 2,
+          "messages_count": 4,
+          "tools_available": [
+            "check_connection",
+            "list_scopes",
+            "get_scope",
+            "resolve_scope",
+            "create_scope",
+            "update_scope",
+            "verify_scope",
+            "list_channels",
+            "get_channel",
+            "resolve_channel",
+            "create_channel",
+            "update_channel",
+            "create_content",
+            "get_content",
+            "update_content",
+            "list_content",
+            "create_scope_with_channels",
+            "seed_channel_content",
+            "get_global_settings",
+            "update_global_settings"
+          ],
+          "response_type": "final_answer",
+          "tool_calls_made": [],
+          "content": "Connection check failed: **403 Forbidden**.\n\nThis usually means your API token/user account lacks the required role/permission to access the Diggspace CMS endpoints.\n\nIf you can, please:\n- refresh/confirm your **DIGGSPACE_BEARER_TOKEN**, and\n- ensure the user has the correct **CMS/admin role** for this environment.\n\nIf you want, tell me what role you believe you have (or what admin role is assigned), and I’ll guide next steps.",
+          "prompt_tokens": 9031,
+          "completion_tokens": 101,
+          "total_tokens": 9132,
+          "latency_ms": 2534.723791992292,
+          "estimated_cost_usd": 0.0018567000000000002,
+          "error": null
+        }
+      ],
+      "tool_calls": [
+        {
+          "timestamp": "2026-05-31T06:17:55.159664",
+          "turn": 1,
+          "server_name": "diggspace",
+          "tool_name": "check_connection",
+          "arguments": {},
+          "result": "{\"ok\": false, \"error\": \"http_error\", \"detail\": null, \"status_code\": 403}",
+          "result_size_chars": 72,
+          "success": true,
+          "latency_ms": 115.68595800781623,
+          "error": null
+        }
+      ],
+      "error": null
+    }
+  ],
+  "error": null
+}
