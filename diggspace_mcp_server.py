@@ -21,6 +21,59 @@ TOKEN      = os.getenv("DIGGSPACE_BEARER_TOKEN", "")
 VERIFY_SSL = os.getenv("DIGGSPACE_VERIFY_SSL", "true").lower() != "false"
 
 
+STOCK_IMAGES = """\
+stock/Checklist.png
+stock/DataCollecting.png
+stock/DataMaintenance.png
+stock/Decision.png
+stock/DigitalContent.png
+stock/EmptyInbox.png
+stock/Idea.png
+stock/IdeaApplications.png
+stock/Innovation.png
+stock/Mention.png
+stock/Message.png
+stock/Notifications.png
+stock/Password.png
+stock/QualityCheck.png
+stock/Startup.png
+stock/Thinking.png
+stock/Winner.png
+stock/agreement.png
+stock/artificial_intelligence.png
+stock/audit.png
+stock/blockchain.png
+stock/brainstorming.png
+stock/career.png
+stock/cloud_computing.png
+stock/community.png
+stock/credit_card.png
+stock/data_analysis.png
+stock/document_review.png
+stock/eletric_vehicle.png
+stock/financial_report.png
+stock/hacker.png
+stock/investment.png
+stock/law.png
+stock/leadership_speech.png
+stock/m365_48x1 - Copy.svg
+stock/microsoft.svg
+stock/office.png
+stock/onboarding.png
+stock/online_learning.png
+stock/payment.png
+stock/reading.png
+stock/risk.png
+stock/savings.png
+stock/security.png
+stock/stock_market.png
+stock/sustainability.png
+stock/team_diversity.png
+stock/video_call.png
+stock/warehouse.png
+"""
+
+
 # ═════════════════════════════════════════════════════════════════════════════
 #                       SYSTEM PROMPT  (orchestration only)
 # ═════════════════════════════════════════════════════════════════════════════
@@ -67,6 +120,7 @@ TOOL ROUTING
   frequent_questions) replace the entire list when passed — they are not appended to.
 - Build scope + channels together → `create_scope_with_channels` (preferred over chaining)
 - Seed multiple content items → `seed_channel_content` (preferred over looping `create_content`)
+- Upload scope brand logo → `upload_image_from_url` (scope image only — called once per hub build in Phase 1.5, after scope creation)
 - Create content              → `create_content`. Pass `event_start` + `event_end` for Events;
   omit them for Articles. The API determines content type automatically.
   Add `location` for Events when known.
@@ -182,6 +236,7 @@ class ContentSpec(BaseModel):
     require_read_confirmation    : bool                         = Field(default=False, description="Force users to click 'I have read this'. Use for policies, compliance, legal, security.")
     notify                       : bool                         = Field(default=False, description="Notify scope users on publish. Only meaningful when status='Published'. Use for major announcements and policies.")
     image_url                    : str | None                   = Field(default=None, description="CMS media path for the hero image, e.g. 'cms/media/.../hero.jpg'. Must already exist on the server. Omit if no image.")
+    image_id                     : str | None                   = Field(default=None, description="ID returned by upload_image_from_url. Preferred over image_url when the image was uploaded this session.")
     event_start                  : str | None                   = Field(default=None, description="ISO 8601 datetime for event start, e.g. '2026-06-01T09:00:00Z'. Providing this turns the item into an Event.")
     event_end                    : str | None                   = Field(default=None, description="ISO 8601 datetime for event end, e.g. '2026-06-01T17:00:00Z'. Required when event_start is provided.")
     location                     : str | None                   = Field(default=None, description="Plain-text event location, e.g. 'Conference Room A, HQ'. Only meaningful for Events.")
@@ -259,9 +314,13 @@ def _build_theme(
     }) or None
 
 
-def _build_image(image_url: str | None) -> dict | None:
-    """Wrap an image URL in the API's expected object shape, or return None."""
-    return {"url": image_url} if image_url else None
+def _build_image_ref(image_url: str | None, image_id: str | None) -> dict | None:
+    """Build an image reference — by uploaded ID (preferred) or by URL path."""
+    if image_id:
+        return {"id": image_id}
+    if image_url:
+        return {"url": image_url}
+    return None
 
 
 def _build_scope_components(sidebar_components: Sequence[str] | None) -> dict:
@@ -324,6 +383,112 @@ async def _request(
 
     return json.dumps({"status_code": resp.status_code, "data": body})
 
+# ─── Image upload helper ──────────────────────────────────────────────────────
+# ── Browser headers that fool CDN hotlink protection ──────────────────────────
+_BROWSER_HEADERS = {
+    "User-Agent"     : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                       "AppleWebKit/537.36 (KHTML, like Gecko) "
+                       "Chrome/124.0.0.0 Safari/537.36",
+    "Accept"         : "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
+}
+
+_EXT_TO_MIME = {
+    "jpg": "image/jpeg", "jpeg": "image/jpeg",
+    "png": "image/png",  "gif": "image/gif",
+    "webp": "image/webp","svg": "image/svg+xml",
+    "bmp": "image/bmp",  "ico": "image/x-icon",
+}
+
+async def _upload_image(
+    image_url  : str,
+    scope_id   : str,
+    channel_id : str | None = None,
+    filename   : str | None = None,
+) -> str:
+    """
+    Download an image from `image_url` and upload it to POST /api/images.
+    Retries with progressively simpler headers to defeat CDN hotlink protection.
+    Returns a JSON string envelope: {status_code, data: [{Id, Name, Url, ...}]}
+    """
+    origin = "/".join(image_url.split("/")[:3]) + "/"
+
+    # Three attempts: with Referer → without Referer → bare UA only
+    attempts = [
+        {**_BROWSER_HEADERS, "Referer": origin},
+        _BROWSER_HEADERS,
+        {"User-Agent": _BROWSER_HEADERS["User-Agent"]},
+    ]
+
+    image_bytes  = None
+    content_type = None
+    last_error   = ("download_failed", "unknown")
+
+    for headers in attempts:
+        try:
+            async with httpx.AsyncClient(
+                verify=VERIFY_SSL, timeout=30.0, headers=headers
+            ) as dl:
+                r = await dl.get(image_url, follow_redirects=True)
+                r.raise_for_status()
+                image_bytes  = r.content
+                content_type = r.headers.get("content-type", "").split(";")[0].strip()
+                break                           # success — stop retrying
+        except httpx.HTTPStatusError as e:
+            last_error = ("download_failed", str(e))
+            continue                            # try next header set
+        except httpx.RequestError as e:
+            last_error = ("download_network_error", str(e))
+            break                               # network error — no point retrying
+
+    if image_bytes is None:
+        return json.dumps({"error": last_error[0], "detail": last_error[1]})
+
+    # ── Fallback: derive content-type from URL extension if header is missing/generic
+    if not content_type or content_type in ("application/octet-stream", ""):
+        raw_name = image_url.rstrip("/").split("/")[-1].split("?")[0]
+        url_ext  = raw_name.rsplit(".", 1)[-1].lower() if "." in raw_name else ""
+        content_type = _EXT_TO_MIME.get(url_ext, "image/jpeg")
+
+    # ── Derive filename
+    if not filename:
+        filename = image_url.rstrip("/").split("/")[-1].split("?")[0] or "image"
+        if "." not in filename:
+            ext      = content_type.split("/")[-1].replace("jpeg", "jpg")
+            filename = f"{filename}.{ext}"
+
+    # ── POST multipart to /api/images
+    try:
+        form_data = {"scopeId": scope_id}
+        if channel_id:
+            form_data["channelId"] = channel_id
+
+        files = {"files": (filename, image_bytes, content_type)}
+
+        async with httpx.AsyncClient(
+            base_url=BASE_URL,
+            verify  =VERIFY_SSL,
+            timeout =30.0,
+            headers ={"Authorization": f"Bearer {TOKEN}"},
+        ) as up:
+            resp = await up.post("/cms/api/images", data=form_data, files=files)
+    except httpx.RequestError as e:
+        return json.dumps({"error": "upload_network_error", "detail": str(e)})
+
+    try:
+        body = resp.json() if resp.content else None
+    except ValueError:
+        body = resp.text
+
+    if resp.is_error:
+        return json.dumps({
+            "error"      : "http_error",
+            "status_code": resp.status_code,
+            "body"       : body,
+        })
+
+    return json.dumps({"status_code": resp.status_code, "data": body})
 
 # ═════════════════════════════════════════════════════════════════════════════
 #                           RESOLVER HELPERS
@@ -477,7 +642,8 @@ async def create_scope(
     secondary_color                : Annotated[HexColor | None,        Field(description="Theme secondary color, 6-digit hex.")] = None,
     warn_color                     : Annotated[HexColor | None,        Field(description="Theme warning/accent color, 6-digit hex.")] = None,
     warn_color_contrast            : Annotated[HexColor | None,        Field(description="Contrast paired with warn_color.")] = None,
-    image_url                      : Annotated[str | None,             Field(description="Relative CMS media path for the scope hero image. Must already exist on the server. Omit if no image.")] = None,
+    image_url                      : Annotated[str | None,             Field(description="CMS media path for the scope hero image. Must already exist on the server. Omit if no image.")] = None,
+    image_id                       : Annotated[str | None,             Field(description="ID returned by upload_image_from_url. Preferred over image_url for uploaded assets.")] = None,
     administrators                 : Annotated[list[str] | None,       Field(description="User IDs who administer this scope. Empty list / omitted is fine.")] = None,
     footer_block_links             : Annotated[list[FooterBlockGroup] | None, Field(description="Grouped footer link columns. Each group has a title and a list of links. Omit for a plain scope.")] = None,
     navigation_links               : Annotated[NavigationLinks | None, Field(description="Top-bar links, footer-row links, and social icons. footerLinks is a flat list (NOT grouped — use footer_block_links for groups). socialLinks types: facebookLink, twitterLink, linkedInLink, instagramLink, youtubeLink.")] = None,
@@ -498,7 +664,7 @@ async def create_scope(
         "favoriteApps"               : [],
         "footerBlockLinks"           : _dump(footer_block_links) or [],
         "navigationLinks"            : _dump(navigation_links),
-        "image"                      : _build_image(image_url),
+        "image"                      : _build_image_ref(image_url, image_id),
         "components"                 : _build_scope_components(sidebar_components),
         "theme"                      : _build_theme(primary_color, primary_color_contrast, secondary_color, warn_color, warn_color_contrast),
     })
@@ -539,6 +705,7 @@ async def update_scope(
     navigation_links               : Annotated[NavigationLinks | None, Field(description="Replace top-bar / footer / social nav in full.")] = None,
     sidebar_components             : Annotated[list[SidebarWidget] | None, Field(description="Replace the sidebar widget list entirely. Pass [] to clear all widgets. Omit to keep current.")] = None,
     image_url                      : Annotated[str | None,             Field(description="CMS media path for the scope hero image. Pass '' to clear it. Omit to keep current.")] = None,
+    image_id                       : Annotated[str | None,             Field(description="ID returned by upload_image_from_url. Sets image by uploaded ID. Takes precedence over image_url.")] = None,
     additional_fields              : Annotated[dict | None,            Field(description="Escape hatch for fields not exposed above. Merged shallowly.")] = None,
 ) -> str:
     raw      = await _request("GET", f"/cms/api/scopes/{scope_id}")
@@ -576,8 +743,9 @@ async def update_scope(
             "mainComponents"   : existing_main,
             "sideBarComponents": [{"id": "", "type": t} for t in sidebar_components],
         }
-    if image_url is not None:
-        # Empty string clears the image; any other value replaces it.
+    if image_id is not None:
+        updates["image"] = {"id": image_id}
+    elif image_url is not None:
         updates["image"] = None if image_url == "" else {"url": image_url}
     if additional_fields:
         updates.update(additional_fields)
@@ -943,6 +1111,7 @@ async def create_content(
     require_read_confirmation    : Annotated[bool,                      Field(description="Force users to click 'I have read this'. Use for policies, compliance, legal, security.")] = False,
     notify                       : Annotated[bool,                      Field(description="Notify scope users on publish. Only meaningful when status='Published'.")] = False,
     image_url                    : Annotated[str | None,                Field(description="CMS media path for the hero image, e.g. 'cms/media/.../hero.jpg'. Must already exist on the server. Omit if no image.")] = None,
+    image_id                     : Annotated[str | None,                Field(description="ID returned by upload_image_from_url. Preferred over image_url for uploaded assets.")] = None,
     event_start                  : Annotated[str | None,                Field(description="ISO 8601 datetime for event start, e.g. '2026-06-01T09:00:00Z'. Providing this makes the item an Event; omitting it makes it an Article.")] = None,
     event_end                    : Annotated[str | None,                Field(description="ISO 8601 datetime for event end, e.g. '2026-06-01T17:00:00Z'. Required when event_start is provided.")] = None,
     location                     : Annotated[str | None,                Field(description="Plain-text event location, e.g. 'Conference Room A, HQ'. Only meaningful for Events.")] = None,
@@ -961,7 +1130,7 @@ async def create_content(
         "disableAutoRelatedArticles": disable_auto_related_articles,
         "requireReadConfirmation"   : require_read_confirmation,
         "notify"                    : notify,
-        "image"                     : _build_image(image_url),
+        "image"                     : _build_image_ref(image_url, image_id),
         "eventStart"                : event_start,
         "eventEnd"                  : event_end,
         "location"                  : location,
@@ -1014,6 +1183,7 @@ async def update_content(
     require_read_confirmation    : Annotated[bool | None,               Field(description="Toggle the 'I have read this' requirement.")] = None,
     notify                       : Annotated[bool | None,               Field(description="Notify scope users on this update. Default False on edits — only set True for major republishes.")] = None,
     image_url                    : Annotated[str | None,                Field(description="New CMS media path for hero image. Pass '' to clear it. Omit to keep current.")] = None,
+    image_id                     : Annotated[str | None,                Field(description="ID returned by upload_image_from_url. Sets image by uploaded ID. Takes precedence over image_url.")] = None,
     event_start                  : Annotated[str | None,                Field(description="ISO 8601 datetime for event start. Omit to keep current.")] = None,
     event_end                    : Annotated[str | None,                Field(description="ISO 8601 datetime for event end. Omit to keep current.")] = None,
     location                     : Annotated[str | None,                Field(description="Plain-text event location. Pass '' to clear. Omit to keep current.")] = None,
@@ -1064,8 +1234,9 @@ async def update_content(
         "eventEnd"                  : event_end,
     })
  
-    if image_url is not None:
-        # Empty string clears the image; any other value replaces it.
+    if image_id is not None:
+        overrides["image"] = {"id": image_id}
+    elif image_url is not None:
         overrides["image"] = None if image_url == "" else {"url": image_url}
  
     if location is not None:
@@ -1133,6 +1304,7 @@ async def create_scope_with_channels(
     warn_color                     : Annotated[HexColor | None,        Field(description="Theme warning/accent color.")] = None,
     warn_color_contrast            : Annotated[HexColor | None,        Field(description="Contrast paired with warn_color.")] = None,
     image_url                      : Annotated[str | None,             Field(description="CMS media path for the scope hero image. Must already exist on the server.")] = None,
+    image_id                       : Annotated[str | None,             Field(description="ID returned by upload_image_from_url. Preferred over image_url for the scope hero image.")] = None,
     footer_block_links             : Annotated[list[FooterBlockGroup] | None, Field(description="Grouped footer link columns.")] = None,
     navigation_links               : Annotated[NavigationLinks | None, Field(description="Top-bar links, footer-row links, and social icons.")] = None,
     sidebar_components             : Annotated[list[SidebarWidget] | None, Field(description="Optional sidebar widgets on the scope homepage. 'birthdays' = upcoming team birthdays, 'workAnniversaries' = work milestone celebrations, 'upcomingEvents' = calendar events feed, 'recentDocuments' = recently edited SharePoint/O365 documents. Omit or pass null for no sidebar.")] = None,
@@ -1153,7 +1325,7 @@ async def create_scope_with_channels(
         "favoriteApps"               : [],
         "footerBlockLinks"           : _dump(footer_block_links) or [],
         "navigationLinks"            : _dump(navigation_links),
-        "image"                      : _build_image(image_url),
+        "image"                      : _build_image_ref(image_url, image_id),
         "components"                 : _build_scope_components(sidebar_components),
         "theme"                      : _build_theme(primary_color, primary_color_contrast, secondary_color, warn_color, warn_color_contrast),
     })
@@ -1273,7 +1445,7 @@ async def seed_channel_content(
             "disableAutoRelatedArticles": spec.disable_auto_related_articles,
             "requireReadConfirmation"   : spec.require_read_confirmation,
             "notify"                    : spec.notify,
-            "image"                     : _build_image(spec.image_url),
+            "image"                     : _build_image_ref(spec.image_url, spec.image_id),
             "eventStart"                : spec.event_start,
             "eventEnd"                  : spec.event_end,
             "location"                  : spec.location,
@@ -1419,6 +1591,42 @@ async def update_global_settings(
 
 
 # ═════════════════════════════════════════════════════════════════════════════
+#                                   IMAGES
+# ═════════════════════════════════════════════════════════════════════════════
+
+@mcp.tool(
+    name="upload_image_from_url",
+    description=(
+    "Fetch an image from a public URL, upload it to the Diggspace media library, and return image_id."
+),
+)
+async def upload_image_from_url(
+    image_url : Annotated[str,        Field(description="Public URL of the image to fetch and upload, e.g. 'https://example.com/logo.png'.")],
+    scope_id  : Annotated[str,        Field(description="Scope ID the image will belong to. Required by the media API. Use the global scope ID for hub-wide assets such as logos and favicons.")],
+    channel_id: Annotated[str | None, Field(description="Optional channel ID if the image belongs to a specific channel. Omit for scope-level or global assets.")] = None,
+    filename  : Annotated[str | None, Field(description="Override the filename sent to the API. Auto-derived from the URL if omitted.")] = None,
+) -> str:
+    raw      = await _upload_image(image_url, scope_id, channel_id, filename)
+    envelope = json.loads(raw)
+    import sys; print(f"DEBUG envelope: {envelope}", file=sys.stderr, flush=True)  # ADD THIS
+    if envelope.get("error"):
+        return raw
+    images = envelope.get("data") or []
+    if not images:
+        return json.dumps({
+            "error" : "no_images_returned",
+            "detail": "Upload request succeeded but the API returned no image records.",
+        })
+    first = images[0] if isinstance(images, list) else images
+    return json.dumps({
+        "status_code": envelope.get("status_code", 200),
+        "image_id"   : first.get("id"),        
+        "name"       : first.get("name"),      
+        "url"        : first.get("url"),   
+    })
+
+
+# ═════════════════════════════════════════════════════════════════════════════
 #                                  PROMPTS
 # ═════════════════════════════════════════════════════════════════════════════
 
@@ -1446,6 +1654,10 @@ PHASE 0 — DESIGN PROPOSAL
 (Execute only if no SCOPE_ID exists yet; if a scope was already created,
 skip directly to the next incomplete phase.)
 ═══════════════════════════════════════════════════════════════════════
+If a stock images list is provided below the company profile, treat it as the complete image library available for this build. 
+During design, assign image_url values exclusively from this list — do not invent or reference any other CMS paths. 
+Images can be reused across channels and content items. NOT APPLICABLE TO SCOPE HERO IMAGE - the brand logo is uploaded separately in Phase 1.5.
+
 Read the profile TWICE. Think about how this company ACTUALLY operates day-to-day.
 What would leadership post? What policies must every employee acknowledge? What events,
 milestones, and product launches are underway? What cultural rituals matter?
@@ -1455,7 +1667,7 @@ Produce a complete design across 4 sections:
    - Scope name (professional, matches brand voice)
    - Description (short free-text, scope's purpose)
    - Welcome message (1-2 sentences, specific to this company)
-   - image_url: CMS media path for scope hero image if available; else null
+   - scope hero image: note the brand logo URL from the profile — it will be uploaded in Phase 1.5   
    - 5 brand hex colors (primary + contrast, secondary, warn + contrast) —
      use exact values from the profile if given; derive from brand identity if not
    - number_of_highlights: 4, highlights_carousel: true, highlights_style: BannerCarousel
@@ -1485,7 +1697,7 @@ Produce a complete design across 4 sections:
        HR/culture           = warm tone
        IT/ops               = cool neutral)
    - is_sticky: True for ALL primary channels (3) — these must be pinned
-   - image_url: CMS media path for the channel image. Must already be uploaded.
+   - image_url: assign one CMS path from the stock images list by filename match to the content topic. Null if nothing fits.
      Always try to assign an image if the profile provides one.
    - FAQ: 2-3 real Q&A pairs for HR, Legal, Compliance, IT, and policy channels.
      Skip FAQ only on pure broadcast channels (Newsroom, Leadership letters).
@@ -1516,8 +1728,7 @@ Produce a complete design across 4 sections:
    - status: 'Published' for everything (this is a live hub, not a draft)
    - notify: True for major announcements and policy items;
              False for evergreen content, guides, and spotlights
-   - image_url: CMS media path for the item image. Must already be uploaded.
-     Always try to assign an image if the profile provides one.
+   - image_url: assign one CMS path from the stock images list by filename match to the channel's purpose. Null if nothing fits.
    - event_start / event_end: ISO 8601 datetimes for Event items; omit for Articles.
    - One-sentence outline of the body content
    CONTENT IDEAS — derive from the profile, never invent:
@@ -1571,7 +1782,7 @@ a. Call create_scope_with_channels with EVERY design field populated.
      secondary_color                 — brand secondary, 6-digit hex
      warn_color                      — brand warning/accent, 6-digit hex
      warn_color_contrast             — contrast paired with warn color
-     image_url                       — CMS media path for scope hero image; null if not available
+     image_url                       — always null here; scope image is applied in Phase 1.6 after upload
      footer_block_links              — 3 columns of real links from the profile
                                        (About/Careers/Investors, Offices/Regions, Resources/Support)
      navigation_links                — topBarLinks (2-3), footerLinks (3-5), socialLinks
@@ -1586,7 +1797,7 @@ a. Call create_scope_with_channels with EVERY design field populated.
      channel_type           — 'public' / 'private' / 'corporate'
      is_sticky              — True for ALL primary channels
      color                  — brand-aligned 6-digit hex from the design
-     image_url              — CMS media path if available from the profile or media library; null if not
+     image_url              — CMS path assigned during design from the stock images list; null if none assigned
      frequent_questions     — REQUIRED at creation time. list of FAQItem for HR/Legal/Compliance/IT channels; [] for pure broadcast 
      hide_on_homepage_feed  — True only for utility/admin channels; False for all others
      hide_highlights        — False for primary channels; True for secondary/utility
@@ -1603,7 +1814,24 @@ c. Report the full channel_map to the user:
      Ch1: [name] → [id]  [PRIMARY]
      Ch2: [name] → [id]  [PRIMARY]
      ... (mark each PRIMARY or SECONDARY)
-   Then proceed immediately to Phase 2 — no further approval needed.
+   Then proceed immediately to Phase 1.5 — no further approval needed.
+
+═══════════════════════════════════════════════════════════════════════
+PHASE 1.5 — UPLOAD BRAND IMAGE
+═══════════════════════════════════════════════════════════════════════
+If the company profile contains a brand logo or image URL:
+a. Call upload_image_from_url:
+     image_url — the raw image URL from the profile
+     scope_id  — the SCOPE_ID returned in Phase 1
+b. Store the returned value as LOGO_IMAGE_ID.
+c. Report: "Brand image uploaded — image_id: [LOGO_IMAGE_ID]"
+If no image URL is present in the profile, skip to Phase 2 immediately.
+
+═══════════════════════════════════════════════════════════════════════
+PHASE 1.6 — APPLY IMAGE TO SCOPE
+═══════════════════════════════════════════════════════════════════════
+Call update_scope(scope_id=SCOPE_ID, image_id=LOGO_IMAGE_ID).
+Then proceed immediately to Phase 2 — no further approval needed.
 
 ═══════════════════════════════════════════════════════════════════════
 PHASE 2 — POPULATE CONTENT (the phase that makes this feel real)
@@ -1629,7 +1857,7 @@ Each ContentSpec must explicitly set ALL of the following fields:
   hide_comments                — False (keep engagement features on)
   hide_image_in_article_detail — False
   disable_auto_related_articles— False
-  image_url                    — CMS media path if available from the profile or media library; null if not
+  image_url                    — CMS path assigned during design from the stock images list; null if none assigned
   event_start / event_end      — ISO 8601 datetimes for Event items; omit for plain Articles
   location                     — plain-text venue for Event items; omit otherwise
  
@@ -1724,7 +1952,7 @@ HARD RULES — build-specific
 
     return [
         PromptMessage(role="assistant", content=TextContent(type="text", text=INSTRUCTIONS)),
-        PromptMessage(role="user",      content=TextContent(type="text", text=company_profile)),
+        PromptMessage(role="user",      content=TextContent(type="text", text=f"AVAILABLE STOCK IMAGES:\n{STOCK_IMAGES}\n\nCOMPANY PROFILE:\n{company_profile}")),
     ]
 
 
