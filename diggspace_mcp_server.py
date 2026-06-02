@@ -241,7 +241,6 @@ class ContentSpec(BaseModel):
     event_end                    : str | None                   = Field(default=None, description="ISO 8601 datetime for event end, e.g. '2026-06-01T17:00:00Z'. Required when event_start is provided.")
     location                     : str | None                   = Field(default=None, description="Plain-text event location, e.g. 'Conference Room A, HQ'. Only meaningful for Events.")
  
-
 class ChannelConfig(BaseModel):
     """Full specification for one channel inside `create_scope_with_channels`.
     Mirrors the parameters of `create_channel` exactly — no content seeding here
@@ -258,6 +257,16 @@ class ChannelConfig(BaseModel):
     tabs                 : list[ChannelTab] = Field(default_factory=lambda: ["Articles", "Pages"], description="Tabs shown on the channel page. Order matters.")
     initial_tab          : ChannelTab      = Field(default="Articles", description="Active tab on load. Must also appear in `tabs`.")
     frequent_questions   : list[FAQItem]   = Field(default_factory=list, description="Optional FAQ list for this channel. Use [] for pure broadcast channels.")
+
+# ── Resolve forward references caused by `from __future__ import annotations` ──
+NavLink.model_rebuild()
+SocialLink.model_rebuild()
+NavigationLinks.model_rebuild()
+FooterBlockGroup.model_rebuild()
+FAQItem.model_rebuild()
+LoginQuickLink.model_rebuild()
+ContentSpec.model_rebuild()
+ChannelConfig.model_rebuild()
 
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -323,11 +332,11 @@ def _build_image_ref(image_url: str | None, image_id: str | None) -> dict | None
     return None
 
 
-def _build_scope_components(sidebar_components: Sequence[str] | None) -> dict:
+def _build_scope_components(components: Sequence[str] | None) -> dict:
     """Build the scope components structure with optional sidebar widgets."""
     return {
         "mainComponents"   : [{"id": "", "type": "homepageFeed"}],
-        "sideBarComponents": [{"id": "", "type": t} for t in (sidebar_components or [])],
+        "sideBarComponents": [{"id": "", "type": t} for t in (components or [])],
     }
 
 
@@ -401,59 +410,68 @@ _EXT_TO_MIME = {
     "bmp": "image/bmp",  "ico": "image/x-icon",
 }
 
-async def _upload_image(
-    image_url  : str,
-    scope_id   : str,
-    channel_id : str | None = None,
-    filename   : str | None = None,
-) -> str:
-    """
-    Download an image from `image_url` and upload it to POST /api/images.
-    Retries with progressively simpler headers to defeat CDN hotlink protection.
-    Returns a JSON string envelope: {status_code, data: [{Id, Name, Url, ...}]}
-    """
-    origin = "/".join(image_url.split("/")[:3]) + "/"
+def _proxied(url: str) -> str:
+    """Route any image URL through wsrv.nl to bypass DNS/hotlink restrictions."""
+    clean = url.replace("https://", "").replace("http://", "")
+    return f"https://wsrv.nl/?url={clean}"
 
-    # Three attempts: with Referer → without Referer → bare UA only
-    attempts = [
-        {**_BROWSER_HEADERS, "Referer": origin},
-        _BROWSER_HEADERS,
-        {"User-Agent": _BROWSER_HEADERS["User-Agent"]},
-    ]
+async def _upload_image(
+    image_url    : str,
+    scope_id     : str,
+    channel_id   : str | None = None,
+    filename     : str | None = None,
+    fallback_urls: list[str] | None = None,   # ← new
+) -> str:
+    direct_urls  = [image_url] + (fallback_urls or [])
+    proxied_urls = [_proxied(u) for u in direct_urls]
+    urls_to_try  = direct_urls + proxied_urls
 
     image_bytes  = None
     content_type = None
     last_error   = ("download_failed", "unknown")
+    used_url     = None
 
-    for headers in attempts:
-        try:
-            async with httpx.AsyncClient(
-                verify=VERIFY_SSL, timeout=30.0, headers=headers
-            ) as dl:
-                r = await dl.get(image_url, follow_redirects=True)
-                r.raise_for_status()
-                image_bytes  = r.content
-                content_type = r.headers.get("content-type", "").split(";")[0].strip()
-                break                           # success — stop retrying
-        except httpx.HTTPStatusError as e:
-            last_error = ("download_failed", str(e))
-            continue                            # try next header set
-        except httpx.RequestError as e:
-            last_error = ("download_network_error", str(e))
-            break                               # network error — no point retrying
+    for url in urls_to_try:
+        origin = "/".join(url.split("/")[:3]) + "/"
+        attempts = [
+            {**_BROWSER_HEADERS, "Referer": origin},
+            _BROWSER_HEADERS,
+            {"User-Agent": _BROWSER_HEADERS["User-Agent"]},
+        ]
+        for headers in attempts:
+            try:
+                async with httpx.AsyncClient(
+                    verify=VERIFY_SSL, timeout=30.0, headers=headers
+                ) as dl:
+                    r = await dl.get(url, follow_redirects=True)
+                    r.raise_for_status()
+                    image_bytes  = r.content
+                    content_type = r.headers.get("content-type", "").split(";")[0].strip()
+                    used_url     = url
+                    break                       # header set worked
+            except httpx.HTTPStatusError as e:
+                last_error = ("download_failed", str(e))
+                continue                        # try next header set
+            except httpx.RequestError as e:
+                last_error = ("download_network_error", str(e))
+                break                           # network error on this URL → try next URL
+
+        if image_bytes is not None:
+            break                               # URL worked — stop walking fallbacks
 
     if image_bytes is None:
         return json.dumps({"error": last_error[0], "detail": last_error[1]})
 
     # ── Fallback: derive content-type from URL extension if header is missing/generic
     if not content_type or content_type in ("application/octet-stream", ""):
-        raw_name = image_url.rstrip("/").split("/")[-1].split("?")[0]
+        raw_name = (used_url or image_url).rstrip("/").split("/")[-1].split("?")[0]
         url_ext  = raw_name.rsplit(".", 1)[-1].lower() if "." in raw_name else ""
         content_type = _EXT_TO_MIME.get(url_ext, "image/jpeg")
 
     # ── Derive filename
     if not filename:
-        filename = image_url.rstrip("/").split("/")[-1].split("?")[0] or "image"
+        source_url = used_url or image_url
+        filename   = source_url.rstrip("/").split("/")[-1].split("?")[0] or "image"
         if "." not in filename:
             ext      = content_type.split("/")[-1].replace("jpeg", "jpg")
             filename = f"{filename}.{ext}"
@@ -522,6 +540,94 @@ def _fuzzy_matches(needle: str, needle_tokens: set[str], name: str) -> bool:
         for qt in needle_tokens
     )
 
+# ── Scope + channel audit rules ───────────────────────────────────────────────
+def _build_scope_warnings(
+    scope_data      : dict,
+    channel_details : list[dict],
+) -> list[str]:
+    warnings = []
+    theme = scope_data.get("theme") or {}
+    nav   = scope_data.get("navigationLinks") or {}
+
+    # — Scope identity
+    if not scope_data.get("description"):
+        warnings.append("scope.description is empty.")
+    if not scope_data.get("welcomeMessage"):
+        warnings.append("scope.welcomeMessage is empty.")
+    if not scope_data.get("channelCreationByAdminsOnly"):
+        warnings.append("scope.channelCreationByAdminsOnly is not True.")
+
+    # — Highlights
+    if scope_data.get("numberOfHighlights") != 4:
+        warnings.append(
+            f"scope.numberOfHighlights={scope_data.get('numberOfHighlights')!r} — expected 4."
+        )
+    if not scope_data.get("highlightsCarousel"):
+        warnings.append("scope.highlightsCarousel is not True.")
+    if scope_data.get("highlightsStyle") != "BannerCarousel":
+        warnings.append(
+            f"scope.highlightsStyle={scope_data.get('highlightsStyle')!r} — expected 'BannerCarousel'."
+        )
+
+    # — Brand colors
+    for field, label in [
+        ("primaryColor",         "theme.primaryColor"),
+        ("primaryColorContrast", "theme.primaryColorContrast"),
+        ("secondaryColor",       "theme.secondaryColor"),
+        ("warnColor",            "theme.warnColor"),
+        ("warnColorContrast",    "theme.warnColorContrast"),
+    ]:
+        if not theme.get(field):
+            warnings.append(f"scope.{label} is not set.")
+
+    # — Scope image
+    if not scope_data.get("image"):
+        warnings.append("scope.image is null — logo not uploaded or Phase 1.6 skipped.")
+
+    # — Footer + navigation
+    footer_cols = scope_data.get("footerBlockLinks") or []
+    if not footer_cols:
+        warnings.append("scope.footerBlockLinks is empty — 3 columns expected.")
+    elif len(footer_cols) < 3:
+        warnings.append(
+            f"scope.footerBlockLinks has {len(footer_cols)} column(s) — 3 expected."
+        )
+    if not nav.get("topBarLinks"):
+        warnings.append("scope.navigationLinks.topBarLinks is empty — 2-3 links expected.")
+    if not nav.get("footerLinks"):
+        warnings.append("scope.navigationLinks.footerLinks is empty — 3-5 links expected.")
+    if not nav.get("socialLinks"):
+        warnings.append("scope.navigationLinks.socialLinks is empty.")
+
+    # — Sidebar
+    if not scope_data.get("sideBarComponents"):
+        warnings.append("scope.sideBarComponents is empty — 1-3 widgets expected.")
+
+    # — Sticky channels
+    if not any(ch.get("isSticky") for ch in channel_details):
+        warnings.append("No sticky channels — primary channels should have isSticky=True.")
+
+    # — Per-channel
+    for ch in channel_details:
+        name = ch.get("name") or ch.get("id") or "?"
+        if not ch.get("description"):
+            warnings.append(f"channel '{name}': description is empty (should be 2-3 sentences of HTML).")
+        if not ch.get("type"):
+            warnings.append(f"channel '{name}': type is not set (public/private/corporate).")
+        if not ch.get("color"):
+            warnings.append(f"channel '{name}': color is not set.")
+        if not ch.get("image") and not ch.get("imageUrl"):
+            warnings.append(f"channel '{name}': image is null.")
+        if not ch.get("tabs"):
+            warnings.append(f"channel '{name}': tabs are not configured.")
+        if not ch.get("initialTab"):
+            warnings.append(f"channel '{name}': initialTab is not set.")
+        if ch.get("defaultRole") is None:
+            warnings.append(f"channel '{name}': defaultRole is not set.")
+        if ch.get("content_count", 0) == 0:
+            warnings.append(f"channel '{name}': no content items found.")
+
+    return warnings
 
 # ═════════════════════════════════════════════════════════════════════════════
 #                               CONNECTION
@@ -647,7 +753,7 @@ async def create_scope(
     administrators                 : Annotated[list[str] | None,       Field(description="User IDs who administer this scope. Empty list / omitted is fine.")] = None,
     footer_block_links             : Annotated[list[FooterBlockGroup] | None, Field(description="Grouped footer link columns. Each group has a title and a list of links. Omit for a plain scope.")] = None,
     navigation_links               : Annotated[NavigationLinks | None, Field(description="Top-bar links, footer-row links, and social icons. footerLinks is a flat list (NOT grouped — use footer_block_links for groups). socialLinks types: facebookLink, twitterLink, linkedInLink, instagramLink, youtubeLink.")] = None,
-    sidebar_components             : Annotated[list[SidebarWidget] | None, Field(description="Optional sidebar widgets on the scope homepage. 'birthdays' = upcoming team birthdays, 'workAnniversaries' = work milestone celebrations, 'upcomingEvents' = calendar events feed, 'recentDocuments' = recently edited SharePoint/O365 documents. Omit or pass null for no sidebar.")] = None,
+    components             : Annotated[list[SidebarWidget] | None, Field(description="Optional sidebar widgets on the scope homepage. 'birthdays' = upcoming team birthdays, 'workAnniversaries' = work milestone celebrations, 'upcomingEvents' = calendar events feed, 'recentDocuments' = recently edited SharePoint/O365 documents. Omit or pass null for no sidebar.")] = None,
 ) -> str:
     body = _drop_none({
         "name"                       : name,
@@ -665,7 +771,7 @@ async def create_scope(
         "footerBlockLinks"           : _dump(footer_block_links) or [],
         "navigationLinks"            : _dump(navigation_links),
         "image"                      : _build_image_ref(image_url, image_id),
-        "components"                 : _build_scope_components(sidebar_components),
+        "components"                 : _build_scope_components(components),
         "theme"                      : _build_theme(primary_color, primary_color_contrast, secondary_color, warn_color, warn_color_contrast),
     })
     raw      = await _request("POST", "/cms/api/scopes", json_b=body)
@@ -675,7 +781,6 @@ async def create_scope(
     d    = envelope.get("data") or {}
     slim = {"id": d.get("id"), "name": d.get("name"), "route": d.get("route")}
     return json.dumps({"status_code": envelope.get("status_code", 200), "created": slim})
-
 
 @mcp.tool(
     name="update_scope",
@@ -703,7 +808,7 @@ async def update_scope(
     default_channels               : Annotated[list[str] | None,       Field(description="Replace the default-favorite channel list entirely.")] = None,
     footer_block_links             : Annotated[list[FooterBlockGroup] | None, Field(description="Replace ALL footer link groups with this list.")] = None,
     navigation_links               : Annotated[NavigationLinks | None, Field(description="Replace top-bar / footer / social nav in full.")] = None,
-    sidebar_components             : Annotated[list[SidebarWidget] | None, Field(description="Replace the sidebar widget list entirely. Pass [] to clear all widgets. Omit to keep current.")] = None,
+    components                     : Annotated[list[SidebarWidget] | None, Field(description="Replace the sidebar widget list entirely. Pass [] to clear all widgets. Omit to keep current.")] = None,
     image_url                      : Annotated[str | None,             Field(description="CMS media path for the scope hero image. Pass '' to clear it. Omit to keep current.")] = None,
     image_id                       : Annotated[str | None,             Field(description="ID returned by upload_image_from_url. Sets image by uploaded ID. Takes precedence over image_url.")] = None,
     additional_fields              : Annotated[dict | None,            Field(description="Escape hatch for fields not exposed above. Merged shallowly.")] = None,
@@ -714,41 +819,27 @@ async def update_scope(
         return raw
     current = envelope.get("data") or {}
 
-    updates = _drop_none({
-        "name"                       : name,
-        "description"                : description,
-        "welcomeMessage"             : welcome_message,
-        "channelCreationByAdminsOnly": channel_creation_by_admins_only,
-        "numberOfHighlights"         : number_of_highlights,
-        "highlightsCarousel"         : highlights_carousel,
-        "highlightsStyle"            : highlights_style,
-        "administrators"             : administrators,
-        "stickyChannelsIds"          : sticky_channel_ids,
-        "defaultChannels"            : default_channels,
-    })
+    # ── Normalisation helpers ─────────────────────────────────────────────
+    def _ids(items) -> list:
+        """Coerce a list of ID strings OR full objects into plain ID strings."""
+        if not items:
+            return []
+        return [x["id"] if isinstance(x, dict) else x for x in items]
 
-    theme_updates = _build_theme(primary_color, primary_color_contrast, secondary_color, warn_color, warn_color_contrast)
-    if theme_updates:
-        updates["theme"] = {**(current.get("theme") or {}), **theme_updates}
+    def _norm_image(img) -> dict | None:
+        if not img or not isinstance(img, dict): return None
+        if img.get("id"):  return {"id":  img["id"]}
+        if img.get("url"): return {"url": img["url"]}
+        return None
 
-    if footer_block_links is not None:
-        updates["footerBlockLinks"] = _dump(footer_block_links)
-    if navigation_links is not None:
-        updates["navigationLinks"] = _dump(navigation_links)
-    if sidebar_components is not None:
-        # Preserve the existing main components (or fall back to homepageFeed),
-        # and replace the sidebar list with what the user passed.
-        existing_main = (current.get("components") or {}).get("mainComponents") or [{"id": "", "type": "homepageFeed"}]
-        updates["components"] = {
-            "mainComponents"   : existing_main,
-            "sideBarComponents": [{"id": "", "type": t} for t in sidebar_components],
+    def _norm_components(comps) -> dict:
+        raw_main    = (comps or {}).get("mainComponents")    or [{"type": "mainChannelFeed"}]
+        raw_sidebar = (comps or {}).get("sideBarComponents") or []
+        return {
+            "mainComponents":    [{"id": "", "type": c.get("type", "mainChannelFeed")} for c in raw_main],
+            "sideBarComponents": [{"id": "", "type": c.get("type")} for c in raw_sidebar if c.get("type")],
         }
-    if image_id is not None:
-        updates["image"] = {"id": image_id}
-    elif image_url is not None:
-        updates["image"] = None if image_url == "" else {"url": image_url}
-    if additional_fields:
-        updates.update(additional_fields)
+    # ─────────────────────────────────────────────────────────────────────
 
     PUT_FIELDS = {
         "name", "description", "welcomeMessage", "channelCreationByAdminsOnly",
@@ -757,29 +848,67 @@ async def update_scope(
         "favoriteApps", "footerBlockLinks", "navigationLinks", "image",
         "components", "theme",
     }
-    LIST_FIELDS = (
-        "administrators", "stickyChannelsIds", "highlights",
-        "defaultChannels", "favoriteApps", "footerBlockLinks",
-    )
 
+    # Start from what GET returned, filtered to PUT-safe fields only.
+    # Fields absent from GET are intentionally omitted — backend preserves them.
     base = {k: v for k, v in current.items() if k in PUT_FIELDS}
-    for f in LIST_FIELDS:
-        if base.get(f) is None:
-            base[f] = []
 
-    merged = {**base, **updates}
-    for f in LIST_FIELDS:
-        if merged.get(f) is None:
-            merged[f] = []
+    # Handle stickyChannels / stickyChannelsIds key rename from GET
+    if "stickyChannels" in current:
+        base["stickyChannelsIds"] = current.get("stickyChannelsIds") or current["stickyChannels"]
+        base.pop("stickyChannels", None)
 
-    return await _request("PUT", f"/cms/api/scopes/{scope_id}", json_b=merged)
+    # Normalise list fields (coerce full objects → ID strings), only if GET returned them
+    for field in ("administrators", "stickyChannelsIds", "defaultChannels", "highlights", "favoriteApps"):
+        if field in base:
+            base[field] = _ids(base[field] or [])
+
+    # Normalise complex fields, only if GET returned them
+    if "components"       in base: base["components"]       = _norm_components(base["components"])
+    if "image"            in base: base["image"]            = _norm_image(base["image"])
+    if "footerBlockLinks" in base: base["footerBlockLinks"] = base["footerBlockLinks"] or []
+
+    # ── Apply explicit parameter overrides ───────────────────────────────
+    if name                            is not None: base["name"]                        = name
+    if description                     is not None: base["description"]                 = description
+    if welcome_message                 is not None: base["welcomeMessage"]              = welcome_message
+    if channel_creation_by_admins_only is not None: base["channelCreationByAdminsOnly"] = channel_creation_by_admins_only
+    if number_of_highlights            is not None: base["numberOfHighlights"]          = number_of_highlights
+    if highlights_carousel             is not None: base["highlightsCarousel"]          = highlights_carousel
+    if highlights_style                is not None: base["highlightsStyle"]             = highlights_style
+
+    base["administrators"] = _ids(current.get("administrators") or [])
+    if sticky_channel_ids is not None: base["stickyChannelsIds"] = _ids(sticky_channel_ids)
+    if default_channels   is not None: base["defaultChannels"]   = _ids(default_channels)
+
+    if footer_block_links is not None: base["footerBlockLinks"] = _dump(footer_block_links)
+    if navigation_links   is not None: base["navigationLinks"]  = _dump(navigation_links)
+    if components         is not None: base["components"]       = _build_scope_components(components)
+
+    if image_id   is not None: base["image"] = {"id": image_id}
+    elif image_url is not None: base["image"] = None if image_url == "" else {"url": image_url}
+
+    theme_updates = _build_theme(primary_color, primary_color_contrast, secondary_color, warn_color, warn_color_contrast)
+    if theme_updates:
+        base["theme"] = {**(base.get("theme") or {}), **theme_updates}
+
+    if additional_fields:
+        base.update(additional_fields)
+
+    # ── TEMP DEBUG — remove after confirming fix ──────────────────────────
+    import sys
+    print(f"GET ALL KEYS : {list(current.keys())}", file=sys.stderr)
+    print(f"PUT body     : {json.dumps(base, indent=2)}", file=sys.stderr)
+    # ─────────────────────────────────────────────────────────────────────
+
+    return await _request("PUT", f"/cms/api/scopes/{scope_id}", json_b=base)
 
 
 @mcp.tool(
     name="verify_scope",
     description=(
-        "Audit a finished scope: channel count, sticky channels, brand colors, "
-        "highlights config, and per-channel content counts."
+        "Audit a finished scope. Returns the FULL scope config and per-channel details, "
+        "plus a warnings list for any field that should have been populated during hub creation but is missing or wrong."
     ),
 )
 async def verify_scope(
@@ -1307,7 +1436,7 @@ async def create_scope_with_channels(
     image_id                       : Annotated[str | None,             Field(description="ID returned by upload_image_from_url. Preferred over image_url for the scope hero image.")] = None,
     footer_block_links             : Annotated[list[FooterBlockGroup] | None, Field(description="Grouped footer link columns.")] = None,
     navigation_links               : Annotated[NavigationLinks | None, Field(description="Top-bar links, footer-row links, and social icons.")] = None,
-    sidebar_components             : Annotated[list[SidebarWidget] | None, Field(description="Optional sidebar widgets on the scope homepage. 'birthdays' = upcoming team birthdays, 'workAnniversaries' = work milestone celebrations, 'upcomingEvents' = calendar events feed, 'recentDocuments' = recently edited SharePoint/O365 documents. Omit or pass null for no sidebar.")] = None,
+    components                     : Annotated[list[SidebarWidget] | None, Field(description="Optional sidebar widgets on the scope homepage. 'birthdays' = upcoming team birthdays, 'workAnniversaries' = work milestone celebrations, 'upcomingEvents' = calendar events feed, 'recentDocuments' = recently edited SharePoint/O365 documents. Omit or pass null for no sidebar.")] = None,
 ) -> str:
     # 1. Build and POST the scope
     scope_body = _drop_none({
@@ -1326,11 +1455,10 @@ async def create_scope_with_channels(
         "footerBlockLinks"           : _dump(footer_block_links) or [],
         "navigationLinks"            : _dump(navigation_links),
         "image"                      : _build_image_ref(image_url, image_id),
-        "components"                 : _build_scope_components(sidebar_components),
+        "components"                 : _build_scope_components(components),
         "theme"                      : _build_theme(primary_color, primary_color_contrast, secondary_color, warn_color, warn_color_contrast),
     })
-
-    raw_scope = await _request("POST", "/cms/api/scopes", json_b=scope_body)
+    raw_scope      = await _request("POST", "/cms/api/scopes", json_b=scope_body)
     env_scope = json.loads(raw_scope)
     if env_scope.get("error"):
         return raw_scope
@@ -1597,18 +1725,18 @@ async def update_global_settings(
 @mcp.tool(
     name="upload_image_from_url",
     description=(
-    "Fetch an image from a public URL, upload it to the Diggspace media library, and return image_id."
-),
+        "Fetch an image from a public URL, upload it to the Diggspace media library, and return image_id. "
+        "Automatically retries via a proxy if the direct URL is unreachable."
+    ),
 )
 async def upload_image_from_url(
-    image_url : Annotated[str,        Field(description="Public URL of the image to fetch and upload, e.g. 'https://example.com/logo.png'.")],
-    scope_id  : Annotated[str,        Field(description="Scope ID the image will belong to. Required by the media API. Use the global scope ID for hub-wide assets such as logos and favicons.")],
-    channel_id: Annotated[str | None, Field(description="Optional channel ID if the image belongs to a specific channel. Omit for scope-level or global assets.")] = None,
-    filename  : Annotated[str | None, Field(description="Override the filename sent to the API. Auto-derived from the URL if omitted.")] = None,
+    image_url    : Annotated[str,              Field(description="Primary public URL of the image.")],
+    scope_id     : Annotated[str,              Field(description="Scope ID the image belongs to.")],
+    channel_id   : Annotated[str | None,       Field(description="Optional channel ID.")] = None,
+    filename     : Annotated[str | None,       Field(description="Override filename. Auto-derived if omitted.")] = None,
 ) -> str:
     raw      = await _upload_image(image_url, scope_id, channel_id, filename)
     envelope = json.loads(raw)
-    import sys; print(f"DEBUG envelope: {envelope}", file=sys.stderr, flush=True)  # ADD THIS
     if envelope.get("error"):
         return raw
     images = envelope.get("data") or []
@@ -1636,7 +1764,6 @@ async def upload_image_from_url(
         "Build a FULLY POPULATED Diggspace hub from a company profile. "
         "Designs architecture, builds scope + channels with FAQs, seeds multiple "
         "realistic content items per primary channel, and polishes hub-wide settings. "
-        "This is the production-quality onboarding flow — use it for real demos."
     ),
 )
 def build_hub_from_profile(company_profile: str) -> list:
@@ -1675,7 +1802,7 @@ Produce a complete design across 4 sections:
      (e.g. About/Careers/Investors, Offices/Regions, Resources/Support)
    - Social links (derive from profile — e.g. LinkedIn, Twitter/X, YouTube, etc.)
    - navigation_links: topBarLinks (2-3), footerLinks (3-5), socialLinks
-   - sidebar_components: pick 1-3 based on the client's profile —
+   - components: pick 1-3 based on the client's profile —
        HR/people-focused        → birthdays + workAnniversaries
        Event-driven org         → upcomingEvents
        Knowledge/document-heavy → recentDocuments
@@ -1787,7 +1914,7 @@ a. Call create_scope_with_channels with EVERY design field populated.
                                        (About/Careers/Investors, Offices/Regions, Resources/Support)
      navigation_links                — topBarLinks (2-3), footerLinks (3-5), socialLinks
                                        (LinkedIn/Twitter/YouTube etc.)
-     sidebar_components              — 1-3 widgets from the design phase
+     components                      — 1-3 widgets from the design phase
 
    The `channels` parameter is a list of ChannelConfig objects.
    Populate EVERY field for each channel — no field left at its default
@@ -1819,13 +1946,16 @@ c. Report the full channel_map to the user:
 ═══════════════════════════════════════════════════════════════════════
 PHASE 1.5 — UPLOAD BRAND IMAGE
 ═══════════════════════════════════════════════════════════════════════
-If the company profile contains a brand logo or image URL:
+If the company profile contains a brand logo URL:
 a. Call upload_image_from_url:
-     image_url — the raw image URL from the profile
+     image_url — the logo.dev logo URL from the profile
      scope_id  — the SCOPE_ID returned in Phase 1
-b. Store the returned value as LOGO_IMAGE_ID.
-c. Report: "Brand image uploaded — image_id: [LOGO_IMAGE_ID]"
-If no image URL is present in the profile, skip to Phase 2 immediately.
+b. If the call returns an image_id, store it as LOGO_IMAGE_ID.
+   Report: "Brand image uploaded — image_id: [LOGO_IMAGE_ID]"
+c. If the call returns an error, set LOGO_IMAGE_ID = None.
+   Report: "Brand image upload failed — continuing without logo."
+   Do NOT retry. Continue to Phase 2.
+If no logo URL is in the profile, skip to Phase 2 immediately.
 
 ═══════════════════════════════════════════════════════════════════════
 PHASE 1.6 — APPLY IMAGE TO SCOPE
@@ -1955,6 +2085,125 @@ HARD RULES — build-specific
         PromptMessage(role="user",      content=TextContent(type="text", text=f"AVAILABLE STOCK IMAGES:\n{STOCK_IMAGES}\n\nCOMPANY PROFILE:\n{company_profile}")),
     ]
 
+
+BUILD_COMPANY_PROFILE_INSTRUCTIONS = """\
+You are a researcher building a comprehensive company profile. This profile will be used \
+as the direct input to build_hub_from_profile, which creates a fully configured internal \
+communications hub on the Diggspace platform. The quality and depth of your research \
+directly determines the quality of the hub — thin profiles produce thin hubs.
+
+USE WEB SEARCH EXTENSIVELY. Do not rely on memory. Search for:
+- The company's official website, Wikipedia article, and About page
+- The company's brand/visual identity guidelines or press kit
+- The company's annual report or investor relations page (if public)
+- Recent news from the last 2 years (at least 3–4 searches on specific topics)
+- The company's careers page and culture/values pages
+- The company's primary domain (to construct the logo URL)
+
+OUTPUT FORMAT:
+Write the profile as a structured briefing document using the sections below. \
+Write at the depth of a senior analyst who has spent a week researching this company — \
+not at the depth of a Wikipedia summary. Every section should contain enough information \
+that a content editor who has never worked at this company could write a credible, \
+on-brand first article.
+
+---
+
+COMPANY IDENTITY
+Registered legal name, common trading name, stock ticker and exchange (if public), \
+founding year, founder(s), current CEO, global HQ address, secondary HQs if relevant, \
+latest annual revenue with fiscal year, total employee count, primary industry and sector.
+
+BUSINESS OVERVIEW
+Explain what the company actually does. If there are multiple business segments or \
+divisions, explain each one — what it does, why it matters strategically, its approximate \
+revenue or scale, and its relationship to the rest of the business. Do not flatten a \
+complex organisation into a single sentence. A new employee should understand the full \
+shape of the business after reading this section.
+
+MISSION, VALUES & CULTURE
+The company's stated mission or purpose. Its formal values, principles, or cultural \
+framework — not just the list, but what they mean in practice and how they show up in \
+day-to-day behaviour. What the company is known for culturally. What it rewards. \
+What distinguishes working here from working at a competitor.
+
+INTERNAL COMMUNICATIONS STYLE
+This section is critical for producing on-brand hub content. Describe:
+- The overall register: formal or casual, data-driven or narrative, concise or expansive
+- Any known internal communication practices or formats (e.g. written memos, town halls, \
+  specific tools)
+- What tone feels authentic to an employee here vs. what would feel off-brand
+- 3 examples of well-framed article headlines or internal announcements written in this \
+  company's voice
+- 2 examples of what NOT to write — framing that would feel wrong for this brand
+
+PEOPLE & WORKFORCE
+Total headcount and meaningful breakdown (by function, region, or type where known). \
+Key HR programmes, learning & development initiatives, employee resource groups or \
+affinity networks, benefits highlights, compensation philosophy, current work model \
+(remote / hybrid / in-office). Any significant recent people events: layoffs, \
+restructuring, RTO mandates, union activity, leadership changes.
+
+BRAND & VISUAL IDENTITY
+Research the official brand guidelines. This section requires precision.
+
+Provide all of the following with exact hex codes:
+- Primary brand colour: name and hex code
+- Secondary brand colour: name and hex code
+- Warning / alert colour: name and hex code
+- Any additional brand colours worth noting
+
+Then provide an explicit workspace colour mapping:
+  primary_color: <hex>
+  primary_color_contrast: <hex>   ← the colour used for TEXT rendered ON TOP of primary_color. \
+Check contrast carefully — do not assume white works on all colours.
+  secondary_color: <hex>
+  warn_color: <hex>
+  warn_color_contrast: <hex>      ← usually #FFFFFF or #000000, check contrast
+
+Tone of voice: 4–5 sentences describing how the brand writes and speaks. \
+Then 2–3 examples of copy written in this brand's voice (short, punchy, authentic).
+
+DIGITAL PROPERTIES
+Official website, careers page, newsroom or press room, investor relations page \
+(if public), sustainability page (if exists), any developer or partner portals. \
+Official social media: LinkedIn, Twitter/X, YouTube, Instagram — full URLs only, \
+no handles without URLs. Do not include unofficial or aggregator pages.
+
+RECENT NEWS & MILESTONES
+The 6–10 most significant developments from the last 2 years. Be specific — include \
+dates, numbers, and names where available. These will inform the types of content \
+the hub should feature at launch and the context a content editor needs to write \
+credibly about this company right now.
+
+BRAND LOGO URL
+Identify the company's primary website domain (e.g. spotify.com, nike.com).
+Construct the logo.dev URL:
+
+  https://img.logo.dev/{primary_domain}?token=pk_OwST1E04QH-w3oM0YksM2Q&retina=true
+
+This is the only logo URL required. The upload tool handles unreachable URLs automatically.
+
+---
+
+Begin your research now. Search thoroughly before writing. \
+Do not start writing the profile until you have run at least 6–8 web searches.
+"""
+
+
+@mcp.prompt(
+    name="build_company_profile",
+    description=(
+        "Research a company by name using web search and produce a comprehensive company profile "
+        "suitable for direct use as input to build_hub_from_profile."
+    ),
+)
+def build_company_profile(
+    company_name: str,
+) -> list:
+    return [
+        PromptMessage(role="user", content=TextContent(type="text", text=(f"{BUILD_COMPANY_PROFILE_INSTRUCTIONS}\n\n" f"COMPANY TO RESEARCH: {company_name}"),),)
+    ]
 
 if __name__ == "__main__":
     mcp.run(transport="stdio")

@@ -1,0 +1,531 @@
+{
+  "schema_version": 3,
+  "conversation_id": "conv_20260602_000229",
+  "timestamp_start": "2026-06-02T00:02:29.270404",
+  "timestamp_end": "2026-06-02T00:04:59.461989",
+  "model_used": "gpt-5.4-nano",
+  "servers_used": [
+    "diggspace"
+  ],
+  "total_interactions": 2,
+  "total_turns": 4,
+  "total_tool_calls": 2,
+  "total_latency_ms": 91819.49787493795,
+  "total_tokens": 103627,
+  "total_prompt_tokens": 96529,
+  "total_completion_tokens": 7098,
+  "estimated_cost_usd": 0.0228548,
+  "interactions": [
+    {
+      "interaction_index": 1,
+      "timestamp_start": "2026-06-02T00:02:36.295517",
+      "timestamp_end": "2026-06-02T00:03:29.926734",
+      "user_query": "[prompt] {\n  \"role\": \"assistant\",\n  \"content\": {\n    \"type\": \"text\",\n    \"text\": \"You are a senior digital workplace consultant o",
+      "final_answer": "## PHASE 0 — DESIGN PROPOSAL (complete)\n\n### 1) SCOPE CONFIG (Anthropic hub)\n\n- **Scope name:** Anthropic Internal Workspace\n- **Description:** <p>A company-wide hub for mission-first updates across research, product, operations, and policy—built to keep everyone aligned with responsible AI and practical execution.</p>\n- **Welcome message:** <p>Welcome to Anthropic. We build advanced AI for the long-term benefit of humanity—so our communication prioritizes clarity, evidence, and the work behind safety.</p>\n\n- **Scope hero image:** *(Phase 1.5 logo upload uses provided URL; note here for reference)*  \n  - Logo.dev URL: https://img.logo.dev/anthropic.com?token=pk_OwST1E04QH-w3oM0YksM2Q&retina=true\n\n- **Brand colors (from profile):**\n  - **primary_color:** #D4A27F  \n  - **primary_color_contrast:** #191919\n  - **secondary_color:** #191919\n  - **warn_color:** #C0392B\n  - **warn_color_contrast:** #FFFFFF\n\n- **Highlights (hub):**\n  - **number_of_highlights:** 4\n  - **highlights_carousel:** true\n  - **highlights_style:** BannerCarousel\n\n- **Footer (3 columns) — using links from profile:**\n  1) **Company**  \n     - About/mission-equivalent (use newsroom): https://www.anthropic.com/news  \n     - Research: https://www.anthropic.com/research  \n     - Responsible Scaling Policy: https://www.anthropic.com/responsible-scaling-policy\n  2) **Careers & Trust**  \n     - Careers: https://www.anthropic.com/careers  \n     - Long-Term Benefit Trust: https://www.anthropic.com/news/the-long-term-benefit-trust\n  3) **Resources**  \n     - Developer docs: https://docs.anthropic.com  \n     - Safety overview: https://www.anthropic.com/safety  \n     - Claude (consumer): https://claude.ai\n\n- **Social links:**\n  - LinkedIn: https://www.linkedin.com/company/anthropicresearch\n  - Twitter / X: https://twitter.com/AnthropicAI\n  - YouTube: https://www.youtube.com/@anthropic-ai\n\n- **navigation_links:**\n  - **topBarLinks (3):**\n    1. Newsroom: https://www.anthropic.com/news\n    2. Research: https://www.anthropic.com/research\n    3. Developer docs: https://docs.anthropic.com\n  - **footerLinks (5):**\n    1. Careers: https://www.anthropic.com/careers  \n    2. Long-Term Benefit Trust: https://www.anthropic.com/news/the-long-term-benefit-trust  \n    3. Responsible Scaling Policy: https://www.anthropic.com/responsible-scaling-policy  \n    4. Safety overview: https://www.anthropic.com/safety  \n    5. Claude: https://claude.ai\n  - **socialLinks:** LinkedIn, Twitter/X, YouTube (as above)\n\n- **components (pick 2 based on profile):**\n  - **upcomingEvents** (town halls / conferences / major milestones)\n  - **recentDocuments** (research / policy / operational knowledge)\n  - *(Not using birthdays/work anniversaries since profile is not specific about rituals; we’ll lean into events + knowledge.)*\n\n\n---\n\n### 2) CHANNEL ARCHITECTURE (5 channels total)\n\n**Legend**\n- **PRIMARY:** pinned, most content, highlights-eligible\n- **SECONDARY:** not pinned, hide highlights, utility/reference\n\n#### Ch1 — “Mission & Model Deployment” (PRIMARY)\n- **Purpose:** Track the Responsible Scaling Policy in practice and what’s changing in deployment gates.\n- **Type:** corporate\n- **Color:** #191919\n- **is_sticky:** true\n- **image_url:** stock/risk.png\n- **FAQ (2-3):**\n  1) **Q:** What triggers a deployment gate like ASL-3 in practice?  \n     **A:** <p>When safeguards are activated, teams must follow the Responsible Scaling Policy workflow before deployment—especially around capability changes and safety-critical evaluations.</p>\n  2) **Q:** Where do I find the latest Responsible Scaling Policy version and interpretation?  \n     **A:** <p>Start with the Responsible Scaling Policy overview and follow the internal hub links for current operational guidance tied to each model release cycle.</p>\n  3) **Q:** What if a team believes an exception is needed?  \n     **A:** <p>Escalate through the policy workflow used for deployment approvals; exceptions should be reasoned, documented, and reviewed against safety objectives.</p>\n- **hide_on_homepage_feed:** false\n- **hide_highlights:** false\n- **Description:**  \n  <p>This channel connects policy language to daily execution: when safeguards activate, what was tested, and how we decide what ships.</p>\n  <p>Expect practical summaries grounded in our responsible scaling approach, not marketing summaries.</p>\n- **Tabs:** ['Articles', 'Pages']\n- **initial_tab:** Articles\n- **default_role:** None\n\n#### Ch2 — “Claude Code & Cowork Operations” (PRIMARY)\n- **Purpose:** Coordinate agentic product execution—integrations, rollout health, and operational lessons learned.\n- **Type:** public\n- **Color:** #D4A27F\n- **is_sticky:** true\n- **image_url:** stock/Decision.png\n- **FAQ:**\n  1) **Q:** How should we handle incident reports from agentic workflows?  \n     **A:** <p>Use the incident process to capture symptoms, affected workflows, and mitigation steps; then feed learnings back into rollout guidance.</p>\n  2) **Q:** What’s the expectation for IDE integrations and GitHub Actions updates?  \n     **A:** <p>Keep changelogs tight and include how to validate locally and in CI; teams should document known limitations and safe defaults.</p>\n  3) **Q:** Where do Cowork deployments typically differ from Claude Code?  \n     **A:** <p>Cowork introduces computer-execution and form/workflow variability, so test plans and risk review should account for environment constraints.</p>\n- **hide_on_homepage_feed:** false\n- **hide_highlights:** false\n- **Description:**  \n  <p>For the teams building and deploying agentic systems: Claude Code’s command-line and IDE integrations, and Cowork’s desktop automation.</p>\n  <p>Use this channel to share rollout notes, validation checklists, and operational “what we learned” writeups.</p>\n- **Tabs:** ['Articles']\n- **initial_tab:** Articles\n- **default_role:** Reader\n\n#### Ch3 — “Research, Evidence & Transparency” (PRIMARY)\n- **Purpose:** Publish internal research context in Anthropic’s evidence-forward style.\n- **Type:** public\n- **Color:** #191919\n- **is_sticky:** true\n- **image_url:** stock/QualityCheck.png\n- **FAQ:**\n  1) **Q:** How do we format internal research summaries for fast comprehension?  \n     **A:** <p>Lead with the core claim, include the evaluation setup, and list what changed between model iterations—then close with limitations.</p>\n  2) **Q:** Where do “system card” style limitations live internally?  \n     **A:** <p>Summaries should map limitations to concrete evaluation results and known failure modes, with actionable mitigations.</p>\n  3) **Q:** How should uncertainty be communicated in internal updates?  \n     **A:** <p>State what the evidence supports, what’s still ambiguous, and what would change your mind.</p>\n- **hide_on_homepage_feed:** false\n- **hide_highlights:** false\n- **Description:**  \n  <p>Research updates that feel like a good paper: specific, cautious where needed, and explicit about evaluation and trade-offs.</p>\n  <p>Designed for speed of understanding across teams, including policy and product.</p>\n- **Tabs:** ['Articles']\n- **initial_tab:** Articles\n- **default_role:** Reader\n\n#### Ch4 — “People & Culture—Mission-First” (SECONDARY)\n- **Purpose:** Support onboarding, learning rituals, and culture practices tied to high-trust collaboration.\n- **Type:** private\n- **Color:** #D4A27F\n- **is_sticky:** false\n- **image_url:** stock/onboarding.png\n- **FAQ:**\n  1) **Q:** What does “mission primacy” look like day-to-day?  \n     **A:** <p>It means decisions and priorities should follow safety and long-term benefit—not personal agenda or hierarchy.</p>\n  2) **Q:** How are team autonomy and decision-making expected to work?  \n     **A:** <p>Small teams operate with autonomy; the trade-off is clarity on roles can lag growth, so updates and feedback loops matter.</p>\n  3) **Q:** Where do I find guidance on growth pains like career ladders and promotions?  \n     **A:** <p>Use the internal People & Culture resources and keep the feedback channel open—process is evolving with the workforce’s rapid growth.</p>\n- **hide_on_homepage_feed:** true\n- **hide_highlights:** true\n- **Description:**  \n  <p>For onboarding, learning, and culture practices that match Anthropic’s real operating model: evidence-minded, low-ego, and safety-first.</p>\n  <p>We aim for clarity and feedback—not slogans.</p>\n- **Tabs:** ['Articles', 'Pages']\n- **initial_tab:** Articles\n- **default_role:** None\n\n#### Ch5 — “Security, Risk & Compliance” (SECONDARY)\n- **Purpose:** Security and compliance guidance requiring acknowledgment—covering password hygiene, audits, and risk practices.\n- **Type:** corporate\n- **Color:** #C0392B\n- **is_sticky:** false\n- **image_url:** stock/security.png\n- **FAQ:**\n  1) **Q:** What’s the minimum expectation for account and credential safety?  \n     **A:** <p>Follow password and account security guidance and treat credential hygiene as a baseline requirement for every workflow.</p>\n  2) **Q:** How do audits fit into everyday engineering and research work?  \n     **A:** <p>Audits ensure systems remain aligned to policy. Treat them as operational feedback: document, correct, and improve.</p>\n  3) **Q:** Where do I report security risk concerns?  \n     **A:** <p>Use the internal risk reporting pathway used by security and compliance teams; include reproducible details where possible.</p>\n- **hide_on_homepage_feed:** true\n- **hide_highlights:** true\n- **Description:**  \n  <p>Security isn’t optional here. This channel consolidates required policies, risk practices, and compliance acknowledgments.</p>\n  <p>Items in this feed require confirmation so everyone shares the same baseline.</p>\n- **Tabs:** ['Articles', 'Pages']\n- **initial_tab:** Articles\n- **default_role:** None\n\n\n---\n\n### 3) CONTENT CALENDAR (published, populated flags, 1-2 Events total)\n\n**Highlights rule:** exactly **4** items across the hub have `is_main_highlight=True`.\n\n#### Ch1 — Mission & Model Deployment (PRIMARY) — 3 items\n1) **Title:** “Operationalizing ASL-3 Safeguards for Claude 4 Launch (May 2025)”\n   - Type: **policy**\n   - Tags: ['responsible-scaling', 'ASL-3', 'deployment-gate', 'model-release']\n   - is_main_highlight: **true**  \n   - is_sticky: true\n   - require_read_confirmation: **true**\n   - status: Published\n   - notify: true\n   - image_url: stock/risk.png\n   - Outline: <p>A field guide to what changed in deployment gating, what was tested, and how teams document compliance against safeguards.</p>\n2) **Title:** “Responsible Scaling Policy v3.1 — What’s Different in the Latest Gate Criteria”\n   - Type: **guide**\n   - Tags: ['RSP', 'safety', 'governance', 'v3.1']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: **true**\n   - status: Published\n   - notify: false\n   - image_url: stock/Checklist.png\n   - Outline: <p>Summarizes the practical decision boundaries and provides a checklist-like mental model for teams running risk reviews.</p>\n3) **Title:** “Long-Term Benefit Trust Board Update: Mission Integrity in Practice (Apr 2026)”\n   - Type: **milestone**\n   - Tags: ['LTBT', 'governance', 'board', 'mission-integrity']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: **false**\n   - status: Published\n   - notify: true\n   - image_url: stock/leadership_speech.png\n   - Outline: <p>Explains the Trust’s board power mechanics and what employees should expect during governance transitions.</p>\n\n#### Ch2 — Claude Code & Cowork Operations (PRIMARY) — 3 items\n1) **Title:** “Claude Code Reached $2.5B+ in Annualised Revenue — What That Changed for Teams”\n   - Type: **spotlight**\n   - Tags: ['claude-code', 'revenue', 'enterprise', 'agents']\n   - is_main_highlight: **true**\n   - is_sticky: true\n   - require_read_confirmation: false\n   - status: Published\n   - notify: true\n   - image_url: stock/financial_report.png\n   - Outline: <p>Breaks down operational lessons from growth and what new reliability/validation expectations come with increased enterprise usage.</p>\n2) **Title:** “Cowork Desktop Agent Rollout: From 10 Weeks to 10 Days (PwC Underwriting Case)”\n   - Type: **recap**\n   - Tags: ['cowork', 'pwc', 'workflows', 'enterprise']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/DataMaintenance.png\n   - Outline: <p>Summarizes the workflow changes that drove cycle-time reduction and the safeguards teams used during deployment.</p>\n3) **Title:** “Agentic Integrations Playbook: IDE, VS Code, JetBrains, and GitHub Actions Validation”\n   - Type: **guide**\n   - Tags: ['integrations', 'vs-code', 'jetbrains', 'github-actions', 'validation']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/QualityCheck.png\n   - Outline: <p>Provides practical validation steps, recommended rollout sequencing, and a “what to check first” troubleshooting map.</p>\n\n#### Ch3 — Research, Evidence & Transparency (PRIMARY) — 3 items\n1) **Title:** “Claude Opus 4 Progress: Hybrid Reasoning and SWE-bench Verified (72.5%)”\n   - Type: **announcement**\n   - Tags: ['opus-4', 'hybrid-reasoning', 'swe-bench', 'evaluation']\n   - is_main_highlight: **true**\n   - is_sticky: true\n   - require_read_confirmation: false\n   - status: Published\n   - notify: true\n   - image_url: stock/financial_report.png\n   - Outline: <p>Connects model capability claims to evaluation evidence and clarifies how teams should interpret performance metrics.</p>\n2) **Title:** “From 33.4% to 49.0%: What Changed in Claude 3.5 Sonnet’s October Update”\n   - Type: **recap**\n   - Tags: ['claude-3.5', 'swe-bench', 'iteration', 'performance']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/Decision.png\n   - Outline: <p>Summarizes the iteration path and the evidence Anthropic used to justify improved coding capability.</p>\n3) **Title:** “MCP Adoption at Scale: Connecting Claude to External Tools (What We Learned)”\n   - Type: **spotlight**\n   - Tags: ['MCP', 'developer-platform', 'tools', 'integration']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/DigitalContent.png\n   - Outline: <p>Explains why MCP became an industry standard, and what practical engineering patterns improved reliability.</p>\n\n#### Ch4 — People & Culture—Mission-First (SECONDARY) — 2 items\n1) **Title:** “Onboarding for Rapid Growth: Team Autonomy Without Losing Clarity”\n   - Type: **guide**\n   - Tags: ['onboarding', 'culture', 'growth-pains', 'collaboration']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/team_diversity.png\n   - Outline: <p>Offers concrete onboarding guidance for hybrid/hub reality, including how to find role clarity signals early.</p>\n2) **Title:** “Employee Learning Rhythm: How to Turn Evidence into Shared Practice”\n   - Type: **milestone**\n   - Tags: ['learning', 'evidence', 'research-culture', 'practice']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/online_learning.png\n   - Outline: <p>Documents a lightweight internal learning ritual designed to support high-trust collaboration and mission primacy.</p>\n\n#### Ch5 — Security, Risk & Compliance (SECONDARY) — 2 items\n1) **Title:** “Required Acknowledgment: Password & Credential Hygiene Baseline (v1)”\n   - Type: **policy**\n   - Tags: ['security', 'password-hygiene', 'credential', 'baseline']\n   - is_main_highlight: false\n   - is_sticky: true\n   - require_read_confirmation: **true**\n   - status: Published\n   - notify: true\n   - image_url: stock/Password.png\n   - Outline: <p>Defines baseline expectations, common failure patterns, and how to report security concerns quickly.</p>\n2) **Title:** “Audit Readiness Checklist: Evidence, Access Controls, and Documentation”\n   - Type: **policy**\n   - Tags: ['audit', 'documentation', 'risk', 'controls']\n   - is_main_highlight: **true**  \n   - is_sticky: false\n   - require_read_confirmation: **true**\n   - status: Published\n   - notify: false\n   - image_url: stock/audit.png\n   - Outline: <p>A practical, employee-facing checklist for producing the evidence required during audits and reviews.</p>\n\n> **Main highlights check:** Ch1 item 1, Ch2 item 1, Ch3 item 1, Ch5 item 2 = **exactly 4**.\n\n> **Policy read-confirmation check:** all Ch1 policy/guide item with RSP, and both Ch5 policies = **at least one per compliance/security channel** (actually all policy/compliance items).\n\n---\n\n### 4) 1–2 Events across the hub\n\nEvents are created when `event_start` + `event_end` are provided.\n\n#### Event in Ch1 (PRIMARY) — 1 event\n- **Title:** “Company Town Hall: Responsible Scaling in 2026 — Safeguards, Deployment, and Metrics”\n- Type: **event**\n- Tags: ['town-hall', 'responsible-scaling', '2026', 'metrics']\n- is_main_highlight: false\n- is_sticky: false\n- require_read_confirmation: false\n- status: Published\n- notify: true\n- image_url: stock/video_call.png\n- event_start: **2026-06-18T18:00:00Z**\n- event_end: **2026-06-18T19:00:00Z**\n- location: “San Francisco (SoMa) + Global Livestream”\n- Body outline: <p>Agenda anchored to RSP v3.1, ASL-3 operational lessons, and how teams should interpret deployment and safety metrics.</p>\n\n---\n\n### 5) HUB-LEVEL POLISH (hub settings)\n\n- **company_name:** Anthropic\n- **website_name:** Anthropic\n- **default_language:** en-US\n- **supported_languages:** ['en-US'] *(Profile provides UK/Ireland offices; no explicit multilingual language list. If you want, we can include additional languages later once confirmed.)*\n\n- **login_quick_links (3-5 URLs from profile):**\n  1. Careers: https://www.anthropic.com/careers\n  2. Newsroom: https://www.anthropic.com/news\n  3. Developer docs: https://docs.anthropic.com\n  4. Responsible Scaling Policy: https://www.anthropic.com/responsible-scaling-policy\n  5. Safety overview: https://www.anthropic.com/safety\n\n- **sidebar_navigation (ordered):**\n  1. **documents** (policy/reference, audit readiness, RSP)\n  2. **learning** (evidence-based learning rhythm + onboarding)\n  3. **collaborators** (cross-team mission-first alignment)\n  4. **apps** (agentic products support; integrations context)\n  5. **workgroups** (operational group coordination)\n  6. **approvalRequests** (security/compliance acknowledgments pathway)\n  7. **ideation** *(kept last; only if you want a dedicated ideation affordance later)*\n\n---\n\n## Confirmation request (no tools yet)\n\nThis is a complete design. Shall I build it end-to-end, or would you like to adjust anything first — **channel names, content plan, colors, or hub settings**?",
+      "total_turns": 2,
+      "total_tool_calls": 1,
+      "total_latency_ms": 53631.61649997346,
+      "llm_latency_ms": 53530.597375007346,
+      "tool_latency_ms": 88.96545803872868,
+      "total_tokens": 47118,
+      "total_prompt_tokens": 42222,
+      "total_completion_tokens": 4896,
+      "estimated_cost_usd": 0.0108924,
+      "success": true,
+      "llm_calls": [
+        {
+          "timestamp": "2026-06-02T00:02:38.867354",
+          "model": "gpt-5.4-nano",
+          "turn": 1,
+          "messages_count": 3,
+          "tools_available": [
+            "check_connection",
+            "list_scopes",
+            "get_scope",
+            "resolve_scope",
+            "create_scope",
+            "update_scope",
+            "verify_scope",
+            "list_channels",
+            "get_channel",
+            "resolve_channel",
+            "create_channel",
+            "update_channel",
+            "create_content",
+            "get_content",
+            "update_content",
+            "list_content",
+            "create_scope_with_channels",
+            "seed_channel_content",
+            "get_global_settings",
+            "update_global_settings",
+            "upload_image_from_url"
+          ],
+          "response_type": "tool_call",
+          "tool_calls_made": [
+            "check_connection"
+          ],
+          "content": "",
+          "prompt_tokens": 21093,
+          "completion_tokens": 14,
+          "total_tokens": 21107,
+          "latency_ms": 2569.1269999952056,
+          "estimated_cost_usd": 0.0042256,
+          "error": null
+        },
+        {
+          "timestamp": "2026-06-02T00:03:29.922243",
+          "model": "gpt-5.4-nano",
+          "turn": 2,
+          "messages_count": 5,
+          "tools_available": [
+            "check_connection",
+            "list_scopes",
+            "get_scope",
+            "resolve_scope",
+            "create_scope",
+            "update_scope",
+            "verify_scope",
+            "list_channels",
+            "get_channel",
+            "resolve_channel",
+            "create_channel",
+            "update_channel",
+            "create_content",
+            "get_content",
+            "update_content",
+            "list_content",
+            "create_scope_with_channels",
+            "seed_channel_content",
+            "get_global_settings",
+            "update_global_settings",
+            "upload_image_from_url"
+          ],
+          "response_type": "final_answer",
+          "tool_calls_made": [],
+          "content": "## PHASE 0 — DESIGN PROPOSAL (complete)\n\n### 1) SCOPE CONFIG (Anthropic hub)\n\n- **Scope name:** Anthropic Internal Workspace\n- **Description:** <p>A company-wide hub for mission-first updates across research, product, operations, and policy—built to keep everyone aligned with responsible AI and practical execution.</p>\n- **Welcome message:** <p>Welcome to Anthropic. We build advanced AI for the long-term benefit of humanity—so our communication prioritizes clarity, evidence, and the work behind safety.</p>\n\n- **Scope hero image:** *(Phase 1.5 logo upload uses provided URL; note here for reference)*  \n  - Logo.dev URL: https://img.logo.dev/anthropic.com?token=pk_OwST1E04QH-w3oM0YksM2Q&retina=true\n\n- **Brand colors (from profile):**\n  - **primary_color:** #D4A27F  \n  - **primary_color_contrast:** #191919\n  - **secondary_color:** #191919\n  - **warn_color:** #C0392B\n  - **warn_color_contrast:** #FFFFFF\n\n- **Highlights (hub):**\n  - **number_of_highlights:** 4\n  - **highlights_carousel:** true\n  - **highlights_style:** BannerCarousel\n\n- **Footer (3 columns) — using links from profile:**\n  1) **Company**  \n     - About/mission-equivalent (use newsroom): https://www.anthropic.com/news  \n     - Research: https://www.anthropic.com/research  \n     - Responsible Scaling Policy: https://www.anthropic.com/responsible-scaling-policy\n  2) **Careers & Trust**  \n     - Careers: https://www.anthropic.com/careers  \n     - Long-Term Benefit Trust: https://www.anthropic.com/news/the-long-term-benefit-trust\n  3) **Resources**  \n     - Developer docs: https://docs.anthropic.com  \n     - Safety overview: https://www.anthropic.com/safety  \n     - Claude (consumer): https://claude.ai\n\n- **Social links:**\n  - LinkedIn: https://www.linkedin.com/company/anthropicresearch\n  - Twitter / X: https://twitter.com/AnthropicAI\n  - YouTube: https://www.youtube.com/@anthropic-ai\n\n- **navigation_links:**\n  - **topBarLinks (3):**\n    1. Newsroom: https://www.anthropic.com/news\n    2. Research: https://www.anthropic.com/research\n    3. Developer docs: https://docs.anthropic.com\n  - **footerLinks (5):**\n    1. Careers: https://www.anthropic.com/careers  \n    2. Long-Term Benefit Trust: https://www.anthropic.com/news/the-long-term-benefit-trust  \n    3. Responsible Scaling Policy: https://www.anthropic.com/responsible-scaling-policy  \n    4. Safety overview: https://www.anthropic.com/safety  \n    5. Claude: https://claude.ai\n  - **socialLinks:** LinkedIn, Twitter/X, YouTube (as above)\n\n- **components (pick 2 based on profile):**\n  - **upcomingEvents** (town halls / conferences / major milestones)\n  - **recentDocuments** (research / policy / operational knowledge)\n  - *(Not using birthdays/work anniversaries since profile is not specific about rituals; we’ll lean into events + knowledge.)*\n\n\n---\n\n### 2) CHANNEL ARCHITECTURE (5 channels total)\n\n**Legend**\n- **PRIMARY:** pinned, most content, highlights-eligible\n- **SECONDARY:** not pinned, hide highlights, utility/reference\n\n#### Ch1 — “Mission & Model Deployment” (PRIMARY)\n- **Purpose:** Track the Responsible Scaling Policy in practice and what’s changing in deployment gates.\n- **Type:** corporate\n- **Color:** #191919\n- **is_sticky:** true\n- **image_url:** stock/risk.png\n- **FAQ (2-3):**\n  1) **Q:** What triggers a deployment gate like ASL-3 in practice?  \n     **A:** <p>When safeguards are activated, teams must follow the Responsible Scaling Policy workflow before deployment—especially around capability changes and safety-critical evaluations.</p>\n  2) **Q:** Where do I find the latest Responsible Scaling Policy version and interpretation?  \n     **A:** <p>Start with the Responsible Scaling Policy overview and follow the internal hub links for current operational guidance tied to each model release cycle.</p>\n  3) **Q:** What if a team believes an exception is needed?  \n     **A:** <p>Escalate through the policy workflow used for deployment approvals; exceptions should be reasoned, documented, and reviewed against safety objectives.</p>\n- **hide_on_homepage_feed:** false\n- **hide_highlights:** false\n- **Description:**  \n  <p>This channel connects policy language to daily execution: when safeguards activate, what was tested, and how we decide what ships.</p>\n  <p>Expect practical summaries grounded in our responsible scaling approach, not marketing summaries.</p>\n- **Tabs:** ['Articles', 'Pages']\n- **initial_tab:** Articles\n- **default_role:** None\n\n#### Ch2 — “Claude Code & Cowork Operations” (PRIMARY)\n- **Purpose:** Coordinate agentic product execution—integrations, rollout health, and operational lessons learned.\n- **Type:** public\n- **Color:** #D4A27F\n- **is_sticky:** true\n- **image_url:** stock/Decision.png\n- **FAQ:**\n  1) **Q:** How should we handle incident reports from agentic workflows?  \n     **A:** <p>Use the incident process to capture symptoms, affected workflows, and mitigation steps; then feed learnings back into rollout guidance.</p>\n  2) **Q:** What’s the expectation for IDE integrations and GitHub Actions updates?  \n     **A:** <p>Keep changelogs tight and include how to validate locally and in CI; teams should document known limitations and safe defaults.</p>\n  3) **Q:** Where do Cowork deployments typically differ from Claude Code?  \n     **A:** <p>Cowork introduces computer-execution and form/workflow variability, so test plans and risk review should account for environment constraints.</p>\n- **hide_on_homepage_feed:** false\n- **hide_highlights:** false\n- **Description:**  \n  <p>For the teams building and deploying agentic systems: Claude Code’s command-line and IDE integrations, and Cowork’s desktop automation.</p>\n  <p>Use this channel to share rollout notes, validation checklists, and operational “what we learned” writeups.</p>\n- **Tabs:** ['Articles']\n- **initial_tab:** Articles\n- **default_role:** Reader\n\n#### Ch3 — “Research, Evidence & Transparency” (PRIMARY)\n- **Purpose:** Publish internal research context in Anthropic’s evidence-forward style.\n- **Type:** public\n- **Color:** #191919\n- **is_sticky:** true\n- **image_url:** stock/QualityCheck.png\n- **FAQ:**\n  1) **Q:** How do we format internal research summaries for fast comprehension?  \n     **A:** <p>Lead with the core claim, include the evaluation setup, and list what changed between model iterations—then close with limitations.</p>\n  2) **Q:** Where do “system card” style limitations live internally?  \n     **A:** <p>Summaries should map limitations to concrete evaluation results and known failure modes, with actionable mitigations.</p>\n  3) **Q:** How should uncertainty be communicated in internal updates?  \n     **A:** <p>State what the evidence supports, what’s still ambiguous, and what would change your mind.</p>\n- **hide_on_homepage_feed:** false\n- **hide_highlights:** false\n- **Description:**  \n  <p>Research updates that feel like a good paper: specific, cautious where needed, and explicit about evaluation and trade-offs.</p>\n  <p>Designed for speed of understanding across teams, including policy and product.</p>\n- **Tabs:** ['Articles']\n- **initial_tab:** Articles\n- **default_role:** Reader\n\n#### Ch4 — “People & Culture—Mission-First” (SECONDARY)\n- **Purpose:** Support onboarding, learning rituals, and culture practices tied to high-trust collaboration.\n- **Type:** private\n- **Color:** #D4A27F\n- **is_sticky:** false\n- **image_url:** stock/onboarding.png\n- **FAQ:**\n  1) **Q:** What does “mission primacy” look like day-to-day?  \n     **A:** <p>It means decisions and priorities should follow safety and long-term benefit—not personal agenda or hierarchy.</p>\n  2) **Q:** How are team autonomy and decision-making expected to work?  \n     **A:** <p>Small teams operate with autonomy; the trade-off is clarity on roles can lag growth, so updates and feedback loops matter.</p>\n  3) **Q:** Where do I find guidance on growth pains like career ladders and promotions?  \n     **A:** <p>Use the internal People & Culture resources and keep the feedback channel open—process is evolving with the workforce’s rapid growth.</p>\n- **hide_on_homepage_feed:** true\n- **hide_highlights:** true\n- **Description:**  \n  <p>For onboarding, learning, and culture practices that match Anthropic’s real operating model: evidence-minded, low-ego, and safety-first.</p>\n  <p>We aim for clarity and feedback—not slogans.</p>\n- **Tabs:** ['Articles', 'Pages']\n- **initial_tab:** Articles\n- **default_role:** None\n\n#### Ch5 — “Security, Risk & Compliance” (SECONDARY)\n- **Purpose:** Security and compliance guidance requiring acknowledgment—covering password hygiene, audits, and risk practices.\n- **Type:** corporate\n- **Color:** #C0392B\n- **is_sticky:** false\n- **image_url:** stock/security.png\n- **FAQ:**\n  1) **Q:** What’s the minimum expectation for account and credential safety?  \n     **A:** <p>Follow password and account security guidance and treat credential hygiene as a baseline requirement for every workflow.</p>\n  2) **Q:** How do audits fit into everyday engineering and research work?  \n     **A:** <p>Audits ensure systems remain aligned to policy. Treat them as operational feedback: document, correct, and improve.</p>\n  3) **Q:** Where do I report security risk concerns?  \n     **A:** <p>Use the internal risk reporting pathway used by security and compliance teams; include reproducible details where possible.</p>\n- **hide_on_homepage_feed:** true\n- **hide_highlights:** true\n- **Description:**  \n  <p>Security isn’t optional here. This channel consolidates required policies, risk practices, and compliance acknowledgments.</p>\n  <p>Items in this feed require confirmation so everyone shares the same baseline.</p>\n- **Tabs:** ['Articles', 'Pages']\n- **initial_tab:** Articles\n- **default_role:** None\n\n\n---\n\n### 3) CONTENT CALENDAR (published, populated flags, 1-2 Events total)\n\n**Highlights rule:** exactly **4** items across the hub have `is_main_highlight=True`.\n\n#### Ch1 — Mission & Model Deployment (PRIMARY) — 3 items\n1) **Title:** “Operationalizing ASL-3 Safeguards for Claude 4 Launch (May 2025)”\n   - Type: **policy**\n   - Tags: ['responsible-scaling', 'ASL-3', 'deployment-gate', 'model-release']\n   - is_main_highlight: **true**  \n   - is_sticky: true\n   - require_read_confirmation: **true**\n   - status: Published\n   - notify: true\n   - image_url: stock/risk.png\n   - Outline: <p>A field guide to what changed in deployment gating, what was tested, and how teams document compliance against safeguards.</p>\n2) **Title:** “Responsible Scaling Policy v3.1 — What’s Different in the Latest Gate Criteria”\n   - Type: **guide**\n   - Tags: ['RSP', 'safety', 'governance', 'v3.1']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: **true**\n   - status: Published\n   - notify: false\n   - image_url: stock/Checklist.png\n   - Outline: <p>Summarizes the practical decision boundaries and provides a checklist-like mental model for teams running risk reviews.</p>\n3) **Title:** “Long-Term Benefit Trust Board Update: Mission Integrity in Practice (Apr 2026)”\n   - Type: **milestone**\n   - Tags: ['LTBT', 'governance', 'board', 'mission-integrity']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: **false**\n   - status: Published\n   - notify: true\n   - image_url: stock/leadership_speech.png\n   - Outline: <p>Explains the Trust’s board power mechanics and what employees should expect during governance transitions.</p>\n\n#### Ch2 — Claude Code & Cowork Operations (PRIMARY) — 3 items\n1) **Title:** “Claude Code Reached $2.5B+ in Annualised Revenue — What That Changed for Teams”\n   - Type: **spotlight**\n   - Tags: ['claude-code', 'revenue', 'enterprise', 'agents']\n   - is_main_highlight: **true**\n   - is_sticky: true\n   - require_read_confirmation: false\n   - status: Published\n   - notify: true\n   - image_url: stock/financial_report.png\n   - Outline: <p>Breaks down operational lessons from growth and what new reliability/validation expectations come with increased enterprise usage.</p>\n2) **Title:** “Cowork Desktop Agent Rollout: From 10 Weeks to 10 Days (PwC Underwriting Case)”\n   - Type: **recap**\n   - Tags: ['cowork', 'pwc', 'workflows', 'enterprise']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/DataMaintenance.png\n   - Outline: <p>Summarizes the workflow changes that drove cycle-time reduction and the safeguards teams used during deployment.</p>\n3) **Title:** “Agentic Integrations Playbook: IDE, VS Code, JetBrains, and GitHub Actions Validation”\n   - Type: **guide**\n   - Tags: ['integrations', 'vs-code', 'jetbrains', 'github-actions', 'validation']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/QualityCheck.png\n   - Outline: <p>Provides practical validation steps, recommended rollout sequencing, and a “what to check first” troubleshooting map.</p>\n\n#### Ch3 — Research, Evidence & Transparency (PRIMARY) — 3 items\n1) **Title:** “Claude Opus 4 Progress: Hybrid Reasoning and SWE-bench Verified (72.5%)”\n   - Type: **announcement**\n   - Tags: ['opus-4', 'hybrid-reasoning', 'swe-bench', 'evaluation']\n   - is_main_highlight: **true**\n   - is_sticky: true\n   - require_read_confirmation: false\n   - status: Published\n   - notify: true\n   - image_url: stock/financial_report.png\n   - Outline: <p>Connects model capability claims to evaluation evidence and clarifies how teams should interpret performance metrics.</p>\n2) **Title:** “From 33.4% to 49.0%: What Changed in Claude 3.5 Sonnet’s October Update”\n   - Type: **recap**\n   - Tags: ['claude-3.5', 'swe-bench', 'iteration', 'performance']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/Decision.png\n   - Outline: <p>Summarizes the iteration path and the evidence Anthropic used to justify improved coding capability.</p>\n3) **Title:** “MCP Adoption at Scale: Connecting Claude to External Tools (What We Learned)”\n   - Type: **spotlight**\n   - Tags: ['MCP', 'developer-platform', 'tools', 'integration']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/DigitalContent.png\n   - Outline: <p>Explains why MCP became an industry standard, and what practical engineering patterns improved reliability.</p>\n\n#### Ch4 — People & Culture—Mission-First (SECONDARY) — 2 items\n1) **Title:** “Onboarding for Rapid Growth: Team Autonomy Without Losing Clarity”\n   - Type: **guide**\n   - Tags: ['onboarding', 'culture', 'growth-pains', 'collaboration']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/team_diversity.png\n   - Outline: <p>Offers concrete onboarding guidance for hybrid/hub reality, including how to find role clarity signals early.</p>\n2) **Title:** “Employee Learning Rhythm: How to Turn Evidence into Shared Practice”\n   - Type: **milestone**\n   - Tags: ['learning', 'evidence', 'research-culture', 'practice']\n   - is_main_highlight: false\n   - is_sticky: false\n   - require_read_confirmation: false\n   - status: Published\n   - notify: false\n   - image_url: stock/online_learning.png\n   - Outline: <p>Documents a lightweight internal learning ritual designed to support high-trust collaboration and mission primacy.</p>\n\n#### Ch5 — Security, Risk & Compliance (SECONDARY) — 2 items\n1) **Title:** “Required Acknowledgment: Password & Credential Hygiene Baseline (v1)”\n   - Type: **policy**\n   - Tags: ['security', 'password-hygiene', 'credential', 'baseline']\n   - is_main_highlight: false\n   - is_sticky: true\n   - require_read_confirmation: **true**\n   - status: Published\n   - notify: true\n   - image_url: stock/Password.png\n   - Outline: <p>Defines baseline expectations, common failure patterns, and how to report security concerns quickly.</p>\n2) **Title:** “Audit Readiness Checklist: Evidence, Access Controls, and Documentation”\n   - Type: **policy**\n   - Tags: ['audit', 'documentation', 'risk', 'controls']\n   - is_main_highlight: **true**  \n   - is_sticky: false\n   - require_read_confirmation: **true**\n   - status: Published\n   - notify: false\n   - image_url: stock/audit.png\n   - Outline: <p>A practical, employee-facing checklist for producing the evidence required during audits and reviews.</p>\n\n> **Main highlights check:** Ch1 item 1, Ch2 item 1, Ch3 item 1, Ch5 item 2 = **exactly 4**.\n\n> **Policy read-confirmation check:** all Ch1 policy/guide item with RSP, and both Ch5 policies = **at least one per compliance/security channel** (actually all policy/compliance items).\n\n---\n\n### 4) 1–2 Events across the hub\n\nEvents are created when `event_start` + `event_end` are provided.\n\n#### Event in Ch1 (PRIMARY) — 1 event\n- **Title:** “Company Town Hall: Responsible Scaling in 2026 — Safeguards, Deployment, and Metrics”\n- Type: **event**\n- Tags: ['town-hall', 'responsible-scaling', '2026', 'metrics']\n- is_main_highlight: false\n- is_sticky: false\n- require_read_confirmation: false\n- status: Published\n- notify: true\n- image_url: stock/video_call.png\n- event_start: **2026-06-18T18:00:00Z**\n- event_end: **2026-06-18T19:00:00Z**\n- location: “San Francisco (SoMa) + Global Livestream”\n- Body outline: <p>Agenda anchored to RSP v3.1, ASL-3 operational lessons, and how teams should interpret deployment and safety metrics.</p>\n\n---\n\n### 5) HUB-LEVEL POLISH (hub settings)\n\n- **company_name:** Anthropic\n- **website_name:** Anthropic\n- **default_language:** en-US\n- **supported_languages:** ['en-US'] *(Profile provides UK/Ireland offices; no explicit multilingual language list. If you want, we can include additional languages later once confirmed.)*\n\n- **login_quick_links (3-5 URLs from profile):**\n  1. Careers: https://www.anthropic.com/careers\n  2. Newsroom: https://www.anthropic.com/news\n  3. Developer docs: https://docs.anthropic.com\n  4. Responsible Scaling Policy: https://www.anthropic.com/responsible-scaling-policy\n  5. Safety overview: https://www.anthropic.com/safety\n\n- **sidebar_navigation (ordered):**\n  1. **documents** (policy/reference, audit readiness, RSP)\n  2. **learning** (evidence-based learning rhythm + onboarding)\n  3. **collaborators** (cross-team mission-first alignment)\n  4. **apps** (agentic products support; integrations context)\n  5. **workgroups** (operational group coordination)\n  6. **approvalRequests** (security/compliance acknowledgments pathway)\n  7. **ideation** *(kept last; only if you want a dedicated ideation affordance later)*\n\n---\n\n## Confirmation request (no tools yet)\n\nThis is a complete design. Shall I build it end-to-end, or would you like to adjust anything first — **channel names, content plan, colors, or hub settings**?",
+          "prompt_tokens": 21129,
+          "completion_tokens": 4882,
+          "total_tokens": 26011,
+          "latency_ms": 50961.47037501214,
+          "estimated_cost_usd": 0.0066668000000000005,
+          "error": null
+        }
+      ],
+      "tool_calls": [
+        {
+          "timestamp": "2026-06-02T00:02:38.959633",
+          "turn": 1,
+          "server_name": "diggspace",
+          "tool_name": "check_connection",
+          "arguments": {},
+          "result": "{\"ok\": true, \"status_code\": 200}",
+          "result_size_chars": 32,
+          "success": true,
+          "latency_ms": 88.96545803872868,
+          "error": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "interaction_index": 2,
+      "timestamp_start": "2026-06-02T00:03:33.225659",
+      "timestamp_end": "2026-06-02T00:04:11.413256",
+      "user_query": "proceed",
+      "final_answer": "✅ **Phase 1 — Scope + Channels created**\n\n**Scope:** Anthropic Internal Workspace / id: **49ev68ahq568v5fa6scpd4pw5f** / route: **/scope/anthropic-internal-workspace**\n\n- **Ch1 (PRIMARY):** Mission & Model Deployment → **444xak6zqnhjwyx5z91mvq2m4x**\n- **Ch2 (PRIMARY):** Claude Code & Cowork Operations → **4k7fj5v1ehhbtzsvbeg714pq5d**\n- **Ch3 (PRIMARY):** Research, Evidence & Transparency → **43f5sz3ytppz83j7fma0zctdmj**\n- **Ch4 (SECONDARY):** People & Culture—Mission-First → **4ss9aggyy9bde0vw185nbndgd8**\n- **Ch5 (SECONDARY):** Security, Risk & Compliance → **4cn7y6qykdsb92avr05jffasnc**\n\nProceeding to **Phase 1.5 (upload logo)**, then **Phase 1.6 (apply image to scope)** and **Phase 2 (seed content)**.",
+      "total_turns": 2,
+      "total_tool_calls": 1,
+      "total_latency_ms": 38187.88137496449,
+      "llm_latency_ms": 24933.80270898342,
+      "tool_latency_ms": 13245.13829202624,
+      "total_tokens": 56509,
+      "total_prompt_tokens": 54307,
+      "total_completion_tokens": 2202,
+      "estimated_cost_usd": 0.011962400000000002,
+      "success": true,
+      "llm_calls": [
+        {
+          "timestamp": "2026-06-02T00:03:52.848841",
+          "model": "gpt-5.4-nano",
+          "turn": 1,
+          "messages_count": 7,
+          "tools_available": [
+            "check_connection",
+            "list_scopes",
+            "get_scope",
+            "resolve_scope",
+            "create_scope",
+            "update_scope",
+            "verify_scope",
+            "list_channels",
+            "get_channel",
+            "resolve_channel",
+            "create_channel",
+            "update_channel",
+            "create_content",
+            "get_content",
+            "update_content",
+            "list_content",
+            "create_scope_with_channels",
+            "seed_channel_content",
+            "get_global_settings",
+            "update_global_settings",
+            "upload_image_from_url"
+          ],
+          "response_type": "tool_call",
+          "tool_calls_made": [
+            "create_scope_with_channels"
+          ],
+          "content": "",
+          "prompt_tokens": 26019,
+          "completion_tokens": 1938,
+          "total_tokens": 27957,
+          "latency_ms": 19622.524667007383,
+          "estimated_cost_usd": 0.006172800000000001,
+          "error": null
+        },
+        {
+          "timestamp": "2026-06-02T00:04:11.410062",
+          "model": "gpt-5.4-nano",
+          "turn": 2,
+          "messages_count": 9,
+          "tools_available": [
+            "check_connection",
+            "list_scopes",
+            "get_scope",
+            "resolve_scope",
+            "create_scope",
+            "update_scope",
+            "verify_scope",
+            "list_channels",
+            "get_channel",
+            "resolve_channel",
+            "create_channel",
+            "update_channel",
+            "create_content",
+            "get_content",
+            "update_content",
+            "list_content",
+            "create_scope_with_channels",
+            "seed_channel_content",
+            "get_global_settings",
+            "update_global_settings",
+            "upload_image_from_url"
+          ],
+          "response_type": "final_answer",
+          "tool_calls_made": [],
+          "content": "✅ **Phase 1 — Scope + Channels created**\n\n**Scope:** Anthropic Internal Workspace / id: **49ev68ahq568v5fa6scpd4pw5f** / route: **/scope/anthropic-internal-workspace**\n\n- **Ch1 (PRIMARY):** Mission & Model Deployment → **444xak6zqnhjwyx5z91mvq2m4x**\n- **Ch2 (PRIMARY):** Claude Code & Cowork Operations → **4k7fj5v1ehhbtzsvbeg714pq5d**\n- **Ch3 (PRIMARY):** Research, Evidence & Transparency → **43f5sz3ytppz83j7fma0zctdmj**\n- **Ch4 (SECONDARY):** People & Culture—Mission-First → **4ss9aggyy9bde0vw185nbndgd8**\n- **Ch5 (SECONDARY):** Security, Risk & Compliance → **4cn7y6qykdsb92avr05jffasnc**\n\nProceeding to **Phase 1.5 (upload logo)**, then **Phase 1.6 (apply image to scope)** and **Phase 2 (seed content)**.",
+          "prompt_tokens": 28288,
+          "completion_tokens": 264,
+          "total_tokens": 28552,
+          "latency_ms": 5311.278041976038,
+          "estimated_cost_usd": 0.005789600000000001,
+          "error": null
+        }
+      ],
+      "tool_calls": [
+        {
+          "timestamp": "2026-06-02T00:04:06.097079",
+          "turn": 1,
+          "server_name": "diggspace",
+          "tool_name": "create_scope_with_channels",
+          "arguments": {
+            "name": "Anthropic Internal Workspace",
+            "description": "A company-wide hub for mission-first updates across research, product, operations, and policy—built to keep everyone aligned with responsible AI and practical execution.",
+            "welcome_message": "Welcome to Anthropic. We build advanced AI for the long-term benefit of humanity—so our communication prioritizes clarity, evidence, and the work behind safety.",
+            "channel_creation_by_admins_only": true,
+            "number_of_highlights": 4,
+            "highlights_carousel": true,
+            "highlights_style": "BannerCarousel",
+            "primary_color": "#D4A27F",
+            "primary_color_contrast": "#191919",
+            "secondary_color": "#191919",
+            "warn_color": "#C0392B",
+            "warn_color_contrast": "#FFFFFF",
+            "image_url": null,
+            "image_id": null,
+            "footer_block_links": [
+              {
+                "title": "Company",
+                "links": [
+                  {
+                    "caption": "Newsroom",
+                    "link": "https://www.anthropic.com/news",
+                    "newWindow": false
+                  },
+                  {
+                    "caption": "Research",
+                    "link": "https://www.anthropic.com/research",
+                    "newWindow": false
+                  },
+                  {
+                    "caption": "Responsible Scaling Policy",
+                    "link": "https://www.anthropic.com/responsible-scaling-policy",
+                    "newWindow": false
+                  }
+                ]
+              },
+              {
+                "title": "Careers & Trust",
+                "links": [
+                  {
+                    "caption": "Careers",
+                    "link": "https://www.anthropic.com/careers",
+                    "newWindow": false
+                  },
+                  {
+                    "caption": "Long-Term Benefit Trust",
+                    "link": "https://www.anthropic.com/news/the-long-term-benefit-trust",
+                    "newWindow": false
+                  }
+                ]
+              },
+              {
+                "title": "Resources",
+                "links": [
+                  {
+                    "caption": "Developer docs",
+                    "link": "https://docs.anthropic.com",
+                    "newWindow": false
+                  },
+                  {
+                    "caption": "Safety overview",
+                    "link": "https://www.anthropic.com/safety",
+                    "newWindow": false
+                  },
+                  {
+                    "caption": "Claude",
+                    "link": "https://claude.ai",
+                    "newWindow": false
+                  }
+                ]
+              }
+            ],
+            "navigation_links": {
+              "topBarLinks": [
+                {
+                  "caption": "Newsroom",
+                  "link": "https://www.anthropic.com/news",
+                  "newWindow": false
+                },
+                {
+                  "caption": "Research",
+                  "link": "https://www.anthropic.com/research",
+                  "newWindow": false
+                },
+                {
+                  "caption": "Developer docs",
+                  "link": "https://docs.anthropic.com",
+                  "newWindow": false
+                }
+              ],
+              "footerLinks": [
+                {
+                  "caption": "Careers",
+                  "link": "https://www.anthropic.com/careers",
+                  "newWindow": false
+                },
+                {
+                  "caption": "Long-Term Benefit Trust",
+                  "link": "https://www.anthropic.com/news/the-long-term-benefit-trust",
+                  "newWindow": false
+                },
+                {
+                  "caption": "Responsible Scaling Policy",
+                  "link": "https://www.anthropic.com/responsible-scaling-policy",
+                  "newWindow": false
+                },
+                {
+                  "caption": "Safety overview",
+                  "link": "https://www.anthropic.com/safety",
+                  "newWindow": false
+                },
+                {
+                  "caption": "Claude",
+                  "link": "https://claude.ai",
+                  "newWindow": false
+                }
+              ],
+              "socialLinks": [
+                {
+                  "type": "linkedInLink",
+                  "link": "https://www.linkedin.com/company/anthropicresearch"
+                },
+                {
+                  "type": "twitterLink",
+                  "link": "https://twitter.com/AnthropicAI"
+                },
+                {
+                  "type": "youtubeLink",
+                  "link": "https://www.youtube.com/@anthropic-ai"
+                }
+              ]
+            },
+            "components": [
+              "upcomingEvents",
+              "recentDocuments"
+            ],
+            "channels": [
+              {
+                "name": "Mission & Model Deployment",
+                "description": "<p>This channel connects policy language to daily execution: when safeguards activate, what was tested, and how we decide what ships.</p><p>Expect practical summaries grounded in our responsible scaling approach, not marketing summaries.</p>",
+                "channel_type": "corporate",
+                "is_sticky": true,
+                "color": "#191919",
+                "image_url": "stock/risk.png",
+                "hide_on_homepage_feed": false,
+                "hide_highlights": false,
+                "default_role": "None",
+                "tabs": [
+                  "Articles",
+                  "Pages"
+                ],
+                "initial_tab": "Articles",
+                "frequent_questions": [
+                  {
+                    "question": "What triggers a deployment gate like ASL-3 in practice?",
+                    "answer": "<p>When safeguards are activated, teams must follow the Responsible Scaling Policy workflow before deployment—especially around capability changes and safety-critical evaluations.</p>"
+                  },
+                  {
+                    "question": "Where do I find the latest Responsible Scaling Policy version and interpretation?",
+                    "answer": "<p>Start with the Responsible Scaling Policy overview and follow the internal hub links for current operational guidance tied to each model release cycle.</p>"
+                  },
+                  {
+                    "question": "What if a team believes an exception is needed?",
+                    "answer": "<p>Escalate through the policy workflow used for deployment approvals; exceptions should be reasoned, documented, and reviewed against safety objectives.</p>"
+                  }
+                ]
+              },
+              {
+                "name": "Claude Code & Cowork Operations",
+                "description": "<p>For the teams building and deploying agentic systems: Claude Code’s command-line and IDE integrations, and Cowork’s desktop automation.</p><p>Use this channel to share rollout notes, validation checklists, and operational “what we learned” writeups.</p>",
+                "channel_type": "public",
+                "is_sticky": true,
+                "color": "#D4A27F",
+                "image_url": "stock/Decision.png",
+                "hide_on_homepage_feed": false,
+                "hide_highlights": false,
+                "default_role": "Reader",
+                "tabs": [
+                  "Articles"
+                ],
+                "initial_tab": "Articles",
+                "frequent_questions": [
+                  {
+                    "question": "How should we handle incident reports from agentic workflows?",
+                    "answer": "<p>Use the incident process to capture symptoms, affected workflows, and mitigation steps; then feed learnings back into rollout guidance.</p>"
+                  },
+                  {
+                    "question": "What’s the expectation for IDE integrations and GitHub Actions updates?",
+                    "answer": "<p>Keep changelogs tight and include how to validate locally and in CI; teams should document known limitations and safe defaults.</p>"
+                  },
+                  {
+                    "question": "Where do Cowork deployments typically differ from Claude Code?",
+                    "answer": "<p>Cowork introduces computer-execution and form/workflow variability, so test plans and risk review should account for environment constraints.</p>"
+                  }
+                ]
+              },
+              {
+                "name": "Research, Evidence & Transparency",
+                "description": "<p>Research updates that feel like a good paper: specific, cautious where needed, and explicit about evaluation and trade-offs.</p><p>Designed for speed of understanding across teams, including policy and product.</p>",
+                "channel_type": "public",
+                "is_sticky": true,
+                "color": "#191919",
+                "image_url": "stock/QualityCheck.png",
+                "hide_on_homepage_feed": false,
+                "hide_highlights": false,
+                "default_role": "Reader",
+                "tabs": [
+                  "Articles"
+                ],
+                "initial_tab": "Articles",
+                "frequent_questions": [
+                  {
+                    "question": "How do we format internal research summaries for fast comprehension?",
+                    "answer": "<p>Lead with the core claim, include the evaluation setup, and list what changed between model iterations—then close with limitations.</p>"
+                  },
+                  {
+                    "question": "Where do “system card” style limitations live internally?",
+                    "answer": "<p>Summaries should map limitations to concrete evaluation results and known failure modes, with actionable mitigations.</p>"
+                  },
+                  {
+                    "question": "How should uncertainty be communicated in internal updates?",
+                    "answer": "<p>State what the evidence supports, what’s still ambiguous, and what would change your mind.</p>"
+                  }
+                ]
+              },
+              {
+                "name": "People & Culture—Mission-First",
+                "description": "<p>For onboarding, learning, and culture practices that match Anthropic’s real operating model: evidence-minded, low-ego, and safety-first.</p><p>We aim for clarity and feedback—not slogans.</p>",
+                "channel_type": "private",
+                "is_sticky": false,
+                "color": "#D4A27F",
+                "image_url": "stock/onboarding.png",
+                "hide_on_homepage_feed": true,
+                "hide_highlights": true,
+                "default_role": "None",
+                "tabs": [
+                  "Articles",
+                  "Pages"
+                ],
+                "initial_tab": "Articles",
+                "frequent_questions": [
+                  {
+                    "question": "What does “mission primacy” look like day-to-day?",
+                    "answer": "<p>It means decisions and priorities should follow safety and long-term benefit—not personal agenda or hierarchy.</p>"
+                  },
+                  {
+                    "question": "How are team autonomy and decision-making expected to work?",
+                    "answer": "<p>Small teams operate with autonomy; the trade-off is clarity on roles can lag growth, so updates and feedback loops matter.</p>"
+                  },
+                  {
+                    "question": "Where do I find guidance on growth pains like career ladders and promotions?",
+                    "answer": "<p>Use the internal People & Culture resources and keep the feedback channel open—process is evolving with the workforce’s rapid growth.</p>"
+                  }
+                ]
+              },
+              {
+                "name": "Security, Risk & Compliance",
+                "description": "<p>Security isn’t optional here. This channel consolidates required policies, risk practices, and compliance acknowledgments.</p><p>Items in this feed require confirmation so everyone shares the same baseline.</p>",
+                "channel_type": "corporate",
+                "is_sticky": false,
+                "color": "#C0392B",
+                "image_url": "stock/security.png",
+                "hide_on_homepage_feed": true,
+                "hide_highlights": true,
+                "default_role": "None",
+                "tabs": [
+                  "Articles",
+                  "Pages"
+                ],
+                "initial_tab": "Articles",
+                "frequent_questions": [
+                  {
+                    "question": "What’s the minimum expectation for account and credential safety?",
+                    "answer": "<p>Follow password and account security guidance and treat credential hygiene as a baseline requirement for every workflow.</p>"
+                  },
+                  {
+                    "question": "How do audits fit into everyday engineering and research work?",
+                    "answer": "<p>Audits ensure systems remain aligned to policy. Treat them as operational feedback: document, correct, and improve.</p>"
+                  },
+                  {
+                    "question": "Where do I report security risk concerns?",
+                    "answer": "<p>Use the internal risk reporting pathway used by security and compliance teams; include reproducible details where possible.</p>"
+                  }
+                ]
+              }
+            ]
+          },
+          "result": "{\"scope_id\": \"49ev68ahq568v5fa6scpd4pw5f\", \"scope_name\": \"Anthropic Internal Workspace\", \"scope_route\": \"anthropic-internal-workspace\", \"channel_map\": [{\"name\": \"Mission & Model Deployment\", \"id\": \"444xak6zqnhjwyx5z91mvq2m4x\", \"internal_name\": \"mission-model-deployment\", \"is_sticky\": true}, {\"name\": \"Claude Code & Cowork Operations\", \"id\": \"4k7fj5v1ehhbtzsvbeg714pq5d\", \"internal_name\": \"claude-code-cowork-operations\", \"is_sticky\": true}, {\"name\": \"Research, Evidence & Transparency\", \"id\": \"43f5sz3ytppz83j7fma0zctdmj\", \"internal_name\": \"research-evidence-transparency\", \"is_sticky\": true}, {\"name\": \"People & Culture\\u2014Mission-First\", \"id\": \"4ss9aggyy9bde0vw185nbndgd8\", \"internal_name\": \"people-culture-mission-first\", \"is_sticky\": false}, {\"name\": \"Security, Risk & Compliance\", \"id\": \"4cn7y6qykdsb92avr05jffasnc\", \"internal_name\": \"security-risk-compliance\", \"is_sticky\": false}], \"channels_ok\": 5, \"channels_failed\": 0}",
+          "result_size_chars": 931,
+          "success": true,
+          "latency_ms": 13245.13829202624,
+          "error": null
+        }
+      ],
+      "error": null
+    }
+  ],
+  "error": null
+}
